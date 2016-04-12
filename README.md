@@ -1,6 +1,6 @@
 # A blog
 
-This is where Hong-Lin writes his stuff.
+This is where Hong-Lin writes his stuff. Use Travis deploy.
 
 ## Me
 
