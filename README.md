@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/IvanWei/blog.svg?branch=master)](https://travis-ci.org/IvanWei/blog)
+
 # A blog
 
 This is where Hong-Lin writes his stuff. Use Travis deploy.

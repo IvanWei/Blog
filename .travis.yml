@@ -1,42 +1,20 @@
 language: node_js
-
 node_js:
-  # - "5"
-  - "5.1"
-  # - "4"
-  # - "4.2"
-  # - "4.1"
-  # - "4.0"
-  # - "0.12"
-  # - "0.11"
-  # - "0.10"
-  # - "0.8"
-  # - "0.6"
-  # - "iojs"
-
+- '5.1'
 before_install:
-  # Decrypt the private key
-  - openssl aes-256-cbc -K $encrypted_ea8e3056d329_key -iv $encrypted_ea8e3056d329_iv -in .travis/id_rsa.enc -out ~\/.ssh/id_rsa -d
-  # Set the permission of the key
-  - chmod 600 ~/.ssh/id_rsa
-  # Start SSH agent
-  - ssh-add ~/.ssh/id_rsa
-  # Add the private key to the system
-  - ssh-add ~/.ssh/id_rsa
-  # Copy SSH config
-  - cp .travis/ssh_config ~/.ssh/config
-  # Set Git config
-  - git config --global user.name "Ivan Wei"
-  - git config --global user.email "scorpionseed@gmail.com"
-  # Install Hexo
-  - npm install -g hexo
-  # Clone the repository
-  - git clone https://github.com/IvanWei/blog.git
-
+- openssl aes-256-cbc -K $encrypted_ea8e3056d329_key -iv $encrypted_ea8e3056d329_iv
+  -in .travis/id_rsa.enc -out ~\/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
+- ssh-add ~/.ssh/id_rsa
+- ssh-add ~/.ssh/id_rsa
+- cp .travis/ssh_config ~/.ssh/config
+- git config --global user.name "Ivan Wei"
+- git config --global user.email "scorpionseed@gmail.com"
+- npm install -g hexo
+- git clone https://github.com/IvanWei/blog.git
 script:
-  - hexo generate
-  - hexo deploy
-
+- hexo generate
+- hexo deploy
 branches:
   only:
-    - master
+  - master
