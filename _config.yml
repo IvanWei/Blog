@@ -28,7 +28,6 @@ i18n_dir: :lang
 skip_render:
   - README.md
   - images/**
-  - sitemap.xml
   - .travis.yml
 
 # Writing
@@ -99,3 +98,7 @@ social_links:
 
 # Disqus
 disqus_shortname: ivanwei
+
+# sitemap
+sitemap:
+  path: sitemap.xml
