@@ -14,6 +14,7 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_ea8e3056d329_key -iv $encrypted_ea8e3056d329_iv
   -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
+- eval $(ssh-agent)
 - ssh-add ~/.ssh/id_rsa
 - cp .travis/ssh_config ~/.ssh/config
 - git config --global user.name "Ivan Wei"
