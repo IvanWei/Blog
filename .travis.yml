@@ -19,7 +19,7 @@ before_install:
 - git config --global user.name "Ivan Wei"
 - git config --global user.email "scorpionseed@gmail.com"
 - npm install -g hexo
-- git clone git@github.com:IvanWei/blog.git
+- git clone git@github.com:IvanWei/blog.git .deploy_git
 script:
 - hexo generate
 - hexo deploy
