@@ -18,6 +18,7 @@ before_install:
 - ssh-add ~/.ssh/id_rsa
 - cp .travis/ssh_config ~/.ssh/config
 - cp README.md source/README.md
+- cp robots.txt source/robots.txt
 - git config --global user.name "Ivan Wei"
 - git config --global user.email "scorpionseed@gmail.com"
 - npm install -g hexo
