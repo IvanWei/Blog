@@ -11,11 +11,13 @@ tags: [Website, Search, Google, SEO]
 
 開心的完成 [我的 Blog](https://blog.ivanwei.co "我的 Blog") 後到 [Google](https://www.google.com.tw "Google") 查詢，不論關鍵字怎麼下都找不到 Blog 任何資訊，最後使出畢生所學對 Google 大神下 `site:ivanwei.co` 還是得到 0 筆資料！
 
-後來網路上查了查才知道 [Google](https://www.google.com.tw "Google") 、[Bing](https://www.bing.com "Bing") 等知名搜尋引擎的內容是每天透過機器人爬出來並放入搜尋引擎索引。換言之，[我的 Blog](https://blog.ivanwei.co "我的 Blog") 還沒被機器人找到，所以搜尋不到。
+<!--more-->
+
+## 原因
+
+查了才知道 [Google](https://www.google.com.tw "Google") 、[Bing](https://www.bing.com "Bing") 等知名搜尋引擎的內容是每天透過機器人爬出來並放入搜尋引擎索引。換言之，[我的 Blog](https://blog.ivanwei.co "我的 Blog") 還沒被機器人找到，所以搜尋不到。
 
 因此我決定主動告訴機器人，「有一個新的網址和網域，請放進 [Google](https://www.google.com.tw "Google") 搜尋索引的資料內」。
-
-<!--more-->
 
 ## 開始動手
 
