@@ -95,7 +95,7 @@ deploy:
 2. blog/\_config.yml 的 skip_render 加上 README.md
 3. 最後執行 `hexo deploy` 之後在 github 在既可看到 README.md 的內容
 
-![Deploy readme](http://blog.ivanwei.co/images/hexo/deploy-readme.png)
+![Deploy readme](https://blog.ivanwei.co/images/hexo/deploy-readme.png)
 
 如果要略過多個檔案或資料夾則 skip_render 改為
 ```
