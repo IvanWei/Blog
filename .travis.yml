@@ -19,8 +19,8 @@ before_install:
 - cp .travis/ssh_config ~/.ssh/config
 - cp README.md source/README.md
 - cp robots.txt source/robots.txt
-- git config --global user.name "Ivan Wei"
-- git config --global user.email "scorpionseed@gmail.com"
+- git config --global user.name "Travis CI"
+- git config --global user.email "ivanwei_slack@outlook.com"
 - npm install -g hexo
 - git clone git@github.com:IvanWei/blog.git .deploy_git
 script:

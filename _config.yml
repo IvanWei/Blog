@@ -74,7 +74,7 @@ deploy:
   type: git
   repo: git@github.com:IvanWei/blog.git
   branch: gh-pages
-  message: "Last update: {{now('YYYY-MM-DD HH:mm:ss Z').utcOffset(8)}}"
+  message: "Last update: {{now('YYYY-MM-DD HH:mm:ss Z')}}"
 
 # Miscellaneous
 google_analytics: "UA-68684372-1"
