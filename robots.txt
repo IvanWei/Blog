@@ -4,5 +4,3 @@ Disallow: /README.md
 Disallow: /sitemap.xsl
 
 Sitemap: https://blog.ivanwei.co/sitemap.xml
-Sitemap: https://blog.ivanwei.co/tag-sitemap.xml
-Sitemap: https://blog.ivanwei.co/post-sitemap.xml
