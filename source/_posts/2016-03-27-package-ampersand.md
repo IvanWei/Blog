@@ -1,6 +1,6 @@
 title: package.json 裡版本號前的符號代表的意義
 date: 2016-03-27 17:42:33
-tags: [Nodejs, Bower]
+tags: [Nodejs]
 ---
 
 ## 此說明適用在 Nodejs 的 package.json 和 Bower.io 的 bower.json

@@ -1,7 +1,7 @@
 layout: post
 title: 安裝 Fish shell 與 NVM
 date: 2016-06-07 22:51:34
-tags: [Fish shell, NVM]
+tags: [Shell, Nodejs]
 ---
 
 ## 玩過 Bash，抓 Fish 去
