@@ -18,9 +18,13 @@ tags: [Shell, Nodejs]
 
 <!--more-->
 
+## 更新
+
+2016-06-09 Fisherman 取代 Oh My Fish 
+
 ## 安裝 Fish shell
 
-Mac 有三種安裝方式
+Mac 有三種安裝方式，建議使用第一種方式安裝
 
 1. 執行 `brew install fish`
 2. 下載 [Installer](https://fishshell.com/files/2.3.0/fish-2.3.0.pkg "Installer") 安裝
@@ -28,14 +32,35 @@ Mac 有三種安裝方式
 
 其他作業系統可以到 [Fish shell 官網](https://fishshell.com/#platform_tabs "Fish shell 官網") 找到對應的安裝方式
 
-## 安裝 Oh My Fish
+## 安裝 Fish Shell 插件管理
 
-> Oh My Fish 可以略過，因為沒有安裝也可以正常使用 Fish shell
+> 可以略過，沒有安裝也可以正常使用 Fish shell
 
-什麼是 Oh My Fish 呢？它就像 Oh my zsh 之於 Zsh shell，提供 Fish Shell 更多的 Theme、Framework 等。 
+什麼是 [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish "Oh My Fish") / [fisherman](http://fisherman.sh/ "fisherman") 呢？它就像 Oh my zsh 之於 Zsh shell，提供 Fish Shell 更多的 Theme、Framework 等。
 
-1. 執行 `curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish`
-2. 執行 `omf help`，是否沒有出現錯誤訊息
+Oh My Fish 與 fisherman 選擇哪一個安裝呢？以下我做一個簡易的分類
+    - Oh My Fish： 能接受開啟 Terminal 速度慢 + 安裝 plugin 既可使用
+        - 安裝
+            1. 執行 `curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish`
+            2. 執行 `omf help`，是否沒有出現錯誤訊息
+        - 移除
+            1. 執行 `rm -rf ~/.config/omf`
+            2. 執行 `rm -rf ~/.local/share/omf`
+            3. 開啟 `~/.config/fish/config.fish` 刪除 Oh MY Fish 相關程序
+            4. 重啟 Terminal
+    - fisherman： 要速度且知道如何兼容性問題
+        - 安裝
+            1. 執行 `curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher`
+            2. 重啟 Terminal 
+        - 其他
+            1. 發生 git_is_repo 錯誤，安裝 `fisher git_util` 既可解決
+
+我從 Oh My Fish 跳槽到 fisherman 的原因 (優缺點)：
+- 優點
+    1. Terminal 開啟速度比較快 (fisherman 使用 function 方式載入 plugin，Oh My Fish 則在開啟 Terminal 時載入所有安裝的 plugin)
+    2. 兼容 Oh My Fish 所有 plugins
+- 缺點
+    1. 安裝 plugin 可能會比較複雜，安裝 Oh My Fish plugin 也可能無法直接使用
 
 ## 調整預設執行的 Shell
 
@@ -52,10 +77,15 @@ Mac 有三種安裝方式
 特別提醒一點 [nvm-fish](https://github.com/Alex7Kom/nvm-fish#user-content-install-script "nvm-fish") 作者已沒有再更新，雖然 `NVM` 可以正常安裝 node，
 但會抓不到 `NPM` 指令。
 
-1. 只安裝 Fish shell
- - [NVM fish wrapper](https://github.com/passcod/nvm-fish-wrapper#user-content-installing "NVM fish wrapper")，照上面依序執行既可
-2. 有安裝 Oh My Fish
- - 執行 `omf install nvm`
+- 只安裝 Fish shell
+	1. [NVM fish wrapper](https://github.com/passcod/nvm-fish-wrapper#user-content-installing "NVM fish wrapper")，照上面依序執行既可
+- Oh My Fish 版
+	1. 執行 `omf install nvm`，安裝 [plugin-nvm](https://github.com/derekstavis/plugin-nvm "plugin-nvm")
+- fisherman 版 (2 ~ 4 步驟參照 [NVM fish wrapper](https://github.com/passcod/nvm-fish-wrapper#user-content-installing "NVM fish wrapper"))
+	1. 執行 `fisher nvm`
+	2. 執行 `brew install nvm`
+    3. 執行 `mkdir ~/.nvm`
+    4. 執行 `ln -s (brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh`
 
 其他 Fish 安裝 NVM 的方式可以到 [NVM](https://github.com/creationix/nvm "NVM") 的 Github 上找到。
 
@@ -63,6 +93,3 @@ Mac 有三種安裝方式
 
 1. [比 Zsh 比好用的 Shell：Fish Shell 介紹與安裝](https://nodejust.com/fish-shell-zsh/ "比 Zsh 比好用的 Shell：Fish Shell 介紹與安裝")
 2. [从zsh切换到fish](http://blog.just4fun.site/from-zsh-to-fish.html "从zsh切换到fish")
-3. [NVM - Github](https://github.com/creationix/nvm "NVM - Github")
-4. [plugin-nvm](https://github.com/derekstavis/plugin-nvm "plugin-nvm")
-5. [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish "Oh My Fish")
