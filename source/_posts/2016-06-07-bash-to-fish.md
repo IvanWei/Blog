@@ -44,21 +44,23 @@ Mac 有三種安裝方式，建議使用第一種方式安裝
 什麼是 [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish "Oh My Fish") / [fisherman](http://fisherman.sh/ "fisherman") 呢？它就像 Oh my zsh 之於 Zsh shell，提供 Fish Shell 更多的 Theme、Framework 等。
 
 Oh My Fish 與 fisherman 選擇哪一個安裝呢？以下我做一個簡易的分類
-- Oh My Fish： 能接受開啟 Terminal 速度慢 + 安裝 plugin 既可使用
-    - 安裝
-        1. 執行 `curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish`
-        2. 執行 `omf help`，是否沒有出現錯誤訊息
-    - 移除
-        1. 執行 `rm -rf ~/.config/omf`
-        2. 執行 `rm -rf ~/.local/share/omf`
-        3. 開啟 `~/.config/fish/config.fish` 刪除 Oh MY Fish 相關程序
-        4. 重啟 Terminal
-- fisherman： 要速度且知道如何兼容性問題
-    - 安裝
-        1. 執行 `curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher`
-        2. 重啟 Terminal 
-    - 其他
-        1. 發生 git_is_repo 錯誤，安裝 `fisher git_util` 既可解決
+```
+    - Oh My Fish： 能接受開啟 Terminal 速度慢 + 安裝 plugin 既可使用
+        - 安裝
+            1. 執行 `curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish`
+            2. 執行 `omf help`，是否沒有出現錯誤訊息
+        - 移除
+            1. 執行 `rm -rf ~/.config/omf`
+            2. 執行 `rm -rf ~/.local/share/omf`
+            3. 開啟 `~/.config/fish/config.fish` 刪除 Oh MY Fish 相關程序
+            4. 重啟 Terminal
+    - fisherman： 要速度且知道如何兼容性問題
+        - 安裝
+            1. 執行 `curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher`
+            2. 重啟 Terminal 
+        - 其他
+            1. 發生 git_is_repo 錯誤，安裝 `fisher git_util` 既可解決
+```
 
 我從 Oh My Fish 跳槽到 fisherman 的原因 (優缺點)：
 - 優點
@@ -98,3 +100,4 @@ Oh My Fish 與 fisherman 選擇哪一個安裝呢？以下我做一個簡易的�
 
 1. [比 Zsh 比好用的 Shell：Fish Shell 介紹與安裝](https://nodejust.com/fish-shell-zsh/ "比 Zsh 比好用的 Shell：Fish Shell 介紹與安裝")
 2. [从zsh切换到fish](http://blog.just4fun.site/from-zsh-to-fish.html "从zsh切换到fish")
+3. [fish shell wiki](https://zh.wikipedia.org/wiki/Fish "fish shell wik")
