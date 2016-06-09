@@ -8,6 +8,13 @@ tags: [Shell, Nodejs]
 
 ![Fish Shell Logo](https://blog.ivanwei.co/images/2016/06/07/FISH_SHELL_LOGO.png)
 
+## 何為 Fish shell
+
+fish 是一個 Unix shell ， friendly interactive shell 的縮寫，專注於互動應用、易用性和友好的使用者體驗，其設計目的是通過容易發現，記住和使用的方式為使用者提供一套豐富、強大的功能。
+fish 於2005年在GNU通用公眾授權條款條款下正式釋出，是一款自由軟體。
+
+<!--more-->
+
 ## 前言
 
 玩過兩年的 Bash shell 跳槽 Fish shell 有三個主要原因：
@@ -15,8 +22,6 @@ tags: [Shell, Nodejs]
 1. 想換個口味
 2. 小眾市場 + Open source
 3. 比 Bash shell 更友善操作，如省略大小字、上下選擇等
-
-<!--more-->
 
 ## 更新
 
@@ -39,21 +44,21 @@ Mac 有三種安裝方式，建議使用第一種方式安裝
 什麼是 [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish "Oh My Fish") / [fisherman](http://fisherman.sh/ "fisherman") 呢？它就像 Oh my zsh 之於 Zsh shell，提供 Fish Shell 更多的 Theme、Framework 等。
 
 Oh My Fish 與 fisherman 選擇哪一個安裝呢？以下我做一個簡易的分類
-    - Oh My Fish： 能接受開啟 Terminal 速度慢 + 安裝 plugin 既可使用
-        - 安裝
-            1. 執行 `curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish`
-            2. 執行 `omf help`，是否沒有出現錯誤訊息
-        - 移除
-            1. 執行 `rm -rf ~/.config/omf`
-            2. 執行 `rm -rf ~/.local/share/omf`
-            3. 開啟 `~/.config/fish/config.fish` 刪除 Oh MY Fish 相關程序
-            4. 重啟 Terminal
-    - fisherman： 要速度且知道如何兼容性問題
-        - 安裝
-            1. 執行 `curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher`
-            2. 重啟 Terminal 
-        - 其他
-            1. 發生 git_is_repo 錯誤，安裝 `fisher git_util` 既可解決
+- Oh My Fish： 能接受開啟 Terminal 速度慢 + 安裝 plugin 既可使用
+    - 安裝
+        1. 執行 `curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish`
+        2. 執行 `omf help`，是否沒有出現錯誤訊息
+    - 移除
+        1. 執行 `rm -rf ~/.config/omf`
+        2. 執行 `rm -rf ~/.local/share/omf`
+        3. 開啟 `~/.config/fish/config.fish` 刪除 Oh MY Fish 相關程序
+        4. 重啟 Terminal
+- fisherman： 要速度且知道如何兼容性問題
+    - 安裝
+        1. 執行 `curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher`
+        2. 重啟 Terminal 
+    - 其他
+        1. 發生 git_is_repo 錯誤，安裝 `fisher git_util` 既可解決
 
 我從 Oh My Fish 跳槽到 fisherman 的原因 (優缺點)：
 - 優點

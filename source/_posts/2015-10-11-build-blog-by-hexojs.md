@@ -11,17 +11,17 @@ tags: [Github, Blog]
 ## Blog framework 的選擇
 
 查詢 `github blog framework` 可以很輕易找到三個 framework
-1. [Jekyll](http://jekyllrb.com/) ( [Github 官方推薦](https://pages.github.com/#next-steps))
-2. [Octopress](http://octopress.org/) ( 基於 Jekyll 延伸開發 )
-3. [Hexo](https://hexo.io/) ( 以 JS 為基礎 + 開發者是臺灣人 )
+1. [Jekyll](http://jekyllrb.com/ "Jekyll") ( [Github 官方推薦](https://pages.github.com/#next-steps "Github 官方推薦") )
+2. [Octopress](http://octopress.org/ "Octopress") ( 基於 Jekyll 延伸開發 )
+3. [Hexo](https://hexo.io/ "Hexo") ( 以 JS 為基礎 + 開發者是臺灣人 )
 
 不想用這三個 Blog framework 有其他選擇嗎？有的！
 
 <!--more-->
 
 例如：
-1. [Hugo](http://gohugo.io/)
-2. [Pelican](http://blog.getpelican.com/)
+1. [Hugo](http://gohugo.io/ "Hugo")
+2. [Pelican](http://blog.getpelican.com/ "Pelican")
 
 想知道更多 Blog framework 可以到下面的網站，先和大家說一聲，
 
@@ -38,8 +38,8 @@ https://www.staticgen.com/
 
 #### 安裝　Git
 
-- Windows： 下載並安裝 [Git](https://git-scm.com/download/win)
-- Mac：XCode 內有 Git，如果無法使用可以用 [Homebrew](http://mxcl.github.com/homebrew/) 或 [Git](http://sourceforge.net/projects/git-osx-installer/files/git-2.5.3-intel-universal-mavericks.dmg/download?use_mirror=autoselect) 下載並安裝
+- Windows： 下載並安裝 [Git](https://git-scm.com/download/win "Git")
+- Mac：XCode 內有 Git，如果無法使用可以用 [Homebrew](http://mxcl.github.com/homebrew/ "Homebrew") 或 [Git](http://sourceforge.net/projects/git-osx-installer/files/git-2.5.3-intel-universal-mavericks.dmg/download?use_mirror=autoselect "Git") 下載並安裝
 - Linux (Fedora, Red Hat, CentOS)： `sudo yum install git-core`
 - Linux (Ubuntu, Debian)： `sudo apt-get install git-core`
 
@@ -95,7 +95,7 @@ deploy:
 2. blog/\_config.yml 的 skip_render 加上 README.md
 3. 最後執行 `hexo deploy` 之後在 github 在既可看到 README.md 的內容
 
-![Deploy readme](https://blog.ivanwei.co/images/hexo/deploy-readme.png)
+![Deploy readme](https://blog.ivanwei.co/images/2015/10/11/DEPLOY_README.png)
 
 如果要略過多個檔案或資料夾則 skip_render 改為
 ```

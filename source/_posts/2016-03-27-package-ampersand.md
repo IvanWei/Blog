@@ -5,7 +5,7 @@ tags: [Nodejs]
 
 ## 此說明適用在 Nodejs 的 package.json 和 Bower.io 的 bower.json
 
-![Version control](https://blog.ivanwei.co/images/nodejs/version-control.png)
+![Version control](https://blog.ivanwei.co/images/2016/03/27/VERSION_CONTROL.png)
 
 <!--more-->
 
@@ -22,7 +22,6 @@ tags: [Nodejs]
 
 ## 參考資料
 
-Difference between tilde(~) and caret(^) in package.json
-來源：http://stackoverflow.com/questions/22343224/difference-between-tilde-and-caret-in-package-json
+1. [Difference between tilde(~) and caret(^) in package.json](http://stackoverflow.com/questions/22343224/difference-between-tilde-and-caret-in-package-json)
 
 ---
