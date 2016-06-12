@@ -50,24 +50,26 @@ Oh My Fish 與 fisherman 選擇哪一個安裝呢？以下我做一個簡易的�
             1. 執行 `curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish`
             2. 執行 `omf help`，是否沒有出現錯誤訊息
         - 移除
-            1. 執行 `rm -rf ~/.config/omf`
-            2. 執行 `rm -rf ~/.local/share/omf`
-            3. 開啟 `~/.config/fish/config.fish` 刪除 Oh MY Fish 相關程序
-            4. 重啟 Terminal
+            1. 執行 `rm -rf ~/.config/omf ~/.local/share/omf`
+            2. 開啟 `~/.config/fish/config.fish` 刪除 Oh MY Fish 相關程序
+            3. 重啟 Terminal
     - fisherman： 要速度且知道如何兼容性問題
         - 安裝
             1. 執行 `curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher`
-            2. 重啟 Terminal 
+            2. 重啟 Terminal
+        - 移除
+            1. 執行 `fisher ls | fisher rm`，移除所有 fisher 已安裝的套件
+            2. 執行 `rm -rf ~/.config/fish/functions/fisher.fish`
         - 其他
             1. 發生 git_is_repo 錯誤，安裝 `fisher git_util` 既可解決
 ```
 
-我從 Oh My Fish 跳槽到 fisherman 的原因 (優缺點)：
-- 優點
-    1. Terminal 開啟速度比較快 (fisherman 使用 function 方式載入 plugin，Oh My Fish 則在開啟 Terminal 時載入所有安裝的 plugin)
-    2. 兼容 Oh My Fish 所有 plugins
-- 缺點
-    1. 安裝 plugin 可能會比較複雜，安裝 Oh My Fish plugin 也可能無法直接使用
+fisherman 與 Oh My Fish 的比較：
+- 載入速度 (fisherman 勝)
+    - fisherman 使用 function 方式載入 plugin，Oh My Fish 則在開啟 Terminal 時載入所有安裝的 plugin
+- 資源 (Oh My Fish 勝)
+    - fisherman 雖然可以兼容 Oh My Fish 所有 plugins，但安裝 Oh My Fish plugin 可能無法直接使用
+    - 安裝 plugin 可能會比較複雜
 
 ## 調整預設執行的 Shell
 
@@ -89,10 +91,12 @@ Oh My Fish 與 fisherman 選擇哪一個安裝呢？以下我做一個簡易的�
 - Oh My Fish 版
 	1. 執行 `omf install nvm`，安裝 [plugin-nvm](https://github.com/derekstavis/plugin-nvm "plugin-nvm")
 - fisherman 版 (2 ~ 4 步驟參照 [NVM fish wrapper](https://github.com/passcod/nvm-fish-wrapper#user-content-installing "NVM fish wrapper"))
-	1. 執行 `fisher nvm`
-	2. 執行 `brew install nvm`
-    3. 執行 `mkdir ~/.nvm`
-    4. 執行 `ln -s (brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh`
+    1. 執行 `brew install nvm`
+    2. 執行 `mkdir ~/.nvm`
+    3. 執行 `ln -s (brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh`
+	4. 執行 `fisher nvm`，會安裝 edc/bass 和 fisherman/nvm
+
+    - 注意事項： 使用 `npm install -g` 安裝的套件，重啟 Terminal 後會失效，暫時解法是下 `npm` 既可。推測是因為 fisherman 摘用 function 載入造成重啟失效。
 
 其他 Fish 安裝 NVM 的方式可以到 [NVM](https://github.com/creationix/nvm "NVM") 的 Github 上找到。
 
