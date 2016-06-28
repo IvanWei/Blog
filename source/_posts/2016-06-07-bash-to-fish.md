@@ -81,8 +81,8 @@ fisherman 與 Oh My Fish 的比較：
 
 | | fisherman | Oh My Fish | 原因 |
 |---|---|---|---|
-| 載入速度 | 勝 | | fisherman 使用 function 方式載入 plugin，Oh My Fish 則在開啟 Terminal 時載入所有安裝的 plugin |
-| 套件資源 | | 勝 | fisherman 除自身的 plugins 外，也能夠安裝 Oh My Fish 所有 plugins，但可能需要安裝其他 plugin 才可正常使用 |
+| 載入速度 | 勝 | | fisherman 使用 function 方式載入 plugin，<br>Oh My Fish 則在開啟 Terminal 時載入所有<br>安裝的 plugin |
+| 套件資源 | | 勝 | fisherman 除自身的 plugins 外，也能夠安裝 <br>Oh My Fish 所有 plugins，但可能需要安裝<br>其他 plugin 才可正常使用 |
 
 ## 安裝 NVM
 
