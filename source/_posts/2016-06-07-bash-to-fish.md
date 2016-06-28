@@ -15,6 +15,13 @@ fish 於2005年在GNU通用公眾授權條款條款下正式釋出，是一款�
 
 <!--more-->
 
+## 更新
+
+- 2016.06.28
+ 1. 更新移除 Oh My Fish 和 fisherman 的方法
+ 2. 調整 Oh My Fish 和 fisherman 的比較方式
+ 3. 新增 fisherman 官方回應 nvm 重啟後沒有載入 Global 套件的原因與解決方法
+
 ## 前言
 
 玩過兩年的 Bash shell 跳槽 Fish shell 有三個主要原因：
@@ -37,6 +44,14 @@ Mac 有三種安裝方式，建議使用第一種方式安裝
 
 其他作業系統可以到 [Fish shell 官網](https://fishshell.com/#platform_tabs "Fish shell 官網") 找到對應的安裝方式
 
+## 調整預設執行的 Shell
+
+執行 `chsh -s /usr/local/bin/fish` ，重啟 Terminal 可以看到執行畫面變成底下這樣
+
+![Fish Shell](https://blog.ivanwei.co/images/2016/06/07/FISH_SHELL.png)
+
+如果要切換回 Bash shell，執行 `chsh -s /bin/bash` 重啟 Terminal 既可。
+
 ## 安裝 Fish Shell 插件管理
 
 > 可以略過，沒有安裝也可以正常使用 Fish shell
@@ -50,34 +65,24 @@ Oh My Fish 與 fisherman 選擇哪一個安裝呢？以下我做一個簡易的�
             1. 執行 `curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish`
             2. 執行 `omf help`，是否沒有出現錯誤訊息
         - 移除
-            1. 執行 `rm -rf ~/.config/omf ~/.local/share/omf`
-            2. 開啟 `~/.config/fish/config.fish` 刪除 Oh MY Fish 相關程序
-            3. 重啟 Terminal
+            1. 執行 `omf destroy`
     - fisherman： 要速度且知道如何兼容性問題
         - 安裝
             1. 執行 `curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher`
             2. 重啟 Terminal
         - 移除
             1. 執行 `fisher ls | fisher rm`，移除所有 fisher 已安裝的套件
-            2. 執行 `rm -rf ~/.config/fish/functions/fisher.fish`
+            2. 執行 `fisher self-uninstall`
         - 其他
             1. 發生 git_is_repo 錯誤，安裝 `fisher git_util` 既可解決
 ```
 
 fisherman 與 Oh My Fish 的比較：
-- 載入速度 (fisherman 勝)
-    - fisherman 使用 function 方式載入 plugin，Oh My Fish 則在開啟 Terminal 時載入所有安裝的 plugin
-- 資源 (Oh My Fish 勝)
-    - fisherman 雖然可以兼容 Oh My Fish 所有 plugins，但安裝 Oh My Fish plugin 可能無法直接使用
-    - 安裝 plugin 可能會比較複雜
 
-## 調整預設執行的 Shell
-
-執行 `chsh -s /usr/local/bin/fish` ，重啟 Terminal 可以看到執行畫面變成底下這樣
-
-![Fish Shell](https://blog.ivanwei.co/images/2016/06/07/FISH_SHELL.png)
-
-如果要切換回 Bash shell，執行 `chsh -s /bin/bash` 重啟 Terminal 既可。
+| | fisherman | Oh My Fish | 原因 |
+|---|---|---|---|
+| 載入速度 | 勝 | | fisherman 使用 function 方式載入 plugin，Oh My Fish 則在開啟 Terminal 時載入所有安裝的 plugin |
+| 套件資源 | | 勝 | fisherman 除自身的 plugins 外，也能夠安裝 Oh My Fish 所有 plugins，但可能需要安裝其他 plugin 才可正常使用 |
 
 ## 安裝 NVM
 
@@ -96,7 +101,8 @@ fisherman 與 Oh My Fish 的比較：
     3. 執行 `ln -s (brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh`
 	4. 執行 `fisher nvm`，會安裝 edc/bass 和 fisherman/nvm
 
-    - 注意事項： 使用 `npm install -g` 安裝的套件，重啟 Terminal 後會失效，暫時解法是下 `npm` 既可。推測是因為 fisherman 摘用 function 載入造成重啟失效。
+    - ~~注意事項：~~使用 `npm install -g` 安裝的套件，重啟 Terminal 後會失效，暫時解法是下 `npm` 既可。推測是因為 fisherman 摘用 function 載入造成重啟失效。
+    - 承上 [fisherman 官方回應](https://github.com/fisherman/nvm/issues/3 "fisherman 官方回應")，原因是 fisherman 使用 function 方式載入導致 `npm` 屬於被動觸發，而 fisherman 正是以此方法取得快速開啟 fish shell 的效果。如果仍希望使用 fisherman 又希望能一開啟就取得 Global 的套件，可以連到 [fisherman 官方回應](https://github.com/fisherman/nvm/issues/3 "fisherman 官方回應") 裡面有說明解決方法。   
 
 其他 Fish 安裝 NVM 的方式可以到 [NVM](https://github.com/creationix/nvm "NVM") 的 Github 上找到。
 
