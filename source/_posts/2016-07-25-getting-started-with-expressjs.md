@@ -191,7 +191,6 @@ tags: [Testing, Nodejs]
   ![API 測試](https://blog.ivanwei.co/images/2016/07/25/TDD-SIMPLE-API-SUCCESS.png)
 
 
-
 ## 參考資料
 1. [懶人包：TDD is Dead 戰文總整理](http://joe-dev.blogspot.tw/2014/06/tdd-is-dead.html '懶人包：TDD is Dead 戰文總整理')
 2. [Getting started with TDD (公司分享的簡報)](http://www.slideshare.net/Ivan_wei/getting-started-with-tdd-63869156 'Getting started with TDD  (公司分享的簡報')
