@@ -20,8 +20,8 @@ before_install:
 - cp .travis/ssh_config ~/.ssh/config
 - cp README.md source/README.md
 - cp robots.txt source/robots.txt
-- git config user.name "WE Bot"
-- git config user.email "ivanwei_slack@outlook.com"
+- git config --global user.name "WE Bot"
+- git config --global user.email "ivanwei_slack@outlook.com"
 - npm config set registry https://registry.npmjs.org/
 - npm install -g hexo
 - git clone git@github.com:IvanWei/blog.git .deploy_git
