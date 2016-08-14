@@ -193,5 +193,5 @@ tags: [Testing, Nodejs]
 
 ## 參考資料
 1. [懶人包：TDD is Dead 戰文總整理](http://joe-dev.blogspot.tw/2014/06/tdd-is-dead.html '懶人包：TDD is Dead 戰文總整理')
-2. [Getting started with TDD (公司分享的簡報)](http://www.slideshare.net/Ivan_wei/getting-started-with-tdd-63869156 'Getting started with TDD  (公司分享的簡報')
+2. [Getting started with TDD (公司分享的簡報)](http://www.slideshare.net/Ivan_wei/getting-started-with-tdd-63869156 'Getting started with TDD  (公司分享的簡報)')
 3. [How to build and test your Rest API with Node.js, Express and Mocha ...](https://thewayofcode.wordpress.com/2013/04/21/how-to-build-and-test-rest-api-with-nodejs-express-mocha/ 'How to build and test your Rest API with Node.js, Express and Mocha ...')
