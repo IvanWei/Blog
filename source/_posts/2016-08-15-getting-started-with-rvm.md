@@ -24,12 +24,15 @@ tags: [Shell, Ruby]
 3. 執行 `rvm` 測試是否安裝正確
 
 ## 常用指令
--  `rvm list`： 列出本機已安裝的版本
-  -  `rvm list known`： 列出 RVM 已知的 Ruby 版本
--  `rvm install X.X.X`： 安裝 Ruby X.X.X 版
--  `rvm use X.X.X`： 切換到 X.X.X 版
-  -  `rvm use X.X.X  --default`： 設定成默許啟動的版本號
--  `rvm remove X.X.X`：移除 X.X.X 版
+
+| 指令 | 說明 |
+|---|---|
+| `rvm list` | 列出本機已安裝的版本 |
+| `rvm list known` | 列出 RVM 已知的 Ruby 版本 |
+| `rvm install X.X.X` | 安裝 Ruby X.X.X 版 |
+| `rvm use X.X.X` | 切換到 X.X.X 版 |
+| `rvm use X.X.X  --default` | 設定成默許啟動的版本號 |
+| `rvm remove X.X.X` | 移除 X.X.X 版 |
 
 ## 常見問題
 1. 執行 rvm 跳出 `/var/folders/...: shell_session_update: command not found`
