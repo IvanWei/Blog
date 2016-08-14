@@ -4,8 +4,6 @@ date: 2016-08-15 00:58:16
 tags: [Shell, Ruby]
 ---
 
-## 
-
 ![遇見 紅寶貝(Ruby) 群](https://blog.ivanwei.co/images/2016/08/15/RVM-LOGO.png)
 
 ## 前言
