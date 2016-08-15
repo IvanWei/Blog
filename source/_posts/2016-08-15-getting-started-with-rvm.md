@@ -10,6 +10,11 @@ tags: [Shell, Ruby]
 
 [Ruby Version Manager(RVM)](https://rvm.io/  'Ruby Version Manager(RVM)') 是 Ruby 的一種版本管理工具，功能與我熟悉的 [Node Version Manager(NVM)](https://github.com/creationix/nvm 'Node Version Manager(NVM)')  相同，可以輕鬆在各個版本間做切換。
 
+需要 Ruby 的原因有兩個
+
+1. 安裝 [Compass](http://compass-style.org/ 'Compass') 需要
+2. 以為想跳進 Ruby 時方便
+
 <!--more-->
 
 ## OSX 安裝 RVM
