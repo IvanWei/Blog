@@ -13,7 +13,7 @@ tags: [Shell, Ruby]
 需要 Ruby 的原因有兩個
 
 1. 安裝 [Compass](http://compass-style.org/ 'Compass') 需要
-2. 以為想跳進 Ruby 時方便
+2. 以後跳進 Ruby 時方便
 
 <!--more-->
 
