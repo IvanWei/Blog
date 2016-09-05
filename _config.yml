@@ -4,15 +4,15 @@
 
 # Site
 title: "@ivanwei (Hong-Lin Wei)"
-subtitle: Stay hungry. Stay foolish.
+subtitle: Never, never, never, never give up.
 description:
-author: Hong-Lin Wei
+author: Ivan Wei (Hong-Lin Wei)
 language: zh-tw
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://blog.ivanwei.co
+url: https://blog.ivanwei.co
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
