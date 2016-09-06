@@ -14,10 +14,8 @@
         <% } %>
       </nav>
       <nav id="sub-nav">
-        <% for (var socialName in config.social) { %>
-          <% if(config.social[socialName]) {%>
-            <a class="nav-icon <%- socialName %>-icon" href="<%= config.social[socialName].url %>" target="_new"></a>
-          <% } %>
+        <% if (theme.rss){ %>
+          <a id="nav-rss-link" class="nav-icon" href="<%- theme.rss %>" title="<%= __('rss_feed') %>"></a>
         <% } %>
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>

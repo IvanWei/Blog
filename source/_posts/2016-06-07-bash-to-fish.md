@@ -56,7 +56,7 @@ Mac 有三種安裝方式，建議使用第一種方式安裝
 
 > 可以略過，沒有安裝也可以正常使用 Fish shell
 
-什麼是 [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish "Oh My Fish") / [fisherman](http://fisherman.sh/ "fisherman") 呢？它就像 Oh my zsh 之於 Zsh shell，提供 Fish Shell 更多的 Theme、Framework 等。
+什麼是 [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish "Oh My Fish") / [fisherman](http://fisherman.sh/ "fisherman") 呢？它就像 Oh my zsh 之於 Zsh shell，提供 Fish Shell 更多的 Theme、Framework 等。
 
 Oh My Fish 與 fisherman 選擇哪一個安裝呢？以下我做一個簡易的分類
 ```
@@ -99,7 +99,7 @@ fisherman 與 Oh My Fish 的比較：
     1. 執行 `brew install nvm`
     2. 執行 `mkdir ~/.nvm`
     3. 執行 `ln -s (brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh`
-	4. 執行 `fisher nvm`，會安裝 edc/bass 和 fisherman/nvm
+	4. 執行 `fisher nvm`，會安裝 edc/bass 和 fisherman/nvm
 
     - ~~注意事項：~~使用 `npm install -g` 安裝的套件，重啟 Terminal 後會失效，暫時解法是下 `npm` 既可。推測是因為 fisherman 摘用 function 載入造成重啟失效。
     - 承上 [fisherman 官方回應](https://github.com/fisherman/nvm/issues/3 "fisherman 官方回應")，原因是 fisherman 使用 function 方式載入導致 `npm` 屬於被動觸發，而 fisherman 正是以此方法取得快速開啟 fish shell 的效果。如果仍希望使用 fisherman 又希望能一開啟就取得 Global 的套件，可以連到 [fisherman 官方回應](https://github.com/fisherman/nvm/issues/3 "fisherman 官方回應") 裡面有說明解決方法。   
@@ -110,4 +110,4 @@ fisherman 與 Oh My Fish 的比較：
 
 1. [比 Zsh 比好用的 Shell：Fish Shell 介紹與安裝](https://nodejust.com/fish-shell-zsh/ "比 Zsh 比好用的 Shell：Fish Shell 介紹與安裝")
 2. [从zsh切换到fish](http://blog.just4fun.site/from-zsh-to-fish.html "从zsh切换到fish")
-3. [fish shell wiki](https://zh.wikipedia.org/wiki/Fish "fish shell wik")
+3. [fish shell wiki](https://zh.wikipedia.org/wiki/Fish "fish shell wiki")

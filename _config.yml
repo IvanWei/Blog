@@ -102,3 +102,9 @@ disqus_shortname: ivanwei
 # sitemap
 sitemap:
   path: sitemap.xml
+
+# Feed
+feed:
+  type: atom
+  path: atom.xml
+  limit: 10
