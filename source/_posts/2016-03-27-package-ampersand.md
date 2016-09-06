@@ -5,7 +5,7 @@ tags: [Nodejs]
 
 ## 此說明適用在 Nodejs 的 package.json 和 Bower.io 的 bower.json
 
-![Version control](https://blog.ivanwei.co/images/2016/03/27/VERSION_CONTROL.png)
+![Version control](/images/2016/03/27/VERSION_CONTROL.png)
 
 <!--more-->
 

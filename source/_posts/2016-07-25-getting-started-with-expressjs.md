@@ -6,7 +6,7 @@ tags: [Testing, Nodejs]
 
 ## 一群人協作就是要測試一下
 
-![測試 測試 123](https://blog.ivanwei.co/images/2016/07/25/TESTING-123.jpg)
+![測試 測試 123](/images/2016/07/25/TESTING-123.jpg)
 
 ## 前言
 
@@ -112,7 +112,7 @@ tags: [Testing, Nodejs]
 
   執行完畢後會看到下面成功畫面
 
-  ![範列 TDD 成功](https://blog.ivanwei.co/images/2016/07/25/TDD-SIMPLE-SUCCESS.png)
+  ![範列 TDD 成功](/images/2016/07/25/TDD-SIMPLE-SUCCESS.png)
 
 4. 再來將 contents 的 number 改個值
 
@@ -125,7 +125,7 @@ tags: [Testing, Nodejs]
 
 5. 再執行一次 mocha 進行測試，此時會看見 mocha 回傳的錯誤畫面
 
-  ![範列 TDD 失敗](https://blog.ivanwei.co/images/2016/07/25/TDD-SIMPLE-FAILED.png)
+  ![範列 TDD 失敗](/images/2016/07/25/TDD-SIMPLE-FAILED.png)
 
 以上就完成基本 mocha 的 TDD 測試。
 
@@ -188,7 +188,7 @@ tags: [Testing, Nodejs]
 
   註：API 測試和實際前端送 request 的方式相同，主要歸功於 [supertest](https://github.com/visionmedia/supertest 'supertest')。
 
-  ![API 測試](https://blog.ivanwei.co/images/2016/07/25/TDD-SIMPLE-API-SUCCESS.png)
+  ![API 測試](/images/2016/07/25/TDD-SIMPLE-API-SUCCESS.png)
 
 
 ## 參考資料

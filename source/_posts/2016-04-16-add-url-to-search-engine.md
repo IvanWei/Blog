@@ -5,7 +5,7 @@ tags: [Website, SEO]
 
 ## 讓全世界看到這個網站
 
-![ATTACK](https://blog.ivanwei.co/images/2016/04/16/ATTACK.jpg)
+![ATTACK](/images/2016/04/16/ATTACK.jpg)
 
 ## 前言
 
@@ -24,7 +24,7 @@ tags: [Website, SEO]
 ### 4 個步驟讓搜尋結果從 0 變成大於 0
 
 1. 開啟 [Search Console](https://www.google.com/webmasters/tools/submit-url "Search Console") 的頁面
-  ![SEARCH CONSOLE](https://blog.ivanwei.co/images/2016/04/16/SEARCH-CONSOLE.png)
+  ![SEARCH CONSOLE](/images/2016/04/16/SEARCH-CONSOLE.png)
 2. 網址輸入此次新增網址，例如 `https://blog.ivanwei.co`
 3. 身份驗證
 4. 送出要求

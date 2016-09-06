@@ -31,7 +31,7 @@ tags: [Github, Blog, Disqus]
 
 點 SignUp 註冊
 
-![Singup](https://blog.ivanwei.co/images/2016/01/03/signUp.png)
+![Singup](/images/2016/01/03/signUp.png)
 
 ### 設定留言板
 
@@ -41,7 +41,7 @@ tags: [Github, Blog, Disqus]
  - Shortname 是紅色框起來的部分
  - 如果忘記 Shortname 晚一點會提
 
- ![Registered](https://blog.ivanwei.co/images/2016/01/03/reg.png)
+ ![Registered](/images/2016/01/03/reg.png)
 
 ## Hexo 設定 Disqus
 
@@ -56,6 +56,6 @@ tags: [Github, Blog, Disqus]
 ## 忘記 Disqus 的 Shortname
 
 1. 點右上角 Setting 的 Admin
- ![Menu](https://blog.ivanwei.co/images/2016/01/03/menu.png)
+ ![Menu](/images/2016/01/03/menu.png)
 2. 進入後點上方 Setup
 3. Site Identity 下的 Shortname 既是我們要的

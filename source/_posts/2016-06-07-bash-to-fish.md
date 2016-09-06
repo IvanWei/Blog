@@ -6,7 +6,7 @@ tags: [Shell, Nodejs]
 
 ## 玩過 Bash，抓 Fish 去
 
-![Fish Shell Logo](https://blog.ivanwei.co/images/2016/06/07/FISH_SHELL_LOGO.png)
+![Fish Shell Logo](/images/2016/06/07/FISH_SHELL_LOGO.png)
 
 ## 何為 Fish shell
 
@@ -48,7 +48,7 @@ Mac 有三種安裝方式，建議使用第一種方式安裝
 
 執行 `chsh -s /usr/local/bin/fish` ，重啟 Terminal 可以看到執行畫面變成底下這樣
 
-![Fish Shell](https://blog.ivanwei.co/images/2016/06/07/FISH_SHELL.png)
+![Fish Shell](/images/2016/06/07/FISH_SHELL.png)
 
 如果要切換回 Bash shell，執行 `chsh -s /bin/bash` 重啟 Terminal 既可。
 
