@@ -78,7 +78,7 @@ deploy:
 
 # Miscellaneous
 google_analytics: "UA-68684372-1"
-favicon: favicon.png
+favicon: /favicon.png
 twitter: 216636135
 google_plus:
 fb_admins: 100000246608237
