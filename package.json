@@ -21,7 +21,8 @@
     "hexo-server": "^0.1.2"
   },
   "scripts": {
-    "build": "npm install -g hexo;hexo clean;hexo generate",
+    "setSEO": "cp README.md source/README.md;cp robots.txt source/robots.txt",
+    "build": "npm run setSEO;npm install -g hexo;hexo clean;hexo generate",
     "deploy": "hexo deploy"
   }
 }
