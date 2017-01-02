@@ -57,69 +57,68 @@ Bot 已成為一門顯學，從 Telegram 、 Facebook 、 Skype 、 Slack 到 Li
 1. 到 Line Business 帳號清單，選要實作的 Bot 並點 **LINE Developers** ，將 Channel Serect 的密碼留下來
     ![Line Bot 設定](/images/2017/01/02/GET-CHANNEL-SECRET.png)
 2. 掛載 Babel
-
-```
-require('babel-core/register')({
-  plugins: ['transform-async-to-generator']
-});
-```
+  ```
+  require('babel-core/register')({
+    plugins: ['transform-async-to-generator']
+  });
+  ```
 3. 使用 Koa 建立 Webhooks + 身份認證
-```
-const koa = require('koa');
-const app = koa();
-// 送 Request 用 ( 也要安裝 request package )
-const request = require('request-promise');
-// 載入 crypto ，等下要加密
-const crypto = require('crypto');
-// 放 Line Bot 的 Channel Secret
-const channelSecret = '...';
-// 按 Line 的規定設定加密
-const hash = crypto.createHmac('sha256', channelSecret)
-          .update(Buffer.from(JSON.stringify(koaRequest.body), 'utf8'))
-          .digest('base64');
+  ```
+  const koa = require('koa');
+  const app = koa();
+  // 送 Request 用 ( 也要安裝 request package )
+  const request = require('request-promise');
+  // 載入 crypto ，等下要加密
+  const crypto = require('crypto');
+  // 放 Line Bot 的 Channel Secret
+  const channelSecret = '...';
+  // 按 Line 的規定設定加密
+  const hash = crypto.createHmac('sha256', channelSecret)
+            .update(Buffer.from(JSON.stringify(koaRequest.body), 'utf8'))
+            .digest('base64');
 
-const router = require('koa-router');
-router.post('/webhooks', async (ctx, next) => {
-    // 取 User 傳送得資料
-    // 和 Request 送來做比對 ( Status Code 這階段會有 200 / 401 )
-    if ( koaRequest.headers['x-line-signature'] === hash ) {
-      ctx.status = 200;
+  const router = require('koa-router');
+  router.post('/webhooks', async (ctx, next) => {
+      // 取 User 傳送得資料
+      // 和 Request 送來做比對 ( Status Code 這階段會有 200 / 401 )
+      if ( koaRequest.headers['x-line-signature'] === hash ) {
+        ctx.status = 200;
 
-      // User 送來的訊息
-      ctx.request.events
+        // User 送來的訊息
+        ctx.request.events
 
-      // 回覆給 User 的訊息
-      let options = {
-        method: 'POST',
-        uri: 'https://api.line.me/v2/bot/message/reply',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${auth.token}`,
-        },
-        body: {
-          replyToken: replyMessage.replyToken,
-          messages: [{
-              type: 'text',
-              text: '是文字',
-            }],
-        },
-        json: true,
+        // 回覆給 User 的訊息
+        let options = {
+          method: 'POST',
+          uri: 'https://api.line.me/v2/bot/message/reply',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${auth.token}`,
+          },
+          body: {
+            replyToken: replyMessage.replyToken,
+            messages: [{
+                type: 'text',
+                text: '是文字',
+              }],
+          },
+          json: true,
+        }
+
+        await request(options);
+
+      } else {
+        ctx.body = 'Unauthorized! Channel Serect and Request header aren\'t the same.';
+        ctx.status = 401;
       }
+  });
 
-      await request(options);
+  app.use(router);
 
-    } else {
-      ctx.body = 'Unauthorized! Channel Serect and Request header aren\'t the same.';
-      ctx.status = 401;
-    }
-});
-
-app.use(router);
-
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-});
-```
+  app.listen(3000, function () {
+    console.log('Example app listening on port 3000!')
+  });
+  ```
 4. 以上完成基礎 Line Bot 的建置內容，接下來將 Code 放入 PaaS 等空間與到 Line Developers 設定對應的 Webhooks 的位置既可讓自己的 Bot 運作。
 
 ## 成品分享
