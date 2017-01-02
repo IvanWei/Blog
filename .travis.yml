@@ -3,6 +3,7 @@ sudo: false
 node_js:
 - '6'
 before_install:
+- export TZ=Asia/Taipei
 - openssl aes-256-cbc -K $encrypted_ea8e3056d329_key -iv $encrypted_ea8e3056d329_iv
   -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
