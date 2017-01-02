@@ -17,10 +17,7 @@ deploy:
   script: .travis/deploy.sh
   skip_cleanup: true
   on:
-    branch: gh-pages
-branches:
-  only:
-  - master
+    branch: master
 notifications:
   slack:
     secure: VV3bkMm95NJEfq8qFP0etnsrHbuPSTrgySnPO666xEMRitA9FrbN5r6BUaRutECmrJYnBh9lFp0UOk4bZFv22YB9PZG14b5QU1spgukgAmMucurWfsQugE2+U6BVkP0YlT7AAwOGHV7GJiuoW4Pp1UXqZkrjtKQBnwHCUK5XF2qxuOtaKo/2iee2MKpifECnjhP1xr6LPe/B4eTJJuQXp1G8eERfXmELfMW+/1Xgk1u6Bsz//cB09eMgGNMYWaaa3aRXHMDtPjOX5h6I4+oNkUuF91DUcaDgDwy0eG5nGAb0o/Oi9cD4eQwJbYNuh8n3ZgvZ7yY62MuVWwF6b+1fGQVoLN5OIFln8N0+LBnZAMfnkE2E9NDjhovU6PyEmy1oRgE485QZhwz+58D15QgnTchL5d2Rah3A5Mf477hvFVhcPB8hvC+dzc+iZYDHoN/07cZRFn6md3TIU23qTuv0c8vpQuovZvApijQPBLWWreEzba9C2lAGMguWDW5P7gyltCK4JnvPwGFvqxrLn57mkOfBVCKFTfUDYyFN9zP2EksOyI+x2GfEdQWh2QIbBkXstgKsW935w/iwN0DZcbeg6IrWfK+U2gekJC33ulUhfVNLluN58aSSY26C19rGs3FQ8MSdg4UmcvvXMVc14LElmp+A+qtW4Nlj8Ys8RDT7vC4=
