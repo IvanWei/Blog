@@ -1,7 +1,7 @@
 language: node_js
 sudo: false
 node_js:
-- '5.1'
+- '6'
 env:
 - CXX=g++-4.8
 addons:
@@ -24,11 +24,9 @@ before_install:
 - git config --global user.email "ivanwei_slack@outlook.com"
 - npm config set registry https://registry.npmjs.org/
 - npm install -g hexo
-- git clone git@github.com:IvanWei/blog.git .deploy_git
+- git clone git@github.com:IvanWei/blog.git gh-pages .deploy_git
 script:
-- hexo clean
-- hexo generate
-- hexo deploy
+- npm run deploy
 branches:
   only:
   - master
