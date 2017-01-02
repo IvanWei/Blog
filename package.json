@@ -21,6 +21,7 @@
     "hexo-server": "^0.1.2"
   },
   "scripts": {
-    "deploy": "npm install -g hexo;hexo clean;hexo generate;hexo deploy"
+    "build": "npm install -g hexo;hexo clean;hexo generate",
+    "deploy": "hexo deploy"
   }
 }
