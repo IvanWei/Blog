@@ -15,4 +15,4 @@ git config --global user.email "ivanwei_slack@outlook.com"
 # Clone the repository
 git clone -b gh-pages git@github.com:IvanWei/blog.git .deploy_git
 # Deploy to GitHub
-npm run deploy
+hexo deploy

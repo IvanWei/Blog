@@ -22,7 +22,6 @@
   },
   "scripts": {
     "setSEO": "cp README.md source/README.md;cp robots.txt source/robots.txt",
-    "build": "npm run setSEO;npm install -g hexo;hexo clean;hexo generate",
-    "deploy": "hexo deploy"
+    "build": "npm run setSEO;npm install -g hexo;hexo clean;hexo generate"
   }
 }
