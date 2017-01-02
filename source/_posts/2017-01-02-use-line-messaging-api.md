@@ -137,3 +137,4 @@ Bot 已成為一門顯學，從 Telegram 、 Facebook 、 Skype 、 Slack 到 Li
     - [Skype Bot](https://docs.botframework.com/en-us/skype/getting-started)
 2. [Line Messging API](https://devdocs.line.me/en/)
 3. [Bundit J. - linebot](https://github.com/boybundit/linebot)
+4. [Ivan Wei - 從零開始認識 Node.js](http://ithelp.ithome.com.tw/users/20102342/ironman/995)
