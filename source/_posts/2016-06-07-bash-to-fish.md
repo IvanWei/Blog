@@ -103,6 +103,7 @@ fisherman 與 Oh My Fish 的比較：
     3. 執行 `ln -s (brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh`
     4. 執行 `fisher nvm`，會安裝 edc/bass 和 fisherman/nvm
 
+
     - 使用 `npm install -g` 安裝的套件，重啟 Terminal 後會失效，暫時解法是下 `npm` 既可。推測是因為 fisherman 摘用 function 載入造成重啟失效。
     - 承上 [fisherman 官方回應](https://github.com/fisherman/nvm/issues/3 "fisherman 官方回應")，原因是 fisherman 使用 function 方式載入導致 `npm` 屬於被動觸發，而 fisherman 正是以此方法取得快速開啟 fish shell 的效果。如果仍希望使用 fisherman 又希望能一開啟就取得 Global 的套件，可以連到 [fisherman 官方回應](https://github.com/fisherman/nvm/issues/3 "fisherman 官方回應") 裡面有說明解決方法。
 
