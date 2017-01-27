@@ -19,6 +19,7 @@ fish 於2005年在GNU通用公眾授權條款條款下正式釋出，是一款�
 
 - 2017.01.27
     1. 新增 Facebook Yarn 可能導致 NVM 失效與解決方式
+        ![Fish Shell Logo](/images/2016/06/07/FISH_SHELL_LOGO.png)
 - 2016.06.28
     1. 更新移除 Oh My Fish 和 fisherman 的方法
     2. 調整 Oh My Fish 和 fisherman 的比較方式
