@@ -17,9 +17,10 @@ fish 於2005年在GNU通用公眾授權條款條款下正式釋出，是一款�
 
 ## 更新
 
-- 2017.01.27
+- 2017.01.28
     1. 新增 Facebook Yarn 可能導致 NVM 失效與解決方式
-        ![Fish Shell Logo](/images/2016/06/07/FISH_SHELL_LOGO.png)
+        ![Fish Shell Logo](/images/2016/06/07/YARN-KITTEN-FULL.png)
+    2. 調整文章內的部分排版
 - 2016.06.28
     1. 更新移除 Oh My Fish 和 fisherman 的方法
     2. 調整 Oh My Fish 和 fisherman 的比較方式
@@ -104,11 +105,11 @@ fisherman 與 Oh My Fish 的比較：
     3. 執行 `ln -s (brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh`
     4. 執行 `fisher nvm`，會安裝 edc/bass 和 fisherman/nvm
 
-
+- 使用 fisherman 的小提醒
     - 使用 `npm install -g` 安裝的套件，重啟 Terminal 後會失效，暫時解法是下 `npm` 既可。推測是因為 fisherman 摘用 function 載入造成重啟失效。
     - 承上 [fisherman 官方回應](https://github.com/fisherman/nvm/issues/3 "fisherman 官方回應")，原因是 fisherman 使用 function 方式載入導致 `npm` 屬於被動觸發，而 fisherman 正是以此方法取得快速開啟 fish shell 的效果。如果仍希望使用 fisherman 又希望能一開啟就取得 Global 的套件，可以連到 [fisherman 官方回應](https://github.com/fisherman/nvm/issues/3 "fisherman 官方回應") 裡面有說明解決方法。
 
-### 補充資料
+### NVM 與 NPM 資訊補充包
 1. 其他 Fish 安裝 NVM 的方式可以到 [NVM](https://github.com/creationix/nvm "NVM") 的 Github 上找到。
 2. 若使用 Facebook 的 [Yarn](https://yarnpkg.com/) ，強烈建議使用 `npm install yarn -g` 安裝，而非官方手冊寫得透過 Homebrew 的方式，原因是我用 Homebrew 的方式安裝過 Yarn 兩個版本（0.17.8 與 0.19.1），安裝 0.17.8 版本時一切正常，但安裝到 0.19.1 版本會發現 Homebrew 在安裝 Yarn 之前會另外安裝 node 最新的版本，而這個動作會導致原本使用的 NVM 失效（此時移除 Yarn 也無效，因為此時的 node 已經和 NVM 沒有關係）。
     － 若已經透過 Homebrew 安裝到 0.19.1 版本並想移除，可以下 `brew uninstall yarn node nvm` ，然而再重新安裝 NVM `brew install nvm` ，此時 NVM 就回來了！
