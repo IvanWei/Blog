@@ -129,7 +129,7 @@ Bot 已成為一門顯學，從 Telegram 、 Facebook 、 Skype 、 Slack 到 Li
 
 有需要的人可以 Fork 回去或發 PR 給我，想要玩玩可以掃下方 QR Code 加 Bot 為好友（若 Bot 沒有反應，等它一下。因為放 Heroku ，此服務一段時間沒有使用會將 Server 進行睡眠，等有人使用再喚醒）
 
-![Line Bot 的 QR Code](/images/2017/01/02/LINE-BOT-FREE-QR-CODE)
+![Line Bot 的 QR Code](/images/2017/01/02/LINE-BOT-FREE-QR-CODE.png)
 
 ## 參考資料
 1. 聊天 APP 的 Bot API
