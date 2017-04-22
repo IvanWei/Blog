@@ -2,6 +2,8 @@
 
 # A blog
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/IvanWei/blog.svg)](https://greenkeeper.io/)
+
 This is where Hong-Lin writes his stuff. Use Travis deploy.
 
 ## Me
