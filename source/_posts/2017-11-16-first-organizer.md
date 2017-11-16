@@ -4,7 +4,7 @@ date: 2017-11-16 15:08:16
 tags: [Blog, Learn]
 ---
 
-![JSDC 2017](/images/2017/11/16/JSDC-2017.jpg)
+![JSDC 2017](/images/2017/11/16/JSDC-2017.png)
 
 ## 前言
 
