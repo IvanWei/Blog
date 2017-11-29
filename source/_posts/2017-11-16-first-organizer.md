@@ -14,7 +14,7 @@ JSDC 2017 是由 [JSDC.tw](http://jsdc.tw) 籌辦的第 6 屆臺灣 JS 開發者
 
 ## 活動後
 
-今年的 JSDC 讓我打分數，我會打 75 分；至於是否值得這麼高的分數，就有待參與者、廠商、工作人員們的問卷回饋來驗證。
+今年的 JSDC 讓我打分數，我會打 69 分；至於是否值得這麼高的分數，就有待參與者、廠商、工作人員們的問卷回饋來驗證。
 
 而今年要感謝 [104 資訊技科](https://corp.104.com.tw) 、 [趨勢科技](http://www.trendmicro.tw/) 、 [Dcard](https://www.dcard.tw) 、 [GoAnimate](https://goanimate.com) 、 [電子豹](http://www.newsleopard.com/) 、 [Carousell 旋轉拍賣](https://tw.carousell.com) 、 [Pinkoi](https://www.pinkoi.com) 的支持，讓 JSDC 2017 場內、場外都豐富起來。
 
