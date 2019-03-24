@@ -1,6 +1,6 @@
 title: '[Hexo] 加入 Disqus 讓 Blog多個留言功能'
 date: 2016-01-03 19:55:16
-tags: [Github, Blog, Disqus]
+tags: [Blog, Disqus]
 ---
 
 ## 注意事項

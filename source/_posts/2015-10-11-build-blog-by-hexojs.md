@@ -1,6 +1,6 @@
 title: '[Hexo] Gtihub 上架 Blog'
 date: 2015-10-11 16:21:08
-tags: [Github, Blog]
+tags: [Deploy, Blog]
 ---
 
 1. 2016-09-06 新增 Atom / RSS feed

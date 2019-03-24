@@ -1,7 +1,7 @@
 layout: post
 title: DCIT 與隱私
 date: 2018-05-16 19:05:12
-tags: [Learn, SEO]
+tags: [Conference, Privacy]
 ---
 
 ![Developer Conferences In Taiwan](/images/2018/05/16/DCIT.png)
