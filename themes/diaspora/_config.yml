@@ -1,0 +1,41 @@
+# 頂部菜單，title: link
+menu:
+  # Whoami: /whoami
+  Github: https://github.com/IvanWei
+  Facebook: https://fb.me/ivanwei1987
+  Twitter: https://twitter.com/ivanwei1987
+
+# 是否顯示目錄
+TOC: false
+
+# 是否自動播放音樂
+autoplay: false
+
+# 預認音樂
+mp3:
+  - http://link.hhtjim.com/163/5146554.mp3
+  - http://link.hhtjim.com/qq/001faIUs4M2zna.mp3
+
+# 首頁封面圖，當文章 Cover 沒設定時作為封面
+welcome_cover: # /img/welcome-cover.jpg
+
+# 預認文章封面圖
+cover: /img/cover.jpg
+
+# 是否關閉預設滾動條
+scrollbar: true
+
+# 網站關鍵字
+keywords:
+  - Web
+  - Server
+  - IvanWei
+
+# 收 Google Analytics 的 ID
+google_analytics: UA-68684372-1
+
+# 網站 ico
+favicon: /img/favicon.png
+
+# RSS 文件
+rss: atom.xml
