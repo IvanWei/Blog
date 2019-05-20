@@ -2,6 +2,7 @@ layout: post
 title: DCIT 與隱私
 date: 2018-05-16 19:05:12
 tags: [Conference, Privacy]
+cover: /images/2018/05/16/DCIT.png
 ---
 
 ![Developer Conferences In Taiwan](/images/2018/05/16/DCIT.png)
@@ -26,7 +27,7 @@ tags: [Conference, Privacy]
 | 支援 RSS | ㄨ | 〇 |
 | 友善管理活動 | ㄨ | 〇 |
 | CI | ㄨ | 〇 |
-| CLI | CI | ㄨ | 〇 |
+| CLI | ㄨ | 〇 |
 | 結合 Google map | ㄨ | 〇 |
 | 活動記錄量 | 只整理 Conference 、 社群 | Meetup 、 Conference 、簡報、社群通通有 |
 | 活動加進 Google Calendar | 單一活動加入 | 分享所有 Calendar 活動 |

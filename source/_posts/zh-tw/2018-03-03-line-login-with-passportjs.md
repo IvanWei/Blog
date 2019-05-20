@@ -2,6 +2,7 @@ layout: post
 title: LINE Login 和 Passport.js
 date: 2018-03-03 19:05:12
 tags: [Nodejs, Learn]
+cover: /images/2018/03/03/line-login-web.png
 ---
 
 ![LINE Login](/images/2018/03/03/line-login-web.png)

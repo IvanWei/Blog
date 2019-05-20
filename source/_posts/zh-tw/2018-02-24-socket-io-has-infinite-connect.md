@@ -2,9 +2,10 @@ layout: post
 title: Socket.io 無限連線請求的問題
 date: 2018-02-24 11:22:00
 tags: [Nodejs, Learn]
+cover: /images/2018/02/24/socket-io.png
 ---
 
-![Socket.io](/images/2018/02/24/socket-io-logo.svg)
+![Socket.io](/images/2018/02/24/socket-io.png)
 
 ## 前言
 

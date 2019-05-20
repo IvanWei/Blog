@@ -2,6 +2,7 @@ layout: post
 title: 寄個附有掛號的 Email
 date: 2017-01-27 15:45:16
 tags: [Tools]
+cover: /images/2017/01/27/POSTCARD.jpg
 ---
 
 ![POSTCARD](/images/2017/01/27/POSTCARD.jpg)

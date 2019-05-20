@@ -2,6 +2,7 @@ layout: post
 title: 安裝 Fish shell 與 NVM
 date: 2016-06-07 22:51:34
 tags: [Shell, Nodejs]
+cover: /images/2016/06/07/FISH_SHELL_LOGO.png
 ---
 
 ## 玩過 Bash，抓 Fish 去
@@ -36,7 +37,7 @@ fish 於2005年在GNU通用公眾授權條款條款下正式釋出，是一款�
 
 ## 更新
 
-2016-06-09 Fisherman 取代 Oh My Fish 
+2016-06-09 Fisherman 取代 Oh My Fish
 
 ## 安裝 Fish shell
 

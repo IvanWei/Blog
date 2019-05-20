@@ -2,6 +2,7 @@ layout: post
 title: 安裝 RVM 輕鬆跳躍在每個版本間
 date: 2016-08-15 00:58:16
 tags: [Shell, Ruby, Learn]
+cover: /images/2016/08/15/RVM-LOGO.png
 ---
 
 ![遇見 紅寶貝(Ruby) 群](/images/2016/08/15/RVM-LOGO.png)

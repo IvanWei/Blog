@@ -2,6 +2,7 @@ layout: post
 title: 做個 Line Bot 來玩玩
 date: 2017-01-02 02:14:16
 tags: [Nodejs, Learn]
+cover: /images/2017/01/02/LINE-MESSAGING-API.png
 ---
 
 ![Line Bot With Line Messaging API](/images/2017/01/02/LINE-MESSAGING-API.png)

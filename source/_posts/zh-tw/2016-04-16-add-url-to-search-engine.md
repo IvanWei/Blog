@@ -1,6 +1,7 @@
 title: 主動對搜尋引擎出擊，讓辛苦完成的網站加入被搜尋的行列
 date: 2016-04-16 18:19:25
 tags: [SEO, Learn]
+cover: /images/2016/04/16/ATTACK.jpg
 ---
 
 ## 讓全世界看到這個網站

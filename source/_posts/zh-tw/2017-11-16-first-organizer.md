@@ -2,6 +2,7 @@ layout: post
 title: JSDC 2017 活動後簡述
 date: 2017-11-16 15:08:16
 tags: [Conference, Learn]
+cover: /images/2017/11/16/JSDC-2017.png
 ---
 
 ![JSDC 2017](/images/2017/11/16/JSDC-2017.png)
