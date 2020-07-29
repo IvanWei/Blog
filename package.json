@@ -22,9 +22,9 @@
   },
   "scripts": {
     "start": "npx hexo server",
-    "build": "npm run clean;npx hexo generate",
+    "build": "npm run clean && npx hexo generate",
     "clean": "npx hexo clean",
-    "deploy": "hexo clean;hexo generate;hexo deploy"
+    "deploy": "npm run build && npx hexo deploy"
   },
   "devDependencies": {}
 }

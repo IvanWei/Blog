@@ -19,7 +19,6 @@ before_install:
 - npm install -g hexo
 - git clone -b gh-pages git@github.com:IvanWei/blog.git .deploy_git
 script:
-- npm run build
 - npm run deploy
 branches:
   only:
