@@ -13,8 +13,9 @@ autoplay: false
 
 # 預認音樂
 mp3:
-  - http://link.hhtjim.com/163/5146554.mp3
-  - http://link.hhtjim.com/qq/001faIUs4M2zna.mp3
+  - /music/See_You_On_The_Otherside_The_126ers.mp3
+  # - http://link.hhtjim.com/163/5146554.mp3
+  # - http://link.hhtjim.com/qq/001faIUs4M2zna.mp3
 
 # 首頁封面圖，當文章 Cover 沒設定時作為封面
 welcome_cover: # /img/welcome-cover.jpg
@@ -25,17 +26,22 @@ cover: /img/cover.jpg
 # 是否關閉預設滾動條
 scrollbar: true
 
-# 網站關鍵字
-keywords:
-  - Web
-  - Server
-  - IvanWei
+# 告訴 Google 不要為網頁提供翻譯連結
+no_translate: false
 
-# 收 Google Analytics 的 ID
-google_analytics: UA-68684372-1
+# 網站關鍵字
+# keywords:
+#   - Web
+#   - JavaScript
+#   - JS
+#   - Nodejs
+#   - 開發
+#   - Development
+#   - Ivan
+#   - Wei
 
 # 網站 ico
 favicon: /img/favicon.png
 
 # RSS 文件
-rss: atom.xml
+rss: /atom.xml

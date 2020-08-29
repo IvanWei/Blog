@@ -1,6 +1,7 @@
 <%
 var keywords = '';
 var description = '';
+var ogInfos = {};
 (function() {
     if (theme.keywords) {
         keywords += theme.keywords;
@@ -11,10 +12,19 @@ var description = '';
     }
     if (config.description) {
         description += config.description;
-        description += ',';
+    }
+    if (config.twitter) {
+        ogInfos.twitter = config.twitter;
+    }
+    if (config.fb_admins) {
+        ogInfos.fb_admins = config.fb_admins;
+    }
+    if (config.fb_app_id) {
+        ogInfos.fb_app_id = config.fb_app_id;
     }
     if  (is_post()) {
-        description += truncate(strip_html(page.content), {length: 100, omission: ','});
+        description += ',';
+        description += truncate(strip_html(page.content), {length: 60, omission: ','});
     }
 })();
 %>
@@ -27,22 +37,12 @@ var description = '';
     <title><%= page_title() %></title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate" />
+    <% if (theme.no_translate) { %><meta name="google" content="notranslate" /><% } %>
+    <%- open_graph(ogInfos) %>
     <% if (keywords) { %><meta name="keywords" content="<%= keywords %>"> <% } %>
     <% if (description) { %><meta name="description" content="<%= description %>"> <% } %>
     <% if (config.author){ %><meta name="author" content="<%= config.author %>"> <% } %>
     <% if (theme.rss){ %><link rel="alternative" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml"> <% } %>
     <% if (theme.favicon){ %><link rel="icon" href="<%- url_for(theme.favicon) %>"> <% } %>
-    <%- css(['//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css'])%>
     <%- css(['css/diaspora.css'])%>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({
-              google_ad_client: "ca-pub-8691406134231910",
-              enable_page_level_ads: true
-         });
-    </script>
-    <script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-    </script>
 </head>
