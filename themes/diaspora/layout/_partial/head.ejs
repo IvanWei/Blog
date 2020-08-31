@@ -1,18 +1,22 @@
 <%
 var keywords = '';
-var description = '';
+//var description = '';
 var ogInfos = {};
 (function() {
     if (theme.keywords) {
         keywords += theme.keywords;
         keywords += ',';
     }
-    if (page.keywords) {
+    /*if (page.keywords) {
         keywords += page.keywords;
     }
     if (config.description) {
         description += config.description;
     }
+    if  (is_post()) {
+        description += ',';
+        description += truncate(strip_html(page.content), {length: 60, omission: ','});
+    }*/
     if (config.twitter) {
         ogInfos.twitter = config.twitter;
     }
@@ -21,10 +25,6 @@ var ogInfos = {};
     }
     if (config.fb_app_id) {
         ogInfos.fb_app_id = config.fb_app_id;
-    }
-    if  (is_post()) {
-        description += ',';
-        description += truncate(strip_html(page.content), {length: 60, omission: ','});
     }
 })();
 %>
@@ -40,7 +40,6 @@ var ogInfos = {};
     <% if (theme.no_translate) { %><meta name="google" content="notranslate" /><% } %>
     <%- open_graph(ogInfos) %>
     <% if (keywords) { %><meta name="keywords" content="<%= keywords %>"> <% } %>
-    <% if (description) { %><meta name="description" content="<%= description %>"> <% } %>
     <% if (config.author){ %><meta name="author" content="<%= config.author %>"> <% } %>
     <% if (theme.rss){ %><link rel="alternative" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml"> <% } %>
     <% if (theme.favicon){ %><link rel="icon" href="<%- url_for(theme.favicon) %>"> <% } %>
