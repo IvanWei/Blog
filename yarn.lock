@@ -1733,10 +1733,10 @@ hexo-generator-index@^2.0.0:
     hexo-pagination "1.0.0"
     timsort "^0.3.0"
 
-hexo-generator-seo-friendly-sitemap@0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/hexo-generator-seo-friendly-sitemap/-/hexo-generator-seo-friendly-sitemap-0.1.0.tgz#62137029248e273225338370c8b4295789eb1edf"
-  integrity sha512-47Lmzis+KYyd6Uu5GPkHeWHkrmsP6g2PeE5NWH9LAtWNFaxtj31qm99vl9gsTIbmoI/iOEc0c2BTJ+VqWyLOhg==
+hexo-generator-seo-friendly-sitemap@0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/hexo-generator-seo-friendly-sitemap/-/hexo-generator-seo-friendly-sitemap-0.2.1.tgz#996a0c10ced51575d0d1aad59f65aad233946e87"
+  integrity sha512-DtEulX/7U2X4bRLztb6cDtHEvtwhEPSaL6shaxNtk2oPljJlnep9vFGGlF3KvTD1XADxSOtvVHd3RKWZEXl9WA==
   dependencies:
     bluebird "3.5.4"
     ejs "2.6.1"
