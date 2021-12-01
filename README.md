@@ -1,13 +1,13 @@
-[![Build Status](https://travis-ci.org/IvanWei/blog.svg?branch=master)](https://travis-ci.org/IvanWei/blog)
+[![Build Status](https://github.com/IvanWei/blog/actions/workflows/publish/badge.svg)
 
 # A blog
 
-This is where Hong-Lin writes his stuff. Use Travis deploy.
+This is where Hong-Lin writes his stuff.
 
 ## Me
 
-I'm Hong-Lin Wei (Ivan Wei).
+I'm Wei Hong-Lin (Ivan Wei).
 
 ## License
 
-The following directories and their contents are Copyright Hong-Lin Wei.
+The following directories and their contents are Copyright Wei Hong-Lin.
