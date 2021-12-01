@@ -1,3 +1,8 @@
+# This branch is deprecation, new contents migrates to [main branch](https://github.com/IvanWei/blog).
+
+
+---
+
 [![Build Status](https://travis-ci.org/IvanWei/blog.svg?branch=master)](https://travis-ci.org/IvanWei/blog)
 
 # A blog
