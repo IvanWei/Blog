@@ -1,0 +1,32 @@
+name: Publish
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup ssh-agent
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{secrets.SSH_PRIVATE_KEY}}
+
+      - name: Setup User Information
+        run: |
+          git config --global user.email "ivanwei_slack@outlook.com"
+          git config --global user.name "WorldEarthBot"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Install Hexojs
+        run: npm install -g hexo
+
+      - name: Deployment
+        run: npm run deploy
