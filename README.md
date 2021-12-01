@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/IvanWei/blog/actions/workflows/publish/badge.svg)
+[![Build Status](https://github.com/IvanWei/blog/actions/workflows/publish.yml/badge.svg)
 
 # A blog
 
