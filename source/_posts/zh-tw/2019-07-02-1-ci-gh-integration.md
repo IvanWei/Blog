@@ -1,9 +1,8 @@
 title: ci-gh-integration
 date: 2019-07-02 04:28:36
-updated: 2021-12-06 21:38:30
+updated: 2021-12-06 21:40:57
 tags: []
-cover: ![Github page](https://user-images.githubusercontent.com/6157049/60430761-af01ba00-9c30-11e9-8c8d-fa07116b5e22.png)
-
+cover: https://user-images.githubusercontent.com/6157049/60430761-af01ba00-9c30-11e9-8c8d-fa07116b5e22.png
 ---
 
 現階段主流寫文章的網站有 [Pixnet](https://www.pixnet.net/) 、  [Medium](https://medium.com/) 、 [Github page](https://pages.github.com/) 、 [ghost](https://ghost.org) 等，除了 Github page 
