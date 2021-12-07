@@ -1,6 +1,6 @@
-title: ci-gh-integration
+title: 拿 Github Issue 更新 Blog 內容 (Firebase 版)
 date: 2019-07-02 04:28:36
-updated: 2021-12-06 21:40:57
+updated: 2021-12-07 05:08:59
 tags: []
 cover: https://user-images.githubusercontent.com/6157049/60430761-af01ba00-9c30-11e9-8c8d-fa07116b5e22.png
 ---
