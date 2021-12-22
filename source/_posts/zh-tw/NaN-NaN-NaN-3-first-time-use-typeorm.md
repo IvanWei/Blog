@@ -1,0 +1,32 @@
+title: 從初探 TypeORM 到放棄
+date: 2021-12-22 08:55:20
+updated: 2021-12-22 08:55:20
+tags: []
+cover: https://user-images.githubusercontent.com/6157049/147055525-2eac3142-0c51-4c13-83fb-8ec528cfad16.png
+---
+
+放棄的原因有二
+1. 文件的不完善，無形間拉長開發時程
+2. Issue 、維護、開發三者接近停止狀況
+
+<!--more-->
+
+初探時碰到的狀況
+1. [TypeORM 初始設定](https://typeorm.io/#/using-ormconfig/using-environment-variables) 若使用環境變數需要花時間測試，因為這部分只能提供變數名稱
+2. 使用 Google 找資料很容易找到由 [OrkhanAlikhanov](https://github.com/OrkhanAlikhanov) fork 出來的 [TypeORM 使用文件](https://github.com/OrkhanAlikhanov/typeorm) ，同時 TypeORM 主要維運者之一的 [pleerock](https://github.com/pleerock) 也持續推送內容讓 [TypeORM Gitbook](https://orkhan.gitbook.io/typeorm/docs) 與 TypeORM 狀況一致，但內容仍然有可能是舊的。
+
+於是開始找一下有關 TypeORM 的問題，整理如下
+1. 截至 2021-12-22 累積 Issue 有 1384
+    - 列入 Bug 有 779 個，最舊的 Bug 為 2018-02-28
+2. [v2ex 的 felixin](https://v2ex.com/t/763563#r_10344012) 提到的狀況
+    ![image](https://user-images.githubusercontent.com/6157049/147061875-e10ebc29-4546-4a59-ac4f-6cfd3e91fec0.png)
+3. [2019-09-04 被關閉的 Issue](https://github.com/typeorm/typeorm/issues/4686)
+4. [知乎 - 如何評論 TypeORM](https://www.zhihu.com/question/266267293)
+5. [Porschebz - NestJs中使用Typeorm的问题总结](https://www.porschebz.com/posts/42345.html)
+
+TypeORM 有很好的對 TypeScript 的適配性，有很漂亮的寫作方式，然而
+- 文件不完善
+- 複雜性高需要借用 SQL Query
+- 專案處於低谷期
+
+以上評估認為不適合我目前的一人專案，持續投入有問題可能需要花更多時間處理，果斷初探 3 天放棄使用 TypeORM 做為專案第一版使用的 ORM。
