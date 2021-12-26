@@ -1,30 +1,20 @@
 <%
 var keywords = '';
-//var description = '';
-var ogInfos = {};
+var description = '';
 (function() {
     if (theme.keywords) {
         keywords += theme.keywords;
         keywords += ',';
     }
-    /*if (page.keywords) {
+    if (page.keywords) {
         keywords += page.keywords;
     }
     if (config.description) {
         description += config.description;
+        description += ',';
     }
     if  (is_post()) {
-        description += ',';
-        description += truncate(strip_html(page.content), {length: 60, omission: ','});
-    }*/
-    if (config.twitter) {
-        ogInfos.twitter = config.twitter;
-    }
-    if (config.fb_admins) {
-        ogInfos.fb_admins = config.fb_admins;
-    }
-    if (config.fb_app_id) {
-        ogInfos.fb_app_id = config.fb_app_id;
+        description += truncate(strip_html(page.content), {length: 100, omission: ','});
     }
 })();
 %>
@@ -37,11 +27,25 @@ var ogInfos = {};
     <title><%= page_title() %></title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <% if (theme.no_translate) { %><meta name="google" content="notranslate" /><% } %>
-    <%- open_graph(ogInfos) %>
+    <meta name="google" content="notranslate" />
     <% if (keywords) { %><meta name="keywords" content="<%= keywords %>"> <% } %>
+    <% if (description) { %><meta name="description" content="<%= description %>"> <% } %>
     <% if (config.author){ %><meta name="author" content="<%= config.author %>"> <% } %>
     <% if (theme.rss){ %><link rel="alternative" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml"> <% } %>
     <% if (theme.favicon){ %><link rel="icon" href="<%- url_for(theme.favicon) %>"> <% } %>
+    <% if (theme.gitalk.enable){ %><%- css(['//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css'])%><%}%>
+    <% if(theme.twitterpic.enable){ %><meta name="twitter:image:src" content="<%- url_for(theme.twitterpic.src) %>"/><%}%>
+    <% if(theme.twitterpic.enable){ %><meta name="twitter:creator" content="@<%=theme.twitterpic.creatorid%>"/><%}%>
+    <% if(theme.twitterpic.enable){ %><meta name="twitter:card" content="summary_large_image"/><%} else {%><meta name="twitter:card" content="summary"/><%}%>
+    <meta name="twitter:title" content="<%= page_title() %>"/>
+    <% if (description) { %><meta name="twitter:description" content="<%= description %>"/><%}%>
+    <% if(theme.twitterpic.enable){ %><meta property="og:image" content="<%- url_for(theme.twitterpic.src) %>"/><%}%>
+    <% if (description && theme.twitterpic.enable) { %><meta property="og:image:alt" content="<%= description %>"/><% } %>
+    <% if(theme.twitterpic.enable){ %><meta property="og:image:width" content="1200"/><% } %>
+    <% if(theme.twitterpic.enable){ %><meta property="og:image:height" content="600"/><% } %>
+    <meta property="og:site_name" content="<%= config.title %>"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="<%= page_title() %>"/>
+    <% if (description) { %><meta property="og:description" content="<%= description %>"/><%}%>
     <%- css(['css/diaspora.css'])%>
 </head>
