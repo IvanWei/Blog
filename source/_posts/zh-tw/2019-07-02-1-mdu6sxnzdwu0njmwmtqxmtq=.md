@@ -1,6 +1,6 @@
 title: 透過 Github Issue 更新 Blog 內容 (Firebase 版)
 date: 2019-07-02 04:28:36
-updated: 2021-12-22 13:16:37
+updated: 2022-02-27 14:21:47
 tags: []
 cover: https://user-images.githubusercontent.com/6157049/60430761-af01ba00-9c30-11e9-8c8d-fa07116b5e22.png
 ---
@@ -172,7 +172,7 @@ exports.github = functions.https.onRequest(server);
 
 Firebase 回傳的 URL 會長得像
 
-> https://<你選得專案地方>-<專案 ID>.cloudfunctions.net/<export 的名稱>
+> https://<你選得專案地方>-<專案 ID>.cloudfunctions.net/<export 的名稱>
 
 若沒看到或忘記這串 URL ，可以到指定的 Firebase 專案點 functions ，找找要的 `export 名稱`
 
