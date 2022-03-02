@@ -1,9 +1,7 @@
 # 头部菜单，title: link
 menu:
-    首頁: /
     Facebook: https://fb.me/iivanwei
     Twitter: https://twitter.com/iivan_wei
-    RSS: /atom.xml
     # 分類: /categories
     # 標簽: /tags
     # 封存: /archives
@@ -34,7 +32,7 @@ twitterpic:
   creatorid: yourtwitteridhere
 
 # 是否使用mathjax
-mathjax: true
+mathjax: false
 
 
 # 是否关闭默认滚动条
@@ -43,7 +41,7 @@ scrollbar: true
 # 本地搜索,请将索引文件放在网站根目录,或修改主题js文件的path值
 local_search:
     # 是否启用
-    enable: false
+    enable: true
 
 # 是否显示 一言(hitokoto)
 hitokoto: false

@@ -11,7 +11,7 @@ description: Who is Wei Hong-Lin (Ivan Wei)
 #   - Server
 #   - IvanWei
 author: Wei Hong-Lin (Ivan Wei)
-language: zh-tw
+language: zh-TW
 timezone: Asia/Taipei
 
 # URL
@@ -105,10 +105,10 @@ sitemap:
   path: sitemap.xml
 
 # Feed
-# feed:
-#   type: atom
-#   path: atom.xml
-#   limit: 10
+feed:
+  type: atom
+  path: /atom.xml
+  limit: 10
 
 # Miniftiy
 html_minifier:
@@ -135,3 +135,9 @@ image_minifier:
   optimizationLevel: 2
   pngquant: false
   progressive: false
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
