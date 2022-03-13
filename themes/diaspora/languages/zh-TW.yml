@@ -17,3 +17,8 @@ powered_by: Powered by
 rss_feed: RSS Feed
 category: Category
 tag: Tag
+copyright:
+    author: "作者: "
+    title: "文章標題: "
+    link: "文章連結: "
+    license_title: "版權聲明: "

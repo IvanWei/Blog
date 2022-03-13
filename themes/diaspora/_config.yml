@@ -103,3 +103,7 @@ favicon: /img/favicon.png
 
 # rss文件
 rss: atom.xml
+
+#版权信息
+copyright:
+    enable: true
