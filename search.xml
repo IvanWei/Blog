@@ -1,0 +1,1488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>[Hexo] Gtihub 上架 Blog</title>
+    <url>/zh-tw/2015-10-11-build-blog-by-hexojs/</url>
+    <content><![CDATA[<ol>
+<li>2016-09-06 新增 Atom &#x2F; RSS feed</li>
+<li>2016-03-27 新增 Hexo 內建的功能</li>
+</ol>
+<ul>
+<li>使用 Read more 按鈕</li>
+<li>透過 Hexo 佈署與不轉換特定的 Markdown 檔</li>
+</ul>
+<ol start="3">
+<li>2015-10-11 新增用 Hexo 寫 Blog</li>
+</ol>
+<h2 id="Blog-framework-的選擇"><a href="#Blog-framework-的選擇" class="headerlink" title="Blog framework 的選擇"></a>Blog framework 的選擇</h2><p>查詢 <code>github blog framework</code> 可以很輕易找到三個 framework</p>
+<ol>
+<li><a href="http://jekyllrb.com/" title="Jekyll">Jekyll</a> ( <a href="https://pages.github.com/#next-steps" title="Github 官方推薦">Github 官方推薦</a> )</li>
+<li><a href="http://octopress.org/" title="Octopress">Octopress</a> ( 基於 Jekyll 延伸開發 )</li>
+<li><a href="https://hexo.io/" title="Hexo">Hexo</a> ( 以 JS 為基礎 + 開發者是臺灣人 )</li>
+</ol>
+<p>不想用這三個 Blog framework 有其他選擇嗎？有的！</p>
+<span id="more"></span>
+
+<p>例如：</p>
+<ol>
+<li><a href="http://gohugo.io/" title="Hugo">Hugo</a></li>
+<li><a href="http://blog.getpelican.com/" title="Pelican">Pelican</a></li>
+</ol>
+<p>想知道更多 Blog framework 可以到下面的網站，先和大家說一聲，</p>
+<p>裡面的 framework 不全然都是 Statics blog framework。<br><a href="https://www.staticgen.com/">https://www.staticgen.com/</a></p>
+<hr>
+<h2 id="Part-1-進入-Hexo-安裝-初始化"><a href="#Part-1-進入-Hexo-安裝-初始化" class="headerlink" title="[Part 1] 進入 Hexo - 安裝 +　初始化"></a>[Part 1] 進入 Hexo - 安裝 +　初始化</h2><p>首先要安裝　Git 和 Nodejs，如果已經安裝可以略過。</p>
+<h3 id="安裝-Git"><a href="#安裝-Git" class="headerlink" title="安裝　Git"></a>安裝　Git</h3><ul>
+<li>Windows： 下載並安裝 <a href="https://git-scm.com/download/win" title="Git">Git</a></li>
+<li>Mac：XCode 內有 Git，如果無法使用可以用 <a href="http://mxcl.github.com/homebrew/" title="Homebrew">Homebrew</a> 或 <a href="http://sourceforge.net/projects/git-osx-installer/files/git-2.5.3-intel-universal-mavericks.dmg/download?use_mirror=autoselect" title="Git">Git</a> 下載並安裝</li>
+<li>Linux (Fedora, Red Hat, CentOS)： <code>sudo yum install git-core</code></li>
+<li>Linux (Ubuntu, Debian)： <code>sudo apt-get install git-core</code></li>
+</ul>
+<h3 id="安裝-Nodejs"><a href="#安裝-Nodejs" class="headerlink" title="安裝　Nodejs"></a>安裝　Nodejs</h3><p>下列兩個安裝方式，推薦使用 NVM 方式安裝</p>
+<ol>
+<li>NVM： <code>nvm install 0.12</code></li>
+<li>安裝檔： <a href="https://nodejs.org/en/blog/release/v0.12.7/">https://nodejs.org/en/blog/release/v0.12.7/</a></li>
+</ol>
+<h3 id="安裝-Hexo"><a href="#安裝-Hexo" class="headerlink" title="安裝　Hexo"></a>安裝　Hexo</h3><figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">npm install hexo-<span class="keyword">cli</span> -g</span><br></pre></td></tr></table></figure>
+
+<h3 id="開始架-Blog-切換資料夾-安裝套件"><a href="#開始架-Blog-切換資料夾-安裝套件" class="headerlink" title="開始架 Blog + 切換資料夾 + 安裝套件"></a>開始架 Blog + 切換資料夾 + 安裝套件</h3><figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">hexo init <span class="keyword">blog</span></span><br><span class="line"><span class="keyword"></span>cd <span class="keyword">blog</span></span><br><span class="line"><span class="keyword"></span>npm <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Hexo-Blog-設定-config-yml"><a href="#Hexo-Blog-設定-config-yml" class="headerlink" title="Hexo Blog 設定 ( _config.yml )"></a>Hexo Blog 設定 ( _config.yml )</h3><p>這檔案是設定頁面上基礎的資訊的設定，例如標題、Widget等。<br>正常會看到兩個 _config.yml 檔，一個在 <code>/blog</code> 下，另一個在 <code>/blog/themes/使用的樣版</code> 下<br>themes 可以在 &#x2F;blog&#x2F;_config.yml 設定，theme 可以到 <a href="https://hexo.io/themes/">https://hexo.io/themes/</a> 下載</p>
+<h3 id="使用-Hexo-Deploy-佈署"><a href="#使用-Hexo-Deploy-佈署" class="headerlink" title="使用 Hexo Deploy 佈署"></a>使用 Hexo Deploy 佈署</h3><p>Hexo 佈署的設定放在 blog&#x2F;_config.yml 的 deploy<br>目前提供 Git、Heroku、Rsync、OpenShift、FTPSync<br>要佈署的環境若不在上述 5 種，可以將 blog&#x2F;public 下的檔案複製到你的伺服器上。</p>
+<p>設定方式（以 Github 為例）：</p>
+<p>先安裝 <code>hexo-deployer-git</code>，並在 config 中設定佈署的相關內容。</p>
+<figure class="highlight handlebars"><table><tr><td class="code"><pre><span class="line"><span class="language-xml">deploy:</span></span><br><span class="line"><span class="language-xml">  type: git</span></span><br><span class="line"><span class="language-xml">  repo: git@github.com:你的 Github 帳號/專案名稱.git</span></span><br><span class="line"><span class="language-xml">  branch: gh-pages（沒有設定，系統會自動選其中一個分支當做佈署）</span></span><br><span class="line"><span class="language-xml">  message: &quot;自訂定 Commit 訊息&quot;（預設 Site updated: </span><span class="template-variable">&#123;&#123; <span class="name">now</span>(<span class="name">&#x27;YYYY-MM-DD HH:mm:ss&#x27;</span>) &#125;&#125;</span><span class="language-xml">）</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="佈署時不轉換特定-Markdown-檔-（以-README-md-為例）"><a href="#佈署時不轉換特定-Markdown-檔-（以-README-md-為例）" class="headerlink" title="佈署時不轉換特定 Markdown 檔 （以 README.md 為例）"></a>佈署時不轉換特定 Markdown 檔 （以 README.md 為例）</h3><p>只需要三個步驟既可完成</p>
+<ol>
+<li>blog&#x2F;source 新增 README.md ，執行 <code>hexo generate</code></li>
+<li>blog&#x2F;_config.yml 的 skip_render 加上 README.md</li>
+<li>最後執行 <code>hexo deploy</code> 之後在 github 在既可看到 README.md 的內容</li>
+</ol>
+<p><img src="/images/2015/10/11/DEPLOY_README.png" alt="DEPLOY README"></p>
+<p>如果要略過多個檔案或資料夾則 skip_render 改為</p>
+<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">skip_render</span><span class="punctuation">:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">README.md</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">images/**</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="增加-Read-more-按鈕"><a href="#增加-Read-more-按鈕" class="headerlink" title="增加 Read more 按鈕"></a>增加 Read more 按鈕</h3><p>在撰寫的文章中加入 <code>&lt;!--more--&gt;</code> 既可。</p>
+<h3 id="設定-Atom-x2F-RSS-feed-範例適用-Hexo-v3-X-版本"><a href="#設定-Atom-x2F-RSS-feed-範例適用-Hexo-v3-X-版本" class="headerlink" title="設定 Atom &#x2F; RSS feed ( 範例適用 Hexo v3.X 版本 )"></a>設定 Atom &#x2F; RSS feed ( 範例適用 Hexo v3.X 版本 )</h3><ol>
+<li><p>安裝 Hexo feed 套件</p>
+<ul>
+<li><code>npm install hexo-generator-feed --save</code></li>
+</ul>
+</li>
+<li><p>設定 feed 格式</p>
+<ul>
+<li>在 blog&#x2F;_config.yml 加上以下內容</li>
+</ul>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">feed:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">atom</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">atom.xml</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>執行 <code>hexo generate</code> 在 public 資料夾下既可看到 atom.xml</p>
+</li>
+<li><p>點擊 Atom &#x2F; RSS feed 後會顯示以下畫面<br> <img src="/images/2015/10/11/ATOM_FEED.png" alt="ATOM FEED"></p>
+</li>
+</ol>
+<h2 id="Part-2-Hexo-常用指令"><a href="#Part-2-Hexo-常用指令" class="headerlink" title="[Part 2] Hexo 常用指令"></a>[Part 2] Hexo 常用指令</h2><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>hexo server</code></td>
+<td>啟動 Server</td>
+</tr>
+<tr>
+<td><code>hexo clean</code></td>
+<td>清除產生的靜態網頁</td>
+</tr>
+<tr>
+<td><code>hexo generate -w</code></td>
+<td>產生靜態網頁並在檔案有變更就更新靜態網頁</td>
+</tr>
+<tr>
+<td><code>hexo new &#39;Title&#39;</code></td>
+<td>產生新貼文的 Markdown 檔</td>
+</tr>
+<tr>
+<td><code>hexo deploy</code></td>
+<td>佈署內容</td>
+</tr>
+</tbody></table>
+<h2 id="參照資料"><a href="#參照資料" class="headerlink" title="參照資料"></a>參照資料</h2><ol>
+<li><a href="https://hexo.io/">Hexo 官網</a></li>
+<li><a href="https://github.com/hexojs/hexo/issues/1146#issuecomment-88798481">如何不处理source目录下某个子目录的所有文件，仅仅是将其copy到public目录中对应目录？</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Deploy</tag>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Hexo] 加入 Disqus 讓 Blog多個留言功能</title>
+    <url>/zh-tw/2016-01-03-add-disqus-to-blog-by-hexo/</url>
+    <content><![CDATA[<h2 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h2><ol>
+<li>此篇以 Hexo 3 為範例，其他 Blog framework 可能不適用</li>
+<li>Blog 內至少有一篇文章才看得到 Disqus 的留言功能</li>
+<li>使用的 Hexo theme 為 landscape，其餘 theme 可能不適用</li>
+</ol>
+<hr>
+<h2 id="Disqus-是什麼"><a href="#Disqus-是什麼" class="headerlink" title="Disqus 是什麼"></a>Disqus 是什麼</h2><ul>
+<li>簡單的說明：整合型的留言板</li>
+<li>適合擁有多個 Blog 平臺的人</li>
+<li>看文章標題知道怎麼回文的人</li>
+<li>複雜的說明：Google 是你的好朋友，有很多相關資料</li>
+<li>提供一組關鍵字 「disqus + 什麼」</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="Disqus-註冊-設定"><a href="#Disqus-註冊-設定" class="headerlink" title="Disqus 註冊 + 設定"></a>Disqus 註冊 + 設定</h2><h3 id="Disqus-的首頁"><a href="#Disqus-的首頁" class="headerlink" title="Disqus 的首頁"></a>Disqus 的首頁</h3><p><a href="https://disqus.com/">Disqus 首頁</a></p>
+<h3 id="註冊帳號"><a href="#註冊帳號" class="headerlink" title="註冊帳號"></a>註冊帳號</h3><p>點 SignUp 註冊</p>
+<p><img src="/images/2016/01/03/signUp.png" alt="Singup"></p>
+<h3 id="設定留言板"><a href="#設定留言板" class="headerlink" title="設定留言板"></a>設定留言板</h3><ol>
+<li>點右上角 Setting</li>
+<li>點 Add Disqus To Site</li>
+<li>填入留言板名稱和 Shortname (專屬的留言板網址)</li>
+</ol>
+<ul>
+<li>Shortname 是紅色框起來的部分</li>
+<li>如果忘記 Shortname 晚一點會提</li>
+</ul>
+<p> <img src="/images/2016/01/03/reg.png" alt="Registered"></p>
+<h2 id="Hexo-設定-Disqus"><a href="#Hexo-設定-Disqus" class="headerlink" title="Hexo 設定 Disqus"></a>Hexo 設定 Disqus</h2><ol>
+<li>開啟 Blog 下的 _config.yml</li>
+<li>最後面新增 <figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="meta"># Disqus</span></span><br><span class="line"><span class="symbol">disqus_shortname:</span> 這裡填剛剛的 Shortname</span><br></pre></td></tr></table></figure></li>
+<li>推上 Github</li>
+</ol>
+<h2 id="忘記-Disqus-的-Shortname"><a href="#忘記-Disqus-的-Shortname" class="headerlink" title="忘記 Disqus 的 Shortname"></a>忘記 Disqus 的 Shortname</h2><ol>
+<li>點右上角 Setting 的 Admin<br> <img src="/images/2016/01/03/menu.png" alt="Menu"></li>
+<li>進入後點上方 Setup</li>
+<li>Site Identity 下的 Shortname 既是我們要的</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Blog</tag>
+        <tag>Disqus</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>package.json 裡版本號前的符號代表的意義</title>
+    <url>/zh-tw/2016-03-27-package-ampersand/</url>
+    <content><![CDATA[<h2 id="此說明適用在-Nodejs-的-package-json-和-Bower-io-的-bower-json"><a href="#此說明適用在-Nodejs-的-package-json-和-Bower-io-的-bower-json" class="headerlink" title="此說明適用在 Nodejs 的 package.json 和 Bower.io 的 bower.json"></a>此說明適用在 Nodejs 的 package.json 和 Bower.io 的 bower.json</h2><p><img src="/images/2016/03/27/VERSION_CONTROL.png" alt="Version control"></p>
+<span id="more"></span>
+
+<table>
+<thead>
+<tr>
+<th>符號</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>~</td>
+<td>安裝小版號的最新版。E.g. ~1.2.1，現在最新 1.3.0，1.2.X 最後的小版號是 8，此時只安裝 1.2.8，miss 1.3.0</td>
+</tr>
+<tr>
+<td>^</td>
+<td>安裝第 2 個數字下的最新號。E.g. ^1.2.1，現在最新 2.1.0，1.X.X 最後的版號是 1.7.3，此時只安裝 1.7.3</td>
+</tr>
+<tr>
+<td>*</td>
+<td>安裝最新版</td>
+</tr>
+</tbody></table>
+<p>從以上說明可以得到</p>
+<p><code>*</code> 包含 <code>^</code>，<code>^</code> 包含 <code>~</code></p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ol>
+<li><a href="http://stackoverflow.com/questions/22343224/difference-between-tilde-and-caret-in-package-json">Difference between tilde(~) and caret(^) in package.json</a></li>
+</ol>
+<hr>
+]]></content>
+      <tags>
+        <tag>Nodejs</tag>
+        <tag>Learn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>學習資源總整理</title>
+    <url>/zh-tw/2016-03-28-learning/</url>
+    <content><![CDATA[<h2 id="Web-資源"><a href="#Web-資源" class="headerlink" title="Web 資源"></a>Web 資源</h2><p><img src="/images/2016/03/28/LEARN-TODAY.jpg" alt="LEARN TODAY"></p>
+<h3 id="綜合"><a href="#綜合" class="headerlink" title="綜合"></a>綜合</h3><ol>
+<li><a href="https://www.gitbook.com/book/frontendmasters/front-end-handbook/details">前端開發工具整理（EN）</a></li>
+</ol>
+<ul>
+<li><a href="https://github.com/codylindley/frontend-tools">Github</a></li>
+</ul>
+<ol start="2">
+<li><a href="https://github.com/AutumnsWind/Front-end-tutorial">最全的資源教程-前歲及的所有知識體系（zh-CN）</a></li>
+<li><a href="https://github.com/souche/F2E-Morning-Reading">前端早讀課搜車版（zh-CN）</a></li>
+</ol>
+<ul>
+<li>souch 的每日早讀記錄，以 issue 方式記錄</li>
+</ul>
+<span id="more"></span>
+
+<h3 id="ECMAScript"><a href="#ECMAScript" class="headerlink" title="ECMAScript"></a>ECMAScript</h3><ol>
+<li><a href="http://es6.ruanyifeng.com/">ECMAScript 6入門（zh-CN）</a></li>
+</ol>
+<ul>
+<li><a href="https://github.com/ruanyf/es6tutorial">Github</a></li>
+</ul>
+<ol start="2">
+<li><a href="https://github.com/DrkSephy/es6-cheatsheet">ECMAScript 6範例實作（EN）</a></li>
+</ol>
+<ul>
+<li><a href="https://github.com/DrkSephy/es6-cheatsheet/blob/master/README_zhCn.md">zh-CN</a></li>
+</ul>
+<ol start="3">
+<li><a href="http://www.jstips.co/">JS Tips（EN）</a></li>
+</ol>
+<ul>
+<li>一天一個 ECMAScript 使用技巧</li>
+<li><a href="http://www.jstips.co/zh_TW/">zh-TW</a></li>
+<li><a href="http://www.jstips.co/zh_CN/">zh-CN</a></li>
+<li><a href="https://github.com/loverajoel/jstips">Github（EN）</a></li>
+</ul>
+<h3 id="Angular"><a href="#Angular" class="headerlink" title="Angular"></a>Angular</h3><ol>
+<li><a href="https://github.com/mgechev/angular2-style-guide">Angular2 開發指南（EN）</a></li>
+<li><a href="https://github.com/gf-rd/blog/issues/21">廣發證券技術博客-Angular2 開發指南（zh-CN）</a></li>
+</ol>
+<h3 id="Nodejs"><a href="#Nodejs" class="headerlink" title="Nodejs"></a>Nodejs</h3><ol>
+<li><a href="https://github.com/dthree/vorpal">Vorpal（EN）</a></li>
+</ol>
+<ul>
+<li>互動式 CLI</li>
+</ul>
+<h3 id="ZMQ"><a href="#ZMQ" class="headerlink" title="ZMQ"></a>ZMQ</h3><ol>
+<li><a href="https://github.com/anjuke/zguide-cn">ZMQ 指南（zh-CN）</a></li>
+</ol>
+<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><ol>
+<li><a href="https://github.com/gitready/gitready">Git Ready（EN）</a></li>
+</ol>
+<ul>
+<li>將 Git 指令分成簡單、一般、進階，有利學習 Git</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Learn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>主動對搜尋引擎出擊，讓辛苦完成的網站加入被搜尋的行列</title>
+    <url>/zh-tw/2016-04-16-add-url-to-search-engine/</url>
+    <content><![CDATA[<h2 id="讓全世界看到這個網站"><a href="#讓全世界看到這個網站" class="headerlink" title="讓全世界看到這個網站"></a>讓全世界看到這個網站</h2><p><img src="/images/2016/04/16/ATTACK.jpg" alt="ATTACK"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>開心的完成 <a href="https://blog.ivanwei.co/" title="我的 Blog">我的 Blog</a> 後到 <a href="https://www.google.com.tw/" title="Google">Google</a> 查詢，不論關鍵字怎麼下都找不到 Blog 任何資訊，最後使出畢生所學對 Google 大神下 <code>site:ivanwei.co</code> 還是得到 0 筆資料！</p>
+<span id="more"></span>
+
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>查了才知道 <a href="https://www.google.com.tw/" title="Google">Google</a> 、<a href="https://www.bing.com/" title="Bing">Bing</a> 等知名搜尋引擎的內容是每天透過機器人爬出來並放入搜尋引擎索引。換言之，<a href="https://blog.ivanwei.co/" title="我的 Blog">我的 Blog</a> 還沒被機器人找到，所以搜尋不到。</p>
+<p>因此我決定主動告訴機器人，「有一個新的網址和網域，請放進 <a href="https://www.google.com.tw/" title="Google">Google</a> 搜尋索引的資料內」。</p>
+<h2 id="開始動手"><a href="#開始動手" class="headerlink" title="開始動手"></a>開始動手</h2><h3 id="4-個步驟讓搜尋結果從-0-變成大於-0"><a href="#4-個步驟讓搜尋結果從-0-變成大於-0" class="headerlink" title="4 個步驟讓搜尋結果從 0 變成大於 0"></a>4 個步驟讓搜尋結果從 0 變成大於 0</h3><ol>
+<li>開啟 <a href="https://www.google.com/webmasters/tools/submit-url" title="Search Console">Search Console</a> 的頁面<br>  <img src="/images/2016/04/16/SEARCH-CONSOLE.png" alt="SEARCH CONSOLE"></li>
+<li>網址輸入此次新增網址，例如 <code>https://blog.ivanwei.co</code></li>
+<li>身份驗證</li>
+<li>送出要求</li>
+</ol>
+<p>完成後在 <a href="https://www.google.com.tw/" title="Google">Google</a> 搜尋 <code>site:此次新增的網址（別照打）</code> 查詢的結果會從 0 變成大於 0！</p>
+<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><p>這篇以 Google 為例，因此設定完在 Bing、百度 等知名搜尋引尋依舊有可能會查不到。此時處理方式一樣有 2，等待或主動告知。</p>
+<p>關鍵字下 <code>bing(這裡換成搜尋引擎名稱) search submit</code> 就可以找到，通常是搜尋結果的第一筆。</p>
+<p>如果想讓網站在搜尋結果第一頁顯示，這部分屬於 SEO 優化，相關資料可以網路上找找，我也會慢慢把學習筆記放上來。</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ol>
+<li><a href="https://www.pkthink.com/knowledge-info.asp?id=4" title="我的網站已經上線了，為什麼還是搜尋不到？">我的網站已經上線了，為什麼還是搜尋不到？</a></li>
+<li><a href="https://support.google.com/webmasters/answer/182072?hl=zh-Hant" title="Googlebot">Googlebot 自動尋檢程式</a></li>
+<li><a href="https://www.bing.com/toolbox/submit-site-url">Bing - Submit your Site to Bing</a></li>
+<li><a href="https://zhanzhang.baidu.com/linksubmit/url" title="链接提交_站长工具_优化PC和移动搜索收录_百度站长平台">链接提交_站长工具_优化PC和移动搜索收录_百度站长平台</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Learn</tag>
+        <tag>SEO</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安裝 Fish shell 與 NVM</title>
+    <url>/zh-tw/2016-06-07-bash-to-fish/</url>
+    <content><![CDATA[<h2 id="玩過-Bash，抓-Fish-去"><a href="#玩過-Bash，抓-Fish-去" class="headerlink" title="玩過 Bash，抓 Fish 去"></a>玩過 Bash，抓 Fish 去</h2><p><img src="/images/2016/06/07/FISH_SHELL_LOGO.png" alt="Fish Shell Logo"></p>
+<h2 id="何為-Fish-shell"><a href="#何為-Fish-shell" class="headerlink" title="何為 Fish shell"></a>何為 Fish shell</h2><p>fish 是一個 Unix shell ， friendly interactive shell 的縮寫，專注於互動應用、易用性和友好的使用者體驗，其設計目的是通過容易發現，記住和使用的方式為使用者提供一套豐富、強大的功能。<br>fish 於2005年在GNU通用公眾授權條款條款下正式釋出，是一款自由軟體。</p>
+<span id="more"></span>
+
+<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><ul>
+<li>2017.01.28<ol>
+<li>新增 Facebook Yarn 可能導致 NVM 失效與解決方式<br> <img src="/images/2016/06/07/YARN-KITTEN-FULL.png" alt="Fish Shell Logo"></li>
+<li>調整文章內的部分排版</li>
+</ol>
+</li>
+<li>2016.06.28<ol>
+<li>更新移除 Oh My Fish 和 fisherman 的方法</li>
+<li>調整 Oh My Fish 和 fisherman 的比較方式</li>
+<li>新增 fisherman 官方回應 nvm 重啟後沒有載入 Global 套件的原因與解決方法</li>
+</ol>
+</li>
+</ul>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>玩過兩年的 Bash shell 跳槽 Fish shell 有三個主要原因：</p>
+<ol>
+<li>想換個口味</li>
+<li>小眾市場 + Open source</li>
+<li>比 Bash shell 更友善操作，如省略大小字、上下選擇等</li>
+</ol>
+<h2 id="更新-1"><a href="#更新-1" class="headerlink" title="更新"></a>更新</h2><p>2016-06-09 Fisherman 取代 Oh My Fish</p>
+<h2 id="安裝-Fish-shell"><a href="#安裝-Fish-shell" class="headerlink" title="安裝 Fish shell"></a>安裝 Fish shell</h2><p>Mac 有三種安裝方式，建議使用第一種方式安裝</p>
+<ol>
+<li>執行 <code>brew install fish</code></li>
+<li>下載 <a href="https://fishshell.com/files/2.3.0/fish-2.3.0.pkg" title="Installer">Installer</a> 安裝</li>
+<li>下載 <a href="https://fishshell.com/files/2.3.0/fish.app.zip" title="Fish shell app">Fish shell app</a></li>
+</ol>
+<p>其他作業系統可以到 <a href="https://fishshell.com/#platform_tabs" title="Fish shell 官網">Fish shell 官網</a> 找到對應的安裝方式</p>
+<h2 id="調整預設執行的-Shell"><a href="#調整預設執行的-Shell" class="headerlink" title="調整預設執行的 Shell"></a>調整預設執行的 Shell</h2><p>執行 <code>chsh -s /usr/local/bin/fish</code> ，重啟 Terminal 可以看到執行畫面變成底下這樣</p>
+<p><img src="/images/2016/06/07/FISH_SHELL.png" alt="Fish Shell"></p>
+<p>如果要切換回 Bash shell，執行 <code>chsh -s /bin/bash</code> 重啟 Terminal 既可。</p>
+<h2 id="安裝-Fish-Shell-插件管理"><a href="#安裝-Fish-Shell-插件管理" class="headerlink" title="安裝 Fish Shell 插件管理"></a>安裝 Fish Shell 插件管理</h2><blockquote>
+<p>可以略過，沒有安裝也可以正常使用 Fish shell</p>
+</blockquote>
+<p>什麼是 <a href="https://github.com/oh-my-fish/oh-my-fish" title="Oh My Fish">Oh My Fish</a> &#x2F; <a href="http://fisherman.sh/" title="fisherman">fisherman</a> 呢？它就像 Oh my zsh 之於 Zsh shell，提供 Fish Shell 更多的 Theme、Framework 等。</p>
+<p>Oh My Fish 與 fisherman 選擇哪一個安裝呢？以下我做一個簡易的分類</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> Oh My Fish： 能接受開啟 Terminal 速度慢 + 安裝 plugin 既可使用</span><br><span class="line"><span class="bullet">    -</span> 安裝</span><br><span class="line"><span class="bullet">        1.</span> 執行 <span class="code">`curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish`</span></span><br><span class="line"><span class="bullet">        2.</span> 執行 <span class="code">`omf help`</span>，是否沒有出現錯誤訊息</span><br><span class="line"><span class="bullet">    -</span> 移除</span><br><span class="line"><span class="bullet">        1.</span> 執行 <span class="code">`omf destroy`</span></span><br><span class="line"><span class="bullet">-</span> fisherman： 要速度且知道如何兼容性問題</span><br><span class="line"><span class="bullet">    -</span> 安裝</span><br><span class="line"><span class="bullet">        1.</span> 執行 <span class="code">`curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher`</span></span><br><span class="line"><span class="bullet">        2.</span> 重啟 Terminal</span><br><span class="line"><span class="bullet">    -</span> 移除</span><br><span class="line"><span class="bullet">        1.</span> 執行 <span class="code">`fisher ls | fisher rm`</span>，移除所有 fisher 已安裝的套件</span><br><span class="line"><span class="bullet">        2.</span> 執行 <span class="code">`fisher self-uninstall`</span></span><br><span class="line"><span class="bullet">    -</span> 其他</span><br><span class="line"><span class="bullet">        1.</span> 發生 git<span class="emphasis">_is_</span>repo 錯誤，安裝 <span class="code">`fisher git_util`</span> 既可解決</span><br></pre></td></tr></table></figure>
+
+<p>fisherman 與 Oh My Fish 的比較：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>fisherman</th>
+<th>Oh My Fish</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>載入速度</td>
+<td>勝</td>
+<td></td>
+<td>fisherman 使用 function 方式載入 plugin，<br>Oh My Fish 則在開啟 Terminal 時載入所有<br>安裝的 plugin</td>
+</tr>
+<tr>
+<td>套件資源</td>
+<td></td>
+<td>勝</td>
+<td>fisherman 除自身的 plugins 外，也能夠安裝 <br>Oh My Fish 所有 plugins，但可能需要安裝<br>其他 plugin 才可正常使用</td>
+</tr>
+</tbody></table>
+<h2 id="安裝-NVM"><a href="#安裝-NVM" class="headerlink" title="安裝 NVM"></a>安裝 NVM</h2><p>這段主要提供給在開發 Node.js 又想使用 Fish shell 的朋友們。</p>
+<p>特別提醒一點 <a href="https://github.com/Alex7Kom/nvm-fish#user-content-install-script" title="nvm-fish">nvm-fish</a> 作者已沒有再更新，雖然 <code>NVM</code> 可以正常安裝 node，<br>但會抓不到 <code>NPM</code> 指令。</p>
+<ul>
+<li><p>只安裝 Fish shell</p>
+<ol>
+<li><a href="https://github.com/passcod/nvm-fish-wrapper#user-content-installing" title="NVM fish wrapper">NVM fish wrapper</a>，照上面依序執行既可</li>
+</ol>
+</li>
+<li><p>Oh My Fish 版</p>
+<ol>
+<li>執行 <code>omf install nvm</code>，安裝 <a href="https://github.com/derekstavis/plugin-nvm" title="plugin-nvm">plugin-nvm</a></li>
+</ol>
+</li>
+<li><p>fisherman 版 (2 ~ 4 步驟參照 <a href="https://github.com/passcod/nvm-fish-wrapper#user-content-installing" title="NVM fish wrapper">NVM fish wrapper</a>)</p>
+<ol>
+<li>執行 <code>brew install nvm</code></li>
+<li>執行 <code>mkdir ~/.nvm</code></li>
+<li>執行 <code>ln -s (brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh</code></li>
+<li>執行 <code>fisher nvm</code>，會安裝 edc&#x2F;bass 和 fisherman&#x2F;nvm</li>
+</ol>
+</li>
+<li><p>使用 fisherman 的小提醒</p>
+<ul>
+<li>使用 <code>npm install -g</code> 安裝的套件，重啟 Terminal 後會失效，暫時解法是下 <code>npm</code> 既可。推測是因為 fisherman 摘用 function 載入造成重啟失效。</li>
+<li>承上 <a href="https://github.com/fisherman/nvm/issues/3" title="fisherman 官方回應">fisherman 官方回應</a>，原因是 fisherman 使用 function 方式載入導致 <code>npm</code> 屬於被動觸發，而 fisherman 正是以此方法取得快速開啟 fish shell 的效果。如果仍希望使用 fisherman 又希望能一開啟就取得 Global 的套件，可以連到 <a href="https://github.com/fisherman/nvm/issues/3" title="fisherman 官方回應">fisherman 官方回應</a> 裡面有說明解決方法。</li>
+</ul>
+</li>
+</ul>
+<h3 id="NVM-與-NPM-資訊補充包"><a href="#NVM-與-NPM-資訊補充包" class="headerlink" title="NVM 與 NPM 資訊補充包"></a>NVM 與 NPM 資訊補充包</h3><ol>
+<li>其他 Fish 安裝 NVM 的方式可以到 <a href="https://github.com/creationix/nvm" title="NVM">NVM</a> 的 Github 上找到。</li>
+<li>若使用 Facebook 的 <a href="https://yarnpkg.com/">Yarn</a> ，強烈建議使用 <code>npm install yarn -g</code> 安裝，而非官方手冊寫得透過 Homebrew 的方式，原因是我用 Homebrew 的方式安裝過 Yarn 兩個版本（0.17.8 與 0.19.1），安裝 0.17.8 版本時一切正常，但安裝到 0.19.1 版本會發現 Homebrew 在安裝 Yarn 之前會另外安裝 node 最新的版本，而這個動作會導致原本使用的 NVM 失效（此時移除 Yarn 也無效，因為此時的 node 已經和 NVM 沒有關係）。<br> － 若已經透過 Homebrew 安裝到 0.19.1 版本並想移除，可以下 <code>brew uninstall yarn node nvm</code> ，然而再重新安裝 NVM <code>brew install nvm</code> ，此時 NVM 就回來了！</li>
+</ol>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ol>
+<li><a href="https://nodejust.com/fish-shell-zsh/" title="比 Zsh 比好用的 Shell：Fish Shell 介紹與安裝">比 Zsh 比好用的 Shell：Fish Shell 介紹與安裝</a></li>
+<li><a href="http://blog.just4fun.site/from-zsh-to-fish.html" title="从zsh切换到fish">从zsh切换到fish</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/Fish" title="fish shell wiki">fish shell wiki</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Nodejs</tag>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>喝杯 Mocha 輕鬆打造 Node.js 的 TDD 生產線</title>
+    <url>/zh-tw/2016-07-25-getting-started-with-expressjs/</url>
+    <content><![CDATA[<h2 id="一群人協作就是要測試一下"><a href="#一群人協作就是要測試一下" class="headerlink" title="一群人協作就是要測試一下"></a>一群人協作就是要測試一下</h2><p><img src="/images/2016/07/25/TESTING-123.png" alt="測試 測試 123"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在公司導入 TDD，因此將這段程過記錄免得未來不記得怎麼設定。</p>
+<p>先說我很愛 TDD (<a href="https://zh.wikipedia.org/wiki/%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91" title="Test-driven development">Test-driven development</a>)，簡單幾點原因：</p>
+<ol>
+<li>簡單化 - 執行對應指令既可確認 API 輸出入的正確性</li>
+<li>清單化 - 每寫一個測試 &#x3D; Checklist 多一個確認項目</li>
+<li>可重覆使用</li>
+</ol>
+<p>基於以上 3 點再撘配 <a href="http://gruntjs.com/" title="Grunt">Grunt</a>、<a href="http://gulpjs.com/" title=" Gulp">Gulp</a>、<a href="https://webpack.github.io/" title="Webpack">Webpack</a> 做流程的控管，過去許多煩雜的事情都變得如此簡單，例如要 <a href="http://eslint.org/" title="ESLint">ESLint</a> 檢查 code，通過再進行測試 API，最後產出 API 文件。</p>
+<p>事前說明：</p>
+<ol>
+<li>本篇使用 <a href="https://mochajs.org/" title="Mocha">Mocha</a> 實作 TDD</li>
+<li>在公司分享的簡報連結放在文中最後的參考資料，需要的請內取</li>
+</ol>
+<span id="more"></span>
+
+<h2 id="開始手動"><a href="#開始手動" class="headerlink" title="開始手動"></a>開始手動</h2><h3 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h3><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><ol>
+<li>執行 <code>npm init</code></li>
+<li>執行 <code>npm install --save express</code></li>
+<li>執行 <code>npm install --save-dev supertest should</code></li>
+<li>執行 <code>npm install -g mocha</code></li>
+</ol>
+<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><ol>
+<li>執行 <code>git clone https://github.com/IvanWei/tdd-example-express.git</code></li>
+<li>執行 <code>npm install</code></li>
+<li>執行 <code>npm install -g mocha</code></li>
+</ol>
+<h3 id="架-express-Server"><a href="#架-express-Server" class="headerlink" title="架 express Server"></a>架 express Server</h3><ol>
+<li>在根目錄新增一個 app.js 並將下面程式碼貼上後存儲</li>
+</ol>
+  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&#x27;Hello World!&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">http.<span class="title function_">createServer</span>(app)</span><br><span class="line">.<span class="title function_">listen</span>(<span class="number">3000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Example app listening on port 3000!&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>執行 <code>node app.js</code> 可以 Terminal 上可以看到下面的畫面，此時瀏覽器連 <code>localost:3000</code> 可以看見 Hello World! 既表示 HTTP 連線正確</li>
+</ol>
+<h3 id="設定-mocha"><a href="#設定-mocha" class="headerlink" title="設定 mocha"></a>設定 mocha</h3><ol>
+<li>新增存放測試檔案的資料夾</li>
+</ol>
+<ul>
+<li>Demo 將其存放在 <code>./test/spec</code> 裡，之後範例都會以這為主要路徑</li>
+<li>沒建立過，可以下 <code>mkdir -p ./test/spec</code> 幫忙建立</li>
+</ul>
+<ol start="2">
+<li>在 <code>./test</code> 新增 <code>mocha.opts</code></li>
+<li>設定 Timeout 時間、啟動時預先載入的 Library、app.js 等，以下是 Demo 的設定</li>
+</ol>
+  <figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="params">--timeout</span> 500000</span><br><span class="line"><span class="params">--require</span> should</span><br><span class="line"><span class="params">--reporter</span> spec</span><br><span class="line"><span class="params">--ui</span> bdd</span><br><span class="line"><span class="params">--recursive</span> <span class="string">./app.js</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>ui 採用 bdd 方式撰寫以使用情境為出發點，此處也可以換成 tdd，但接下來的 Demo 會以 bdd 方式進行</li>
+</ul>
+<h3 id="寫個測試試試"><a href="#寫個測試試試" class="headerlink" title="寫個測試試試"></a>寫個測試試試</h3><ol>
+<li>設一個 Object 內容如下</li>
+</ol>
+  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> contents = &#123;</span><br><span class="line">  <span class="attr">string</span>: <span class="string">&#x27;測試&#x27;</span>,</span><br><span class="line">  <span class="attr">number</span>: <span class="number">100</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>測試條件如下，比對 contents 的型態和裡面的內容</li>
+</ol>
+  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">describe</span>(<span class="string">&#x27;contents is an Object,&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">it</span>(<span class="string">&#x27;contents have string and number fields.&#x27;</span>, <span class="function">(<span class="params">done</span>) =&gt;</span> &#123;</span><br><span class="line">    contents.<span class="property">should</span>.<span class="property">be</span>.<span class="property">an</span>.<span class="title class_">Object</span>();</span><br><span class="line">    contents.<span class="property">should</span>.<span class="property">have</span>.<span class="title function_">keys</span>(<span class="string">&#x27;string&#x27;</span>, <span class="string">&#x27;number&#x27;</span>);</span><br><span class="line">    contents.<span class="property">string</span>.<span class="property">should</span>.<span class="property">be</span>.<span class="title class_">String</span>();</span><br><span class="line">    contents.<span class="property">string</span>.<span class="property">should</span>.<span class="property">be</span>.<span class="title function_">equal</span>(<span class="string">&#x27;測試&#x27;</span>);</span><br><span class="line">    contents.<span class="property">number</span>.<span class="property">should</span>.<span class="property">be</span>.<span class="title class_">Number</span>().<span class="property">and</span>.<span class="title function_">equal</span>(<span class="number">100</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">done</span>();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>執行 mocha 測試</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mocha test/spec/demo.spec.js</span><br></pre></td></tr></table></figure>
+
+<p>  執行完畢後會看到下面成功畫面</p>
+<p>  <img src="/images/2016/07/25/TDD-SIMPLE-SUCCESS.png" alt="範列 TDD 成功"></p>
+<ol start="4">
+<li>再來將 contents 的 number 改個值</li>
+</ol>
+  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> contents = &#123;</span><br><span class="line">  <span class="attr">string</span>: <span class="string">&#x27;測試&#x27;</span>,</span><br><span class="line">  <span class="attr">number</span>: <span class="number">90</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>再執行一次 mocha 進行測試，此時會看見 mocha 回傳的錯誤畫面</li>
+</ol>
+<p>  <img src="/images/2016/07/25/TDD-SIMPLE-FAILED.png" alt="範列 TDD 失敗"></p>
+<p>以上就完成基本 mocha 的 TDD 測試。</p>
+<p>如果要測試 Sequelize.js 和其他 Server 端的服務，測試方式和前面教得雷同，將上面的 contents 改為回傳的 result 即可。<br>接下來說明接口 API 的測試方式</p>
+<h2 id="API-測試"><a href="#API-測試" class="headerlink" title="API 測試"></a>API 測試</h2><ol>
+<li>安裝 supertest</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install --save-dev supertest</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>app.js 加入 supertest，並設為 global</li>
+</ol>
+  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"><span class="variable language_">global</span>.<span class="property">request</span> = <span class="built_in">require</span>(<span class="string">&#x27;supertest&#x27;</span>); <span class="comment">//不必在每個檔案都 require 一次</span></span><br><span class="line">request = <span class="title function_">request</span>(<span class="string">&#x27;http://localhost:&#x27;</span> + process.<span class="property">env</span>.<span class="property">PORT</span>); <span class="comment">// 設定 API 前面的主機位置</span></span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&#x27;Hello World!&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">http.<span class="title function_">createServer</span>(app)</span><br><span class="line">.<span class="title function_">listen</span>(<span class="number">3000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Example app listening on port 3000!&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>test&#x2F;spec&#x2F;demo.spec.js 加入 API 的測試</li>
+</ol>
+  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">describe</span>(<span class="string">&#x27;Test API,&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">it</span>(<span class="string">&#x27;Demo.&#x27;</span>, <span class="function">(<span class="params">done</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">    request.<span class="title function_">get</span>(<span class="string">&#x27;/demo&#x27;</span>).<span class="title function_">end</span>(<span class="function">(<span class="params">err, res</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="title function_">done</span>(err); <span class="comment">// 與 Server 相關錯誤</span></span><br><span class="line">      <span class="keyword">if</span> (res.<span class="property">statusCode</span> !== <span class="number">200</span>) <span class="keyword">return</span> <span class="title function_">done</span>(res.<span class="property">body</span>); <span class="comment">// 與 API 有關的錯誤</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">const</span> result = res.<span class="property">body</span>;</span><br><span class="line"></span><br><span class="line">      result.<span class="property">should</span>.<span class="property">be</span>.<span class="title class_">Object</span>();</span><br><span class="line">      result.<span class="property">should</span>.<span class="property">have</span>.<span class="title function_">keys</span>(<span class="string">&#x27;message&#x27;</span>);</span><br><span class="line">      result.<span class="property">message</span>.<span class="property">should</span>.<span class="property">be</span>.<span class="title function_">equal</span>(<span class="string">&#x27;Use API!&#x27;</span>);</span><br><span class="line">      <span class="keyword">return</span> <span class="title function_">done</span>();</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>執行 mocha 測試，這次會多一個 API 的測試結果</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mocha test/spec/demo.spec.js</span><br></pre></td></tr></table></figure>
+
+<p>  註：API 測試和實際前端送 request 的方式相同，主要歸功於 <a href="https://github.com/visionmedia/supertest" title="supertest">supertest</a>。</p>
+<p>  <img src="/images/2016/07/25/TDD-SIMPLE-API-SUCCESS.png" alt="API 測試"></p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ol>
+<li><a href="http://joe-dev.blogspot.tw/2014/06/tdd-is-dead.html" title="懶人包：TDD is Dead 戰文總整理">懶人包：TDD is Dead 戰文總整理</a></li>
+<li><a href="http://www.slideshare.net/Ivan_wei/getting-started-with-tdd-63869156" title="Getting started with TDD  (公司分享的簡報)">Getting started with TDD (公司分享的簡報)</a></li>
+<li><a href="https://thewayofcode.wordpress.com/2013/04/21/how-to-build-and-test-rest-api-with-nodejs-express-mocha/" title="How to build and test your Rest API with Node.js, Express and Mocha ...">How to build and test your Rest API with Node.js, Express and Mocha …</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Nodejs</tag>
+        <tag>Learn</tag>
+        <tag>Testing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安裝 RVM 輕鬆跳躍在每個版本間</title>
+    <url>/zh-tw/2016-08-15-getting-started-with-rvm/</url>
+    <content><![CDATA[<p><img src="/images/2016/08/15/RVM-LOGO.png" alt="遇見 紅寶貝(Ruby) 群"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><a href="https://rvm.io/" title="Ruby Version Manager(RVM)">Ruby Version Manager(RVM)</a> 是 Ruby 的一種版本管理工具，功能與我熟悉的 <a href="https://github.com/creationix/nvm" title="Node Version Manager(NVM)">Node Version Manager(NVM)</a>  相同，可以輕鬆在各個版本間做切換。</p>
+<p>需要 Ruby 的原因有兩個</p>
+<ol>
+<li>安裝 <a href="http://compass-style.org/" title="Compass">Compass</a> 需要</li>
+<li>以後跳進 Ruby 時方便</li>
+</ol>
+<span id="more"></span>
+
+<h2 id="OSX-安裝-RVM"><a href="#OSX-安裝-RVM" class="headerlink" title="OSX 安裝 RVM"></a>OSX 安裝 RVM</h2><h3 id="Bash-Shell"><a href="#Bash-Shell" class="headerlink" title="Bash Shell"></a>Bash Shell</h3><ol>
+<li>執行 <code>curl -sSL https://get.rvm.io | bash -s stable</code></li>
+<li>執行 <code>rvm</code> 測試是否安裝正確</li>
+</ol>
+<h3 id="Fish-Shell"><a href="#Fish-Shell" class="headerlink" title="Fish Shell"></a>Fish Shell</h3><ol>
+<li>執行 <code>curl -sSL https://get.rvm.io | bash -s stable</code></li>
+<li>執行 <code>omf install rvm</code>，跳出 omf 的錯誤請安裝 Oh My Fish，安裝教學可以到我之前寫的 <a href="https://blog.ivanwei.co/2016/06/07/2016-06-07-bash-to-fish/#%E5%AE%89%E8%A3%9D-Fish-Shell-%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86" title="安裝 Fish shell 與 NVM">安裝 Fish shell 與 NVM</a> 教學文的「插件管理」了解</li>
+<li>執行 <code>rvm</code> 測試是否安裝正確</li>
+</ol>
+<h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>rvm list</code></td>
+<td>列出本機已安裝的版本</td>
+</tr>
+<tr>
+<td><code>rvm list known</code></td>
+<td>列出 RVM 已知的 Ruby 版本</td>
+</tr>
+<tr>
+<td><code>rvm install X.X.X</code></td>
+<td>安裝 Ruby X.X.X 版</td>
+</tr>
+<tr>
+<td><code>rvm use X.X.X</code></td>
+<td>切換到 X.X.X 版</td>
+</tr>
+<tr>
+<td><code>rvm use X.X.X  --default</code></td>
+<td>設定成默許啟動的版本號</td>
+</tr>
+<tr>
+<td><code>rvm remove X.X.X</code></td>
+<td>移除 X.X.X 版</td>
+</tr>
+</tbody></table>
+<h2 id="常見問題"><a href="#常見問題" class="headerlink" title="常見問題"></a>常見問題</h2><ol>
+<li>執行 rvm 跳出 <code>/var/folders/...: shell_session_update: command not found</code></li>
+</ol>
+<ul>
+<li>執行 <code>rvm get head</code>，更新 RVM</li>
+</ul>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ol>
+<li><a href="https://rvm.io/" title="RVM">RVM</a></li>
+<li><a href="http://superuser.com/questions/1044130/why-am-i-having-how-can-i-fix-this-error-shell-session-update-command-not-f" title="shell_session_update: command not found">RVM 跳 shell_session_update: command not found</a></li>
+<li><a href="https://ruby-china.org/wiki/rvm-guide" title="Ruby China RVM 手冊">Ruby China RVM 手冊</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Learn</tag>
+        <tag>Shell</tag>
+        <tag>Ruby</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>做個 Line Bot 來玩玩</title>
+    <url>/zh-tw/2017-01-02-use-line-messaging-api/</url>
+    <content><![CDATA[<p><img src="/images/2017/01/02/LINE-MESSAGING-API.png" alt="Line Bot With Line Messaging API"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Bot 已成為一門顯學，從 Telegram 、 Facebook 、 Skype 、 Slack 到 Line 釋出相關的 API 給開發者。翻翻各家 API 都可以發現 Bot 說穿是釋出各家 Chat 的 API 接口 + Webhooks 攔截 User Request 後進行轉發，說穿這門技術就現今而言門檻很低。</p>
+<span id="more"></span>
+
+<h3 id="為何選-Line-Bot"><a href="#為何選-Line-Bot" class="headerlink" title="為何選 Line Bot"></a>為何選 Line Bot</h3><p>市占率與 APP 的定位！</p>
+<ul>
+<li>市占率<br>  在臺灣應該是成現 Line &gt; Facebook Messenger &gt; Slack &gt;&#x3D; Telegram &#x2F; Skype ，因此為了之後辦活動時可以使用， Line 就很理成章成了最佳選擇。</li>
+<li>定位<ul>
+<li>Slack：加速團隊溝通，減少訊息的等待空窗期</li>
+<li>Telegrame：和 Line 定位相近，主打安全性，在 Line 還沒為訊息加密時，它一開始就是加密，不過 <a href="http://technews.tw/2016/08/03/the-super-security-telegram-is-hacked-user-should-use-two-factor-authentication/">8 月爆出被駭</a>)</li>
+<li>Messenger Platform：一樣使用 Facebook Messenger ，不過主要是供 Fans Page 使用，其服務對象是粉絲對 Fans Page 發訊息</li>
+<li>Skype：通話是 Skype 的價值核心</li>
+</ul>
+</li>
+</ul>
+<h2 id="Line-Bot-實作注意事項"><a href="#Line-Bot-實作注意事項" class="headerlink" title="Line Bot 實作注意事項"></a>Line Bot 實作注意事項</h2><ol>
+<li>Line Bot API 在今年做了一次大改版，舊版的 <a href="https://developers.line.me/bot-api/overview">Bot API</a> 已被放進汰除名單，取而代之是 <a href="https://developers.line.me/messaging-api/overview">Message API</a> ，別使用到舊得 API 。</li>
+<li>實作 Framework 使用 Koa@2 + Babel (為了 async&#x2F;await )</li>
+</ol>
+<h2 id="Line-Bot-帳號申請"><a href="#Line-Bot-帳號申請" class="headerlink" title="Line Bot 帳號申請"></a>Line Bot 帳號申請</h2><ol>
+<li>到 <a href="https://business.line.me/">Line Business</a> 登入<br> <img src="/images/2017/01/02/LINE-BUSINESS-WEBSITE.jpg" alt="Line Business 畫面"></li>
+<li>輸入 Line 的 Email 與密碼，手機要準備好，登入時需要在 Line APP 上輸入驗證碼<br> <img src="/images/2017/01/02/LOGIN-LINE-BY-WEBSITE.png" alt="登入 Line"></li>
+<li>新增公司，因為 Line Messaging API 需要綁在公司下<br> <img src="/images/2017/01/02/REGISTER-A-COMPANY.png" alt="新增公司資料"></li>
+<li>建立商用帳號<br> <img src="/images/2017/01/02/CREATE-LINE-BOT-OF-COMPANY.png" alt="建立 Line Bot 的商用帳號"></li>
+<li>Messaging API 選 開始使用Messaging API 或開始使用Developer Trial<ul>
+<li>回應功能： 開始使用 <strong>Messaging API</strong></li>
+<li>回應 + 主動推訊息： 開始使用 <strong>Developer Trial</strong><br> <img src="/images/2017/01/02/APPLY-MESSGING-API.png" alt="選擇申請的 Messaging API 權限"></li>
+</ul>
+</li>
+<li>建立 Line Bot 帳號<br> <img src="/images/2017/01/02/LINE-LINE-BOT-DATA.png" alt="填寫 Line Bot 資料"></li>
+<li>前進 LINE@MESSAGER<br> <img src="/images/2017/01/02/GO-LINE-MESSAGER.png" alt="LINE@MESSAGER"></li>
+<li>開始使用 API<br> <img src="/images/2017/01/02/USE-API.png" alt="開啟 Messging API 的注意需知"></li>
+<li>Webhook傳訊 改為 允許<br> <img src="/images/2017/01/02/APPLY-WEBHOOKS.png" alt="開啟 Webhooks 功能"></li>
+</ol>
+<h2 id="Koa-與-Line-Messging-API-的合作"><a href="#Koa-與-Line-Messging-API-的合作" class="headerlink" title="Koa 與 Line Messging API 的合作"></a>Koa 與 Line Messging API 的合作</h2><ol>
+<li>到 Line Business 帳號清單，選要實作的 Bot 並點 <strong>LINE Developers</strong> ，將 Channel Serect 的密碼留下來<br> <img src="/images/2017/01/02/GET-CHANNEL-SECRET.png" alt="Line Bot 設定"></li>
+<li>掛載 Babel  <figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">require(&#x27;babel-core/register&#x27;)(&#123;</span><br><span class="line">  plugins: [&#x27;transform-async-to-generator&#x27;]</span><br><span class="line">&#125;)<span class="comment">;</span></span><br></pre></td></tr></table></figure></li>
+<li>使用 Koa 建立 Webhooks + 身份認證  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> koa = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">koa</span>();</span><br><span class="line"><span class="comment">// 送 Request 用 ( 也要安裝 request package )</span></span><br><span class="line"><span class="keyword">const</span> request = <span class="built_in">require</span>(<span class="string">&#x27;request-promise&#x27;</span>);</span><br><span class="line"><span class="comment">// 載入 crypto ，等下要加密</span></span><br><span class="line"><span class="keyword">const</span> crypto = <span class="built_in">require</span>(<span class="string">&#x27;crypto&#x27;</span>);</span><br><span class="line"><span class="comment">// 放 Line Bot 的 Channel Secret</span></span><br><span class="line"><span class="keyword">const</span> channelSecret = <span class="string">&#x27;...&#x27;</span>;</span><br><span class="line"><span class="comment">// 按 Line 的規定設定加密</span></span><br><span class="line"><span class="keyword">const</span> hash = crypto.<span class="title function_">createHmac</span>(<span class="string">&#x27;sha256&#x27;</span>, channelSecret)</span><br><span class="line">          .<span class="title function_">update</span>(<span class="title class_">Buffer</span>.<span class="title function_">from</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(koaRequest.<span class="property">body</span>), <span class="string">&#x27;utf8&#x27;</span>))</span><br><span class="line">          .<span class="title function_">digest</span>(<span class="string">&#x27;base64&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="built_in">require</span>(<span class="string">&#x27;koa-router&#x27;</span>);</span><br><span class="line">router.<span class="title function_">post</span>(<span class="string">&#x27;/webhooks&#x27;</span>, <span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 取 User 傳送得資料</span></span><br><span class="line">    <span class="comment">// 和 Request 送來做比對 ( Status Code 這階段會有 200 / 401 )</span></span><br><span class="line">    <span class="keyword">if</span> ( koaRequest.<span class="property">headers</span>[<span class="string">&#x27;x-line-signature&#x27;</span>] === hash ) &#123;</span><br><span class="line">      ctx.<span class="property">status</span> = <span class="number">200</span>;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// User 送來的訊息</span></span><br><span class="line">      ctx.<span class="property">request</span>.<span class="property">events</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// 回覆給 User 的訊息</span></span><br><span class="line">      <span class="keyword">let</span> options = &#123;</span><br><span class="line">        <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">        <span class="attr">uri</span>: <span class="string">&#x27;https://api.line.me/v2/bot/message/reply&#x27;</span>,</span><br><span class="line">        <span class="attr">headers</span>: &#123;</span><br><span class="line">          <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;Authorization&#x27;</span>: <span class="string">`Bearer <span class="subst">$&#123;auth.token&#125;</span>`</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">body</span>: &#123;</span><br><span class="line">          <span class="attr">replyToken</span>: replyMessage.<span class="property">replyToken</span>,</span><br><span class="line">          <span class="attr">messages</span>: [&#123;</span><br><span class="line">              <span class="attr">type</span>: <span class="string">&#x27;text&#x27;</span>,</span><br><span class="line">              <span class="attr">text</span>: <span class="string">&#x27;是文字&#x27;</span>,</span><br><span class="line">            &#125;],</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">json</span>: <span class="literal">true</span>,</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">await</span> <span class="title function_">request</span>(options);</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      ctx.<span class="property">body</span> = <span class="string">&#x27;Unauthorized! Channel Serect and Request header aren\&#x27;t the same.&#x27;</span>;</span><br><span class="line">      ctx.<span class="property">status</span> = <span class="number">401</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(router);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">3000</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Example app listening on port 3000!&#x27;</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li>以上完成基礎 Line Bot 的建置內容，接下來將 Code 放入 PaaS 等空間與到 Line Developers 設定對應的 Webhooks 的位置既可讓自己的 Bot 運作。</li>
+</ol>
+<h2 id="成品分享"><a href="#成品分享" class="headerlink" title="成品分享"></a>成品分享</h2><p><img src="/images/2017/01/02/SHOW-RESULT.png" alt="正確回覆訊息的 Line Bot"></p>
+<p><a href="https://github.com/IvanWei/easy-line-bot">Easy Line Bot</a></p>
+<p>有需要的人可以 Fork 回去或發 PR 給我，想要玩玩可以掃下方 QR Code 加 Bot 為好友（若 Bot 沒有反應，等它一下。因為放 Heroku ，此服務一段時間沒有使用會將 Server 進行睡眠，等有人使用再喚醒）</p>
+<p><img src="/images/2017/01/02/LINE-BOT-FREE-QR-CODE.png" alt="Line Bot 的 QR Code"></p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ol>
+<li>聊天 APP 的 Bot API<ul>
+<li><a href="https://api.slack.com/bot-users">Slack Bot</a></li>
+<li><a href="https://core.telegram.org/bots/api">Telegram Bot</a></li>
+<li><a href="https://developers.facebook.com/docs/messenger-platform">Facebook Messenger Platform</a></li>
+<li><a href="https://docs.botframework.com/en-us/skype/getting-started">Skype Bot</a></li>
+</ul>
+</li>
+<li><a href="https://devdocs.line.me/en/">Line Messging API</a></li>
+<li><a href="https://github.com/boybundit/linebot">Bundit J. - linebot</a></li>
+<li><a href="http://ithelp.ithome.com.tw/users/20102342/ironman/995">Ivan Wei - 從零開始認識 Node.js</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Nodejs</tag>
+        <tag>Learn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>寄個附有掛號的 Email</title>
+    <url>/zh-tw/2017-01-27-mail-tracking/</url>
+    <content><![CDATA[<p><img src="/images/2017/01/27/POSTCARD.jpg" alt="POSTCARD"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Email 分為兩種，重要和不重要！</p>
+<p>不重要的 Email 在寄出的那刻起，我們對它的關注也隨之結束；<br>重要的 Email 在寄出的那刻起，我們對它的關注也隨之增加。</p>
+<p>原因無非是擔心沒開啟信件看過！</p>
+<p>因此這篇就來分享兩個在 Chrome 上的 Plugin ，讓寄出的 Email 也像實際的掛號信一樣要簽收的功能。</p>
+<span id="more"></span>
+
+<h2 id="Email-追蹤工具"><a href="#Email-追蹤工具" class="headerlink" title="Email 追蹤工具"></a>Email 追蹤工具</h2><h3 id="Email-Tracker"><a href="#Email-Tracker" class="headerlink" title="Email Tracker"></a>Email Tracker</h3><p><img src="/images/2017/01/27/EMAIL-TRACKER-LOGO.png" alt="EMAIL TRACKER"></p>
+<p><a href="https://chrome.google.com/webstore/detail/email-tracker/bnompdfnhdbgdaoanapncknhmckenfog">Chrome store</a></p>
+<ul>
+<li>顯示方式<ul>
+<li>切換到 Sendt Mail (已寄出信件)</li>
+<li>每封 Email 寄出時間附近會一個圖示，「●」表示 Email 送達，「✔」表示 Email 被開啟</li>
+</ul>
+</li>
+<li>優點<ol>
+<li>支援多數主流 Email Service</li>
+</ol>
+<ul>
+<li>Gmail</li>
+<li>Hotmail &#x2F; Outlook</li>
+<li>Google Inbox</li>
+<li>Yahoo Mail</li>
+</ul>
+<ol start="2">
+<li>免費版也能知道信件最後一次被開啟的時間</li>
+<li>信件是否需要回條可以自己決定</li>
+<li>不會的出寄的信件裡填加產品訊息</li>
+</ol>
+</li>
+<li>缺點<ol>
+<li>想了解更多訊息要付費 ( 48 USD &#x2F; Year )</li>
+<li>官網沒有 Email Tracker 的介紹和其他訊息</li>
+</ol>
+</li>
+</ul>
+<h3 id="Mailtrack"><a href="#Mailtrack" class="headerlink" title="Mailtrack"></a>Mailtrack</h3><p><img src="/images/2017/01/27/EMAILTRACK-LOGO.png" alt="EMAILTRACK"></p>
+<p><a href="https://chrome.google.com/webstore/detail/mailtrack-for-gmail-email/ndnaehgpjlnokgebbaldlmgkapkpjkkb">Chrome store</a></p>
+<ul>
+<li>顯示方式<ul>
+<li>切換到 Sendt Mail (已寄出信件)</li>
+<li>每封 Email 標題附近會多兩個勾，綠色表示完成，第一個勾表示 Email 送達，第二個勾表示 Email 被開啟<br><img src="/images/2017/01/27/EMAILTRACK-STATUS-ICON.png" alt="EMAILTRACK STATUS"></li>
+</ul>
+</li>
+<li>優點<ol>
+<li>很多中文的介紹文背書</li>
+<li>自動填加回條</li>
+</ol>
+</li>
+<li>缺點<ol>
+<li>Email 會增加「Sent with Mailtrack」之類的產品訊息</li>
+<li>要求給予的 Gmail 管理權限太高</li>
+</ol>
+<ul>
+<li>初次使用要求給予三個權限<br><img src="/images/2017/01/27/GET-USER-PERMISSIONS.png" alt="USER PERMISSIONS"></li>
+<li>Gmail 項目要求管理、永久刪除的權限（這超乎我能給予權限範圍）<br><img src="/images/2017/01/27/GMAIL-PERMISSIONS-INFO.png" alt="GMAIL PERMISSIONS INFO"></li>
+</ul>
+<ol start="3">
+<li>只支援 Gmail</li>
+</ol>
+</li>
+</ul>
+<h2 id="使用心得"><a href="#使用心得" class="headerlink" title="使用心得"></a>使用心得</h2><ul>
+<li>Mailtrack<br>沒使用！安裝好要使用時，發現要求給它刪除和管理 Gmail 的權限，我無法接受！</li>
+<li>Email Tracker<br>使用上沒有發現問題，也不會給任何 Google 帳號資訊。不過知名度不如 Mailtrack ，因此有資安考量的朋友，可能要自行評估一下！</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Tools</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JSDC 2017 活動後簡述</title>
+    <url>/zh-tw/2017-11-16-first-organizer/</url>
+    <content><![CDATA[<p><img src="/images/2017/11/16/JSDC-2017.png" alt="JSDC 2017"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>JSDC 2017 是由 <a href="http://jsdc.tw/">JSDC.tw</a> 籌辦的第 6 屆臺灣 JS 開發者大會，『致力於讓臺灣 JS 開發者與國際接軌』是 JSDC 的初衷。活動結束一周是時候寫個回憶錄，記錄這段日子的血淚歷與整理一些內容。</p>
+<span id="more"></span>
+
+<h2 id="活動後"><a href="#活動後" class="headerlink" title="活動後"></a>活動後</h2><p>今年的 JSDC 讓我打分數，我會打 69 分；至於是否值得這麼高的分數，就有待參與者、廠商、工作人員們的問卷回饋來驗證。</p>
+<p>而今年要感謝 <a href="https://corp.104.com.tw/">104 資訊技科</a> 、 <a href="http://www.trendmicro.tw/">趨勢科技</a> 、 <a href="https://www.dcard.tw/">Dcard</a> 、 <a href="https://goanimate.com/">GoAnimate</a> 、 <a href="http://www.newsleopard.com/">電子豹</a> 、 <a href="https://tw.carousell.com/">Carousell 旋轉拍賣</a> 、 <a href="https://www.pinkoi.com/">Pinkoi</a> 的支持，讓 JSDC 2017 場內、場外都豐富起來。</p>
+<p>今年是一個結束，同時也是一個開始；結束過去的包袱，開始一個歸零的出發。期望自己大家的回饋，也期望明年大家的支持。</p>
+<h2 id="籌備期間"><a href="#籌備期間" class="headerlink" title="籌備期間"></a>籌備期間</h2><p>『巧婦難為無米之炊』是今年籌備小組的心情寫照，身為 JSDC 2017 的總召真得很感謝第一次參與就付出甚多的志工， Michelle、靈驗，也感謝今年主視覺的設計師 <a href="https://www.facebook.com/cyril.hong">Cyril</a> 臨危受命幫忙救火。</p>
+<p>活動籌備期間基本會有幾個籌備項目需要持續進行一直至活動前一至二周，這些活動分別是尋找講者、場地支援、製作物設計、票種規劃、網站實作、廠商接冾等，今年比較特殊的關係，以上的籌備或多或少我都參與過。籌備不盡完善，身為該屆總召責無旁貸，概括承受。</p>
+<h2 id="籌備建議"><a href="#籌備建議" class="headerlink" title="籌備建議"></a>籌備建議</h2><ol>
+<li>活動籌備時間 6 ~ 10 個月為佳</li>
+<li>決策小組 2 ~ 5 人（決定活動方向）</li>
+<li>籌備小組 4 ~ 8 人（執行決策小組的決議內容）</li>
+<li>確認重要人力（設計、議程）</li>
+<li>確認場地（會影響所需要的協力廠商的種類、數量、金額）</li>
+<li>確認進場前與徹場兩時段的物品存放地點，以及運輸方式（會影響活動經費的支出）</li>
+<li>費用使用的優先順序：場地 → 必要性的製作物 → 網路 → 中餐 → 電力 → 上下午茶</li>
+</ol>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>每場活動都有外人所不知道的苦與悲，我感謝所有的工作人員、廠商、講者以及支持 JSDC 的參與者們，相信今年一定有讓你們失望的地方，但期望在議程內容上能讓你們有所收獲。</p>
+]]></content>
+      <tags>
+        <tag>Learn</tag>
+        <tag>Conference</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Socket.io 無限連線請求的問題</title>
+    <url>/zh-tw/2018-02-24-socket-io-has-infinite-connect/</url>
+    <content><![CDATA[<p><img src="/images/2018/02/24/socket-io.png" alt="Socket.io"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近再玩 <a href="https://feathersjs.com/">Feathers.js</a> 串 <a href="https://socket.io/">Socket.io</a> 發生 Server 有收到 Client 連線請求並送出回應， Client 卻一直沒收到 socket ID ， 導致 Client 再收到 Server 回應後又送一次沒有 socket ID 的請求，然後 Server 又收到沒有 socket ID 的連線請求， … (無限迴圈) 。</p>
+<span id="more"></span>
+
+<h2 id="前言的結果"><a href="#前言的結果" class="headerlink" title="前言的結果"></a>前言的結果</h2><p>在 Browser 的 Network 會看到以下畫面</p>
+<p><img src="/images/2018/02/24/connect-request.png" alt="Many connect&#39;s request by Client side"></p>
+<p>然後你的電腦會變成暖暖包！</p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>檢查 Server side 和 Client side 的 Socket.io 的大版號！</p>
+<p>Server side 使用 v2 ， Client side 使用 v1 時既會發生無限連線請求的情況；<br>Server side 使用 v1 ， Client side 使用 v1 &#x2F; v2 皆可以正常運作。</p>
+<p>畫成表格會長這樣</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Socket.io@1 (Server)</th>
+<th>Socket.io@2 (Server)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Socket.io@1 (Client)</td>
+<td>✔</td>
+<td>✖</td>
+</tr>
+<tr>
+<td>Socket.io@2 (Client)</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+</tbody></table>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>沒有錯誤訊息的問題，加上 Server 和 Client 都有收到回應與請求，因此花了一些時間找問題。</p>
+<p>建議 Server 和 Client 使用 Socket.io 時，使用同樣的大版號，可以避免此情況的發生。</p>
+]]></content>
+      <tags>
+        <tag>Nodejs</tag>
+        <tag>Learn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LINE Login 和 Passport.js</title>
+    <url>/zh-tw/2018-03-03-line-login-with-passportjs/</url>
+    <content><![CDATA[<p><img src="/images/2018/03/03/line-login-web.png" alt="LINE Login"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前為了接案需要寫了一個 Passport.js 版的 LINE login (<a href="https://github.com/IvanWei/passport-line-auth">passport-line-auth</a>) ，大該在 17年下半年注意到 LINE Login 更新到 v2.1 版多了 <a href="http://openid.net/connect/">OpenID Connect</a> 和 Email ，那時就興起改版的念頭，這兩天總算花了一些時間做完大部分我預期的功能。</p>
+<span id="more"></span>
+
+<h2 id="v0-2-1-的變動"><a href="#v0-2-1-的變動" class="headerlink" title="v0.2.1 的變動"></a>v0.2.1 的變動</h2><ol>
+<li>LINE login 的預設值拉出自成一個 <code>options.js</code> ，方便日後調整相關 URL。</li>
+<li>大約花 2 個小時看了 <a href="https://github.com/jaredhanson/passport">passport</a> 與 <a href="https://github.com/jaredhanson/passport-oauth2">passport-oauth2</a> 的 Code ，調整 passport-line-auth 之前一些 Workaround 的做法。</li>
+<li>增加 <code>bot_prompt</code> 參數，讓跳至 LINE Login 畫面時同時提供使用者加入對應的 LINE Bot。</li>
+<li>增加 example 資料夾，用新人可以參考範圍使用。</li>
+</ol>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>看 Source code 還是滿有趣，可以學習到不少其他開發者的開發思維。也滿推薦開發者花點時間做一些 side project ，一方面練習實作，一方面可以檢視自己的開發能力與開發思維。</p>
+]]></content>
+      <tags>
+        <tag>Nodejs</tag>
+        <tag>Learn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DCIT 與隱私</title>
+    <url>/zh-tw/2018-05-16-open-source-and-privacy/</url>
+    <content><![CDATA[<p><img src="/images/2018/05/16/DCIT.png" alt="Developer Conferences In Taiwan"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在臺灣，社群的興起並發展也有一段的日子， 伴隨而來的副產品是 Meetup 、 Conference 的增加，而活動的增加對我而言要關注的活動也隨之都，進一步產生時間管理上的破碎情況。</p>
+<p>找了一下網路是否有相關整理資料，找到得資訊多半屬於國外，臺灣「那時」還沒找到相關的，在這情況下自己動手做整理一份！</p>
+<span id="more"></span>
+
+<h2 id="DCIT-開源的那時與現在"><a href="#DCIT-開源的那時與現在" class="headerlink" title="DCIT 開源的那時與現在"></a>DCIT 開源的那時與現在</h2><p>「那時」，就是那時！</p>
+<p>大致在整理完臺灣已知 Conference 並發佈 <a href="https://github.com/IvanWei/developer-conferences-in-taiwan">Developer Conferences In Taiwan</a>(下面簡稱 DCIT ，不然好多字 ) 到 Github 後， <a href="https://github.com/TGmeetup">TGmeetup</a> 團隊也放出類似想法的專案，免得要來比較一下 XD</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>DCIT</th>
+<th>TGmeetup</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>參與開發人數</td>
+<td>1</td>
+<td>&gt; 1</td>
+</tr>
+<tr>
+<td>支援 RSS</td>
+<td>ㄨ</td>
+<td>〇</td>
+</tr>
+<tr>
+<td>友善管理活動</td>
+<td>ㄨ</td>
+<td>〇</td>
+</tr>
+<tr>
+<td>CI</td>
+<td>ㄨ</td>
+<td>〇</td>
+</tr>
+<tr>
+<td>CLI</td>
+<td>ㄨ</td>
+<td>〇</td>
+</tr>
+<tr>
+<td>結合 Google map</td>
+<td>ㄨ</td>
+<td>〇</td>
+</tr>
+<tr>
+<td>活動記錄量</td>
+<td>只整理 Conference 、 社群</td>
+<td>Meetup 、 Conference 、簡報、社群通通有</td>
+</tr>
+<tr>
+<td>活動加進 Google Calendar</td>
+<td>單一活動加入</td>
+<td>分享所有 Calendar 活動</td>
+</tr>
+</tbody></table>
+<p>上面比較表整理完後，發現慘敗！！！</p>
+<p>但是，就是這個但是！現況是 DCIT 可以找到超過 80% 在臺灣的 Conference 舉辦日期、活動天數、售票連結，而 TGmeetup 的資料量則緩慢成長中，這或許是因為兩個專案的出發點有所不同。 DCIT 誕生純粹是我覺得看到得活動太多，到底活動與活動間有沒有時間衝突不易知道，憤而產生 (XD) ； TGmeetup 則比較偏向藉由群眾的力量一起完善內容。</p>
+<p>在一些未來完善的構想上，兩者有雷同也有不同處，下面就拿上面的比較表來回應</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>DCIT 回應</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>參與開發人數</td>
+<td>可與不可求</td>
+</tr>
+<tr>
+<td>支援 RSS</td>
+<td>還沒打算實作，因為 DCIT 可以做單一活動加進 Calendar ，使用者可以自行設定是否要提醒</td>
+</tr>
+<tr>
+<td>友善管理活動</td>
+<td>同樣預計透過 Issue ，但不同在 Issue 為提供資訊，經審查後再加入 JSON 檔裡</td>
+</tr>
+<tr>
+<td>CI</td>
+<td>在進行中，未來預計將 Issue 為發動點來進行 JSON 檔、 Markdown 和 Web page 更新</td>
+</tr>
+<tr>
+<td>CLI</td>
+<td>暫時沒考慮</td>
+</tr>
+<tr>
+<td>結合 Google map</td>
+<td>預計先使用 Google Map ， 下一次考慮使用 <a href="https://www.openstreetmap.org/">OpenStreetMap</a></td>
+</tr>
+<tr>
+<td>活動記錄量</td>
+<td>預計下階段加上 Meetup 與國外活動</td>
+</tr>
+<tr>
+<td>活動加進 Google Calendar</td>
+<td>維持現況</td>
+</tr>
+</tbody></table>
+<h2 id="隱私"><a href="#隱私" class="headerlink" title="隱私"></a>隱私</h2><p><img src="/images/2018/05/16/privacy-violations.png" alt="Privacy violations"></p>
+<p>為了更方便查看活動間的日期 ( 看 Markdown 還是不夠友善 ) ， 因此希望能透過 Calendar 的方式顯示 DCIT 的資料，因此找到 <a href="https://www.nhnent.com/ko/index.nhn">NHN Entertainment</a> 公司的開源專案「tui.calendar」， 5000 顆的 star 品質上應該不成問題。在使用上確實沒大問題，只是一直不解為何 Browser 總會 <code>送 Google Analytics 的 request</code></p>
+<p><img src="/images/2018/05/16/tui.calendar-send-ga-request.png" alt="Send GA?"></p>
+<p>由於 <a href="https://tw-conferences.ivanwei.co/">DCIT</a> 的網頁上我並沒有埋 GA Code ，只好發揮柯南精神，有柯南出現的地方 98% 會發生命案！( 誤 XD )</p>
+<p><img src="/images/2018/05/16/konan.jpg" alt="真相只有一個"></p>
+<p>只要查 <code>UA-115377265-9</code> 這組 GA tracking code 的 Id ，就可以找到 NHN Entertainment 自家發的 PR ( <a href="https://www.google.com.tw/search?q=UA-115377265-9&oq=UA-115377265-9&aqs=chrome..69i57.141j0j1&sourceid=chrome&ie=UTF-8">Here</a> )，接下來源頭就簡單許多。查了才發現 NHN Entertainment 應該是一家南韓公司，他們家 Open source 的專案在 <code>package.json</code> 幾乎安裝 <a href="https://github.com/nhnent/tui.code-snippet">tui-code-snippet</a> 這套自家 library ，而送 GA 是透過 cell <code>snippet.imagePing</code> 這個函式，最後在 <code>tui-code-snippet</code> 的 <a href="https://github.com/nhnent/tui.code-snippet/blob/master/src/js/request.js">request.js</a> 找到相關內容， 送 GA 的問題告一段落。</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>從 Facebook 的劍橋事件延伸 Facebook 為什麼是免費，問題重點都在「隱私」、「資訊」上，俗話說「廠商不是吃素的」、「隱私是數位時代在最有價值的資料」， NHN Entertainment 公司的做法是否適合交給各位自行評斷，我能接受在事前告知的情況下傳送 GA 給開發公司，然而在該公司卻沒有說明，連 <code>tui-code-snippet</code> repo 的 README 都避談 request.js 的用途，好在他們的 License 是 <a href="https://choosealicense.com/licenses/mit/">MIT</a> 。</p>
+]]></content>
+      <tags>
+        <tag>Conference</tag>
+        <tag>Privacy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>透過 Github Issue 更新 Blog 內容 (Firebase 版)</title>
+    <url>/zh-tw/2019-07-02-1-mdu6sxnzdwu0njmwmtqxmtq=/</url>
+    <content><![CDATA[<p>主流寫文章的網站有 <a href="https://www.pixnet.net/">Pixnet</a> 、  <a href="https://medium.com/">Medium</a> 、 <a href="https://pages.github.com/">Github page</a> 、 <a href="https://ghost.org/">ghost</a> 等，除了 Github page<br> 外其餘皆自帶即時的 <strong>內容管理</strong> ；然而 Github page 是許多剛入門寫程式人第一個架站的首選或架 Blog ，卻無法隨地更新 Blog 內容，進而讓我懶得更新 Blog。</p>
+<p>苦思之後有了今天這篇，分享如何讓 Github Issue 成為 Blog 的內容管理器。</p>
+<span id="more"></span>
+
+<h2 id="第零步-準備好使用到的服務"><a href="#第零步-準備好使用到的服務" class="headerlink" title="第零步 - 準備好使用到的服務"></a>第零步 - 準備好使用到的服務</h2><ol>
+<li>Github<ul>
+<li>使用其 Issue 、 Webhook 、 API 、 Developer 身份 (Free)</li>
+</ul>
+</li>
+<li>Travis CI<ul>
+<li>需要透過 Travis CI 的手動觸發進行部署</li>
+<li><a href="https://circleci.com/">Circle CI</a> 尚未支援手動觸發</li>
+</ul>
+</li>
+<li>準備一臺 Server<ul>
+<li>部署 Github 的 Webhook 使用</li>
+<li>範列使用 <a href="https://firebase.google.com/docs/functions">Firebase functions</a> ，使用此方法先確認自己有能使用的信用卡，為了解除某些限制而不得不的處理</li>
+</ul>
+</li>
+<li>Node.js v8.9.0 or above</li>
+</ol>
+<h2 id="第一步-下載-Issue-的-Markdown-內容"><a href="#第一步-下載-Issue-的-Markdown-內容" class="headerlink" title="第一步 - 下載 Issue 的 Markdown 內容"></a>第一步 - 下載 Issue 的 Markdown 內容</h2><h3 id="取得-Repository-操作權限"><a href="#取得-Repository-操作權限" class="headerlink" title="取得 Repository 操作權限"></a>取得 Repository 操作權限</h3><ol>
+<li><p>在 Profile 中進入 Developer settings<br> <img src="https://user-images.githubusercontent.com/6157049/60479293-da7bb780-9cb7-11e9-8df2-67dee6b1a156.png" alt="Developer settings"></p>
+</li>
+<li><p>選擇建立 <strong>Personal access tokens</strong><br> <img src="https://user-images.githubusercontent.com/6157049/60480720-35fc7400-9cbd-11e9-823f-2761bee37eab.png" alt="Personal access tokens"></p>
+</li>
+<li><p>授權範圍選擇 public_repo ，若指定的 Repository 是 Private 則必須勾所有控制權<br> <img src="https://user-images.githubusercontent.com/6157049/60481253-2c740b80-9cbf-11e9-87d6-6d02ad71ff14.png" alt="Repository controller"></p>
+</li>
+<li><p>記住產生出來的 Token ，試試能否取到 Repository 裡的 issues ，正確會吐 Array 回來，而 issue 的內容存在 body 中<br> <code>$ curl -H &quot;Authorization: token [Token]&quot; https://api.github.com/repos/[user id]/[repository name]/issues</code></p>
+</li>
+<li><p>上一步沒問題既可透過 Ajax 方式取得 Response 後，將 issue 存成 Markdown 檔，下面以 fetch 為範例</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fetch = <span class="built_in">require</span>(<span class="string">&#x27;node-fetch&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_">fetch</span>(<span class="string">&#x27;https://api.github.com/repos/ivanwei/blog/issues&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&#x27;GET&#x27;</span>,</span><br><span class="line">  <span class="attr">headers</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;Authorization&#x27;</span>: <span class="string">`token <span class="subst">$&#123;gitToken&#125;</span>`</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="title function_">then</span>(<span class="keyword">async</span> (response) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">await</span> response.<span class="title function_">json</span>();</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;result 的跑迴圈取一個 body&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="title function_">catch</span>(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;error handler&#x27;</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="issue-存成-Markdown"><a href="#issue-存成-Markdown" class="headerlink" title="issue 存成 Markdown"></a>issue 存成 Markdown</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs =<span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> util =<span class="built_in">require</span>(<span class="string">&#x27;util&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 將 fs.writeFile 包成 Promise</span></span><br><span class="line"><span class="keyword">const</span> writeFile = util.<span class="title function_">promisify</span>(fs.<span class="property">writeFile</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 建立檔案或覆寫檔案</span></span><br><span class="line"><span class="title function_">writeFile</span>(<span class="string">`<span class="subst">$&#123;outputPath&#125;</span>/$ci-gh-integration.md`</span>, content)</span><br><span class="line">.<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;File was created.&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="title function_">catch</span>(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;File was not created.&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="第一步-小結，還是使用寫好的工具做比較簡單"><a href="#第一步-小結，還是使用寫好的工具做比較簡單" class="headerlink" title="第一步 - 小結，還是使用寫好的工具做比較簡單"></a>第一步 - 小結，還是使用寫好的工具做比較簡單</h3><p>以上兩者結合既完成 issue 轉成 Markdown ，若覺得過程可以使用 <a href="https://github.com/IvanWei/blog-content-source-cli">@ivanwei&#x2F;blog-content-source-cli</a> ，將上述打包在一起，用法也相對簡單許許。</p>
+<h4 id="安裝-ivanwei-x2F-git-issue-hexo-cli"><a href="#安裝-ivanwei-x2F-git-issue-hexo-cli" class="headerlink" title="安裝 @ivanwei&#x2F;git-issue-hexo-cli"></a>安裝 @ivanwei&#x2F;git-issue-hexo-cli</h4><blockquote>
+<p>$ yarn add @ivanwei&#x2F;git-issue-hexo-cli</p>
+</blockquote>
+<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><blockquote>
+<p>$ b.content refresh -R &lt;Repository&gt; -u &lt;username&gt; -l &lt;Issue 有這 label 既存成 MD 檔&gt; –git-token <Github Personal access token> -o &lt;存檔的資料夾&gt;</p>
+</blockquote>
+<p>接下來會使用 <a href="https://github.com/IvanWei/git-issue-hexo-cli">@ivanwei&#x2F;git-issue-hexo-cli</a> 來操作 issue 部分，有興趣自己手動做可以看 <a href="https://developer.github.com/v3/issues/#list-issues-for-a-repository">Github API</a> ，因為前者也是使用同樣的內容加上一些步驟集結而成。</p>
+<h2 id="第二步-設定-Github-Webhook"><a href="#第二步-設定-Github-Webhook" class="headerlink" title="第二步 - 設定 Github Webhook"></a>第二步 - 設定 Github Webhook</h2><p>此處內容以 firebase functions 配上 Express 為範例， firebase 相關設定可以看<a href="https://firebase.google.com/docs/functions/get-started">這篇</a> 或按下面步驟建立</p>
+<h3 id="建立-Firebase-專案"><a href="#建立-Firebase-專案" class="headerlink" title="建立 Firebase 專案"></a>建立 Firebase 專案</h3><p>首到 <a href="https://console.firebase.google.com/">Firebase 建立專案</a></p>
+<h3 id="安裝-Firebase-CLI"><a href="#安裝-Firebase-CLI" class="headerlink" title="安裝 Firebase CLI"></a>安裝 Firebase CLI</h3><blockquote>
+<p>$ npm install -g firebase-tools &#x2F; $ yarn global add firebase-tools</p>
+</blockquote>
+<h3 id="登入-Firebase"><a href="#登入-Firebase" class="headerlink" title="登入 Firebase"></a>登入 Firebase</h3><blockquote>
+<p>$ firebase login</p>
+</blockquote>
+<h3 id="初始化-firebase-functions"><a href="#初始化-firebase-functions" class="headerlink" title="初始化 firebase functions"></a>初始化 firebase functions</h3><blockquote>
+<p>$ firebase init functions</p>
+</blockquote>
+<h3 id="設定-Firebase-project"><a href="#設定-Firebase-project" class="headerlink" title="設定 Firebase project"></a>設定 Firebase project</h3><h4 id="索取-Firebase-現有的-Project-清單"><a href="#索取-Firebase-現有的-Project-清單" class="headerlink" title="索取 Firebase 現有的 Project 清單"></a>索取 Firebase 現有的 Project 清單</h4><blockquote>
+<p>$ firebase list</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/6157049/60560406-432f6680-9d82-11e9-88e9-4b776f2dd14e.png" alt="Firebase List"></p>
+<h4 id="指定-Firebase-使用的專案"><a href="#指定-Firebase-使用的專案" class="headerlink" title="指定 Firebase 使用的專案"></a>指定 Firebase 使用的專案</h4><blockquote>
+<p>$ firebase use <project id></p>
+</blockquote>
+<h3 id="撰寫-Serverless-內容"><a href="#撰寫-Serverless-內容" class="headerlink" title="撰寫 Serverless 內容"></a>撰寫 Serverless 內容</h3><h4 id="切換到-functions-資料夾"><a href="#切換到-functions-資料夾" class="headerlink" title="切換到 functions 資料夾"></a>切換到 functions 資料夾</h4><blockquote>
+<p>$ cd functions</p>
+</blockquote>
+<h4 id="安裝-express-和-node-fetch"><a href="#安裝-express-和-node-fetch" class="headerlink" title="安裝 express 和 node-fetch"></a>安裝 express 和 node-fetch</h4><blockquote>
+<p>$ npm install express node-fetch &#x2F; yarn add express node-fetch</p>
+</blockquote>
+<h4 id="更新-index-js"><a href="#更新-index-js" class="headerlink" title="更新 index.js"></a>更新 index.js</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> functions = <span class="built_in">require</span>(<span class="string">&#x27;firebase-functions&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> fetch = <span class="built_in">require</span>(<span class="string">&#x27;node-fetch&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> server = <span class="title function_">express</span>();</span><br><span class="line">server.<span class="title function_">use</span>(express.<span class="title function_">json</span>());</span><br><span class="line"></span><br><span class="line">server.<span class="title function_">post</span>(<span class="string">&#x27;/&#x27;</span>, <span class="keyword">async</span> (req, res, next) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123;issue&#125; = req.<span class="property">body</span>;</span><br><span class="line">  <span class="keyword">const</span> &#123;title, state, body&#125; = issue;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 判斷 Issue 是否被關閉</span></span><br><span class="line">    <span class="keyword">if</span> (state === <span class="string">&#x27;open&#x27;</span>) &#123;</span><br><span class="line">      res.<span class="title function_">status</span>(<span class="number">200</span>).<span class="title function_">send</span>(<span class="string">&#x27;Publish!!&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      res.<span class="title function_">status</span>(<span class="number">200</span>).<span class="title function_">send</span>(<span class="string">&#x27;No Publish, status is not open!!&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">catch</span>(err) &#123;</span><br><span class="line">    res.<span class="title function_">status</span>(<span class="number">500</span>).<span class="title function_">send</span>(err);</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">next</span>(err);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">exports</span>.<span class="property">github</span> = functions.<span class="property">https</span>.<span class="title function_">onRequest</span>(server);</span><br></pre></td></tr></table></figure>
+
+<h4 id="部署到-Firebase-functions"><a href="#部署到-Firebase-functions" class="headerlink" title="部署到 Firebase functions"></a>部署到 Firebase functions</h4><blockquote>
+<p>$ firebase deploy –only functions</p>
+</blockquote>
+<p>部署後 Terminal 會回傳一串 URL ，此時可以使用 cURL 、 Postman 或寫個 Ajax 程序試送 request ，試試看是否能收到 response。</p>
+<p>Firebase 回傳的 URL 會長得像</p>
+<blockquote>
+<p>https:&#x2F;&#x2F;&lt;你選得專案地方&gt;-&lt;專案 ID&gt;.cloudfunctions.net&#x2F;&lt;export 的名稱&gt;</p>
+</blockquote>
+<p>若沒看到或忘記這串 URL ，可以到指定的 Firebase 專案點 functions ，找找要的 <code>export 名稱</code></p>
+<p><img src="https://user-images.githubusercontent.com/6157049/60562044-78d74e00-9d88-11e9-98e6-a52a8c884ddd.png" alt="Firebase menu"></p>
+<h4 id="最後一步，準備好信用卡"><a href="#最後一步，準備好信用卡" class="headerlink" title="最後一步，準備好信用卡"></a>最後一步，準備好信用卡</h4><p><strong>綁定信用卡會收到 40 臺幣信用卡的過卡費，如果選擇 Blaze 方案可以使用的免費額度有些不同，詳細可以到底部參考資料查閱。</strong></p>
+<p>因為 <a href="https://firebase.google.com/pricing">Firebase functions 免費版</a>對外送 Request 限定只能是 Google service ，需要升級解除此項限制。</p>
+<p><img src="https://user-images.githubusercontent.com/6157049/60562403-00718c80-9d8a-11e9-8c30-0e02acb0d8a9.png" alt="Firebase quota"></p>
+<h2 id="第三步-設定手動觸發-Travis-CI"><a href="#第三步-設定手動觸發-Travis-CI" class="headerlink" title="第三步 - 設定手動觸發 Travis CI"></a>第三步 - 設定手動觸發 Travis CI</h2><p>透過 <a href="https://docs.travis-ci.com/user/triggering-builds/">Travis CI API</a> 來觸發，操作方式就直接 Show code；至於 Travis CI 對 Repository 操作權限，可以看 Tommy Chen 的 <a href="https://zespia.tw/blog/2015/01/21/continuous-deployment-to-github-with-travis/">用 Travis CI 自動部署網站到 GitHub</a></p>
+<h3 id="設定-Travis-CI-要做的事"><a href="#設定-Travis-CI-要做的事" class="headerlink" title="設定 Travis CI 要做的事"></a>設定 Travis CI 要做的事</h3><h4 id="參數設定"><a href="#參數設定" class="headerlink" title="參數設定"></a>參數設定</h4><p>這裡的設定可以參考 <a href="https://docs.travis-ci.com/user/job-lifecycle/">.travis.yml</a> 的寫法，設定則寫在 config 裡面。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> body = &#123;</span><br><span class="line">  <span class="string">&quot;request&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;branch&quot;</span>:<span class="string">&quot;master&quot;</span>,</span><br><span class="line">    <span class="string">&quot;config&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;node_js&quot;</span>: [<span class="string">&quot;8&quot;</span>],</span><br><span class="line">      <span class="string">&quot;before_install&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;export TZ=Asia/Taipei&quot;</span>,</span><br><span class="line">        <span class="string">&quot;openssl aes-256-cbc -K $XXXX_key -iv $OOOO_iv -in ./.travis/id_rsa.enc -out ~/.ssh/id_rsa -d&quot;</span>,</span><br><span class="line">        <span class="string">&quot;chmod 600 ~/.ssh/id_rsa&quot;</span>,</span><br><span class="line">        <span class="string">&quot;eval $(ssh-agent)&quot;</span>,</span><br><span class="line">        <span class="string">&quot;ssh-add ~/.ssh/id_rsa&quot;</span>,</span><br><span class="line">        <span class="string">&quot;cp .travis/ssh_config ~/.ssh/config&quot;</span>,</span><br><span class="line">        <span class="string">&quot;npm config set registry https://registry.npmjs.org/&quot;</span>,</span><br><span class="line"></span><br><span class="line">        # <span class="title class_">Travis</span> <span class="variable constant_">CI</span> 預設使用 https ，為了後續操作則更新為 git</span><br><span class="line">        <span class="string">&quot;git remote set-url origin git@github.com:IvanWei/blog.git&quot;</span>,</span><br><span class="line"></span><br><span class="line">        # 下載 <span class="title class_">Issue</span> 內容，然後轉存成 <span class="variable constant_">MD</span> 檔</span><br><span class="line">        <span class="string">&quot;npm install -g @ivanwei/blog-content-source-cli&quot;</span>,</span><br><span class="line">        <span class="string">&quot;b.content refresh -R &lt;Repo&gt; -u &lt;username&gt; -l &lt;發佈的目標 Label&gt; --git-token &lt;Github 的 Personal access token&gt; -o &lt;存 Markdown 的資料夾&gt;&quot;</span>,</span><br><span class="line"></span><br><span class="line">        # 將更動的檔案更新到目標 <span class="title class_">Repository</span></span><br><span class="line">        <span class="string">&quot;git checkout master&quot;</span>,</span><br><span class="line">        <span class="string">&quot;git add .&quot;</span>,</span><br><span class="line">        <span class="string">&quot;git status&quot;</span>,</span><br><span class="line">        <span class="string">&quot;git commit -m \&quot;Write something\&quot;&quot;</span>,</span><br><span class="line">        <span class="string">&quot;git push origin master&quot;</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="string">&quot;script&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;echo \&quot;OK!!\&quot;&quot;</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="送-Ajax-request"><a href="#送-Ajax-request" class="headerlink" title="送 Ajax request"></a>送 Ajax request</h4><p>打 request 有幾點需要注意</p>
+<ol>
+<li>URL 的 <code>%2F</code> 不可替換成 <code>/</code></li>
+<li>headers 四項都需要設定上<ul>
+<li><code>&#39;Content-Type&#39;: &#39;application/json&#39;</code></li>
+<li><code>&#39;Accept&#39;: &#39;application/json&#39;</code></li>
+<li><code>&#39;Travis-API-Version&#39;: 3</code></li>
+<li><code>&#39;Authorization&#39;: &#39;token &#39; + travis_token</code></li>
+</ul>
+</li>
+<li>注意使用哪一種 Travis CI ，內容上可以參考 <a href="https://developer.travis-ci.org/gettingstarted">這裡</a><ul>
+<li>參考資料 Private 部分不確定是否是漏洞，免費版的 <code>.org</code> 也是可以觸發 Private repository</li>
+</ul>
+</li>
+<li>Travis CI API 免費版 1 小時能打 10 次，而回補次數是按時間一點一點回復，而非下一個小時一次回復成 10 次</li>
+<li>Travis CI 的 token 取得方式<ul>
+<li>方式一使用 <a href="https://developer.travis-ci.org/authentication">Travis CLI 取得</a></li>
+<li>方式二從 <a href="https://developer.travis-ci.org/explore/#explorer">API explorer</a> 取得 (黑色區塊滑鼠移過去會顯示出 Token)，<em>沒有直接操作 Travis CI 需求的話建議使用此方法</em><br><img src="https://user-images.githubusercontent.com/6157049/60505575-8f34c980-9cf6-11e9-85b4-084dd5af8410.png" alt="API explorer"></li>
+</ul>
+</li>
+<li>最後別忘了要寫成 Ajax 送 request<ul>
+<li>以下是範例  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">`https://api.travis-ci.org/repo/<span class="subst">$&#123;username&#125;</span>%2F<span class="subst">$&#123;repo&#125;</span>/requests`</span>, &#123;</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">  <span class="attr">headers</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Travis-API-Version&#x27;</span>: <span class="number">3</span>,</span><br><span class="line">    <span class="string">&#x27;Authorization&#x27;</span>: <span class="string">`token <span class="subst">$&#123;travis_token&#125;</span>`</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">body</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(body),</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ol>
+<li><a href="https://firebase.google.com/support/faq/#pricing">Firebase Blaze 方案免費額度</a></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>DCIT 改版 Part 1</title>
+    <url>/zh-tw/2020-10-04-dcit-upgrade/</url>
+    <content><![CDATA[<p><img src="/images/2018/05/16/DCIT.png" alt="Developer Conferences In Taiwan"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>DCIT 開源超過兩年，也是到了該改版的時間點，這次修正 API 長久以來的 Bug 和讓 Github action 正常恢復工作 🧐</p>
+<span id="more"></span>
+
+<h2 id="什麼是-DCIT"><a href="#什麼是-DCIT" class="headerlink" title="什麼是 DCIT"></a>什麼是 DCIT</h2><p>DCIT 全名 <a href="https://github.com/IvanWei/developer-conferences-in-taiwan">Developer Conferences In Taiwan</a> 是專門收集在臺灣開發研討會時間、地點的計劃，資訊來源主要來自閒逛 FB 、廣告、社群取得與整理至 <a href="https://docs.google.com/spreadsheets/d/1WFxqI3Ow_9GC_h5Xd7NUy_b1X-U8Ptb-u-arLGYtmGQ/edit#gid=0">Google Sheet</a> ，來源基本可靠。</p>
+<p>歡迎各路朋友一同參與維護 DCIT。</p>
+<h2 id="DCIT-運作流程"><a href="#DCIT-運作流程" class="headerlink" title="DCIT 運作流程"></a>DCIT 運作流程</h2><p>Google Sheet 新增 &#x2F; 修改資料 → Github action 定時執行 Makefile 下載 Google Sheet 內容和取得 <a href="https://github.com/IvanWei/developer-conferences-in-taiwan/blob/master/data/list-of-organizations.json">活動組織者清單</a> → 匯出新的 README.md → 更新到 Repository</p>
+<h2 id="待執行或改善項目"><a href="#待執行或改善項目" class="headerlink" title="待執行或改善項目"></a>待執行或改善項目</h2><ul>
+<li>開放 Google sheet 權限</li>
+<li>調整 Github action 更新 DCIT 流程</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Conference</tag>
+        <tag>Privacy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>從初探 TypeORM 到放棄</title>
+    <url>/zh-tw/2021-12-22-3-i_kwdoc3r1-85axc55/</url>
+    <content><![CDATA[<p><img src="https://user-images.githubusercontent.com/6157049/147055525-2eac3142-0c51-4c13-83fb-8ec528cfad16.png" alt="TypeORM"></p>
+<p>放棄的原因有二</p>
+<ol>
+<li>文件的不完善，無形間拉長開發時程</li>
+<li>Issue 、維護、開發三者接近停止狀況</li>
+</ol>
+<span id="more"></span>
+
+<p>初探時碰到的狀況</p>
+<ol>
+<li><a href="https://typeorm.io/#/using-ormconfig/using-environment-variables">TypeORM 初始設定</a> 若使用環境變數需要花時間測試，因為這部分只能提供變數名稱</li>
+<li>使用 Google 找資料很容易找到由 <a href="https://github.com/OrkhanAlikhanov">OrkhanAlikhanov</a> fork 出來的 <a href="https://github.com/OrkhanAlikhanov/typeorm">TypeORM 使用文件</a> ，同時 TypeORM 主要維運者之一的 <a href="https://github.com/pleerock">pleerock</a> 也持續推送內容讓 <a href="https://orkhan.gitbook.io/typeorm/docs">TypeORM Gitbook</a> 與 TypeORM 狀況一致，但內容仍然有可能是舊的。</li>
+</ol>
+<p>於是開始找一下有關 TypeORM 的問題，整理如下</p>
+<ol>
+<li>截至 2021-12-22 累積 Issue 有 1384<ul>
+<li>列入 Bug 有 779 個，最舊的 Bug 為 2018-02-28</li>
+</ul>
+</li>
+<li><a href="https://v2ex.com/t/763563#r_10344012">v2ex 的 felixin</a> 提到的狀況<br> <img src="https://user-images.githubusercontent.com/6157049/147061875-e10ebc29-4546-4a59-ac4f-6cfd3e91fec0.png" alt="image"></li>
+<li><a href="https://github.com/typeorm/typeorm/issues/4686">2019-09-04 被關閉的 Issue</a></li>
+<li><a href="https://www.zhihu.com/question/266267293">知乎 - 如何評論 TypeORM</a></li>
+<li><a href="https://www.porschebz.com/posts/42345.html">Porschebz - NestJs 中使用 Typeorm 的問題總結</a></li>
+</ol>
+<p>TypeORM 有很好的對 TypeScript 的適配性，有很漂亮的寫作方式，然而</p>
+<ul>
+<li>文件不完善</li>
+<li>複雜性高需要借用 SQL Query</li>
+<li>專案處於低谷期</li>
+</ul>
+<p>以上評估認為不適合我目前的一人專案，持續投入有問題可能需要花更多時間處理，果斷初探 3 天放棄使用 TypeORM 做為專案第一版使用的 ORM。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Discord 整合 Github</title>
+    <url>/zh-tw/2022-02-15-4-i_kwdoc3r1-85d1-lw/</url>
+    <content><![CDATA[<p><img src="https://user-images.githubusercontent.com/6157049/153997637-38f0e0c4-2b26-42ee-a0ae-9c715da2291a.png" alt="image"></p>
+<p>過去透過 Slack 整合 Github 訊息，這次透過 Discord 整合 Github ，三個步驟完成整合。</p>
+<span id="more"></span>
+
+<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>進入文字頻道的 <code>整合</code> 設定並點擊 <code>建立 Webhook</code><br><img width="997" alt="image" src="https://user-images.githubusercontent.com/6157049/154000021-4ea140f0-6bbb-4863-9a45-fade7cb5fbfe.png"></p>
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>成功建立 Webook 後點擊複製 Webhook 網址<br><img width="799" alt="image" src="https://user-images.githubusercontent.com/6157049/154000132-5c05afe9-cf75-467b-b4fd-6e1f5901fe01.png"></p>
+<h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><p>到 Github repository 的 Setting 進入 Webhook 設定頁<br><img width="1110" alt="image" src="https://user-images.githubusercontent.com/6157049/154000485-d2a1c7cb-fe6d-4a8e-98e8-b001c49f5b0c.png"></p>
+<h2 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h2><p>將 Discord 複製的 Webhook 貼到 <code>Payload URL</code> ，最後面加上 <code>/github</code>，同時將 Content type 選為 <code>application/json</code><br><img width="756" alt="image" src="https://user-images.githubusercontent.com/6157049/154001120-6fd3c5d0-c712-4dc7-99d2-cc711c8fd5c3.png"></p>
+<h2 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h2><p>設定要推送到 Discord 和確認 Active 已打勾，既可點擊最下方的 Add webhook<br><img width="756" alt="image" src="https://user-images.githubusercontent.com/6157049/154001239-b038af1c-144c-4686-94ad-b45102e74bc8.png"></p>
+<h2 id="第六步"><a href="#第六步" class="headerlink" title="第六步"></a>第六步</h2><p>確認建立的 Github webhook 有打勾通過<br><img width="787" alt="image" src="https://user-images.githubusercontent.com/6157049/154001510-96cf6b49-e667-4b64-8751-9a32a3c35dfe.png"></p>
+<hr>
+<ul>
+<li><a href="https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks">參考資料</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>筆試滿分同時落榜的求職趣事</title>
+    <url>/zh-tw/2022-03-03-6-i_kwdoc3r1-85fb4bs/</url>
+    <content><![CDATA[<p><img src="https://user-images.githubusercontent.com/6157049/156517026-e6f86eb2-5817-418d-b484-3533dd916d58.png" alt="image"></p>
+<p>Last updated: 2022-03-04 08:16:21</p>
+<p>從上份工作離職後，整個人進入實現自我想法與找工作呈現 6:4 的狀態，造就這回有趣的面試經驗。求職一路永遠有驚喜，同時也是挑戰自我，願祝大家求職路上順心。</p>
+<span id="more"></span>
+
+<h3 id="第零關-投履歷"><a href="#第零關-投履歷" class="headerlink" title="第零關 - 投履歷"></a>第零關 - 投履歷</h3><p>1 月份在 104 看到一間滿感興趣的公司 - <a href="https://www.104.com.tw/company/1a2x6bl4y1">涬浢科技系統有限公司</a> 招募 React 人才，投履歷的幾天後順利收到 HR 約時間，有趣的求職旅程正式展開 (以下會馬賽克該公司非公開的資訊如員工電話、Email)</p>
+<h3 id="第一關-HR-約時間聊天"><a href="#第一關-HR-約時間聊天" class="headerlink" title="第一關 - HR 約時間聊天"></a>第一關 - HR 約時間聊天</h3><p><img src="https://user-images.githubusercontent.com/6157049/156519925-365e3b94-fa0f-40dc-8cef-3c9836b349a8.png" alt="HR 約時間"></p>
+<blockquote>
+<p>順利通過</p>
+</blockquote>
+<h3 id="第二關-技術考題"><a href="#第二關-技術考題" class="headerlink" title="第二關 - 技術考題"></a>第二關 - 技術考題</h3><p>過完年 HR 通知第一關過關，同時提供技術考題目並要求二天內交卷！(二天內準時交卷)<br><img src="https://user-images.githubusercontent.com/6157049/156521819-529a39b4-5cdc-4dd7-9145-6a543510e30f.png" alt="技術考題與回報提交"></p>
+<blockquote>
+<p>沒通過，事後得知作答皆正確，沒通過的原因放後記</p>
+</blockquote>
+<h3 id="失敗的原因"><a href="#失敗的原因" class="headerlink" title="失敗的原因"></a>失敗的原因</h3><p>HR 是一位很親切的人，在第一關聊天時整體很輕鬆、舒服！</p>
+<p>在第二關技術考題沒過時拜託 HR 幫忙詢問哪一題錯誤，好讓我在接下來的求職路上做加強。</p>
+<img width="788" alt="發自內心謝謝HR幫忙" src="https://user-images.githubusercontent.com/6157049/156523444-5047f4fc-94d8-4fe8-8619-fe3ee4bfa78c.png">
+
+<p>隔天 HR 給予技術主管的回覆，沒通過的原因是風格，可以說 筆試得滿分 💯 同時落榜！</p>
+<img width="692" alt="技術主管的回覆" src="https://user-images.githubusercontent.com/6157049/156523940-4113c59f-b56b-4c8c-899e-019184ac1623.png">
+
+<p>謝謝涬浢科技 HR 幫忙，她真得是少數讓我感到親切的 HR 。</p>
+<h3 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h3><p>投履歷前看看有沒有 <code>過來人</code> ，在 <a href="https://interview.tw/c/B9HK">面試趣</a> 看到這 (我沒加會員看不見更多，有興趣自行解鎖) ，有種一言難盡的味道，但切記別人不適合不等於自己不適合，也造就我一次有趣的求職經驗。<br><img width="751" alt="面試趣" src="https://user-images.githubusercontent.com/6157049/156526546-230c5ca6-1355-4252-897f-ab5f92c3c3e0.png"></p>
+<p>建議應徵者作答前試著詢問是否有 “風格” 上的限制，同時了解風格有哪些規範！我取得的考題上只給予 <code>開始</code> 與 <code>結果</code> ，中間的開發屬於實作，也是此次因風格不符而沒有機會進第三關的原因。當今 React 開發多數會選擇使用 Hook ，考題上我選擇傳統 Class ，可惜沒猜中。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>接近完美的 Blog 服務</title>
+    <url>/zh-tw/2022-03-08-8-i_kwdoc3r1-85ftha2/</url>
+    <content><![CDATA[<p><img src="https://user-images.githubusercontent.com/6157049/156915738-4f2937d3-9bcf-4c07-9646-5633f9005d40.png" alt="Blogger"></p>
+<p>Last updated: 2023-06-08 03:10:38</p>
+<h3 id="2023-x2F-06-x2F-08-補充說明"><a href="#2023-x2F-06-x2F-08-補充說明" class="headerlink" title="2023&#x2F;06&#x2F;08 補充說明"></a>2023&#x2F;06&#x2F;08 補充說明</h3><p>Github 圖檔上傳機制似乎有調整，導致存在 Private repository 的 issue 中的圖檔無法讓任意人觀看；這個是一個補強性的功能，讓 private 的人必須擁有對應權限才可觀看，因此若打算使用我和一樣使用 Github 做為 Blog 服務則可選一個 Public repository 內開一個 issue ，將圖檔上傳至該處後將產生的圖檔 url 搬到原本的 issue 裡。 (本已是 Public 則可略過，因為是只有在 Private 轉到 Public 內容會發生)</p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>現在 Blog 選擇有</p>
+<ol>
+<li>Google - <a href="https://www.blogger.com/">Blogger</a></li>
+<li>城邦媒體子公司 - <a href="https://www.pixnet.net/">痞客邦</a></li>
+<li><a href="https://medium.com/">Medium</a></li>
+<li><a href="https://vocus.cc/">方格子</a></li>
+<li>自架 Blog 需要準備 Server - <a href="https://wordpress.com/">Wordpress</a> 、 <a href="https://ghost.org/">Ghost</a></li>
+<li>自架 Blog 需要準備可放 Web 的空間 - <a href="https://gohugo.io/">Hugo</a> 、 <a href="https://hexo.io/zh-tw/">Hexo</a> 、 <a href="https://jekyllrb.com/">Jekyll</a></li>
+<li>借用 6 加上第三方 CMS<ul>
+<li><a href="https://www.netlifycms.org/">Netlify CMS</a></li>
+<li><a href="https://gohugo.io/tools/frontends/">Hugo 官方推薦</a></li>
+<li><a href="https://github.com/jaredly/hexo-admin">Hexo admin</a></li>
+</ul>
+</li>
+</ol>
+<p>此篇以分享文 <a href="https://blog.ivanwei.co/zh-tw/2019-07-02-1-mdu6sxnzdwu0njmwmtqxmtq=/">透過 Github Issue 更新 Blog 內容 (Firebase 版)</a> 為改造，使用 Github 服務打造 <code>一站式 Blog 服務</code> 。</p>
+<span id="more"></span>
+
+<h3 id="一-準備環境"><a href="#一-準備環境" class="headerlink" title="(一) 準備環境"></a>(一) 準備環境</h3><ol>
+<li>Git service (版控)<ul>
+<li><a href="https://github.com/">微軟 - Github</a></li>
+<li><a href="https://about.gitlab.com/">GitLab Inc - GitLab</a></li>
+<li><a href="https://bitbucket.org/">Atlassian - Bitbucket</a></li>
+<li><a href="https://gitee.com/">深圳奧思網絡科技 OSCHINA - Gitee</a></li>
+<li><a href="https://coding.net/">騰訊子公司 - Coding</a></li>
+<li><a href="https://gogs.io/">Gogs</a></li>
+</ul>
+</li>
+<li>放置 Web 內容的空間</li>
+<li>CI&#x2F;CD 服務</li>
+<li>開立 Repository</li>
+</ol>
+<blockquote>
+<p>以下範例使用 Github 、 Github Pages 、 Github Actions 和 Hexo。</p>
+</blockquote>
+<h3 id="二-取得-Personal-access-token"><a href="#二-取得-Personal-access-token" class="headerlink" title="(二) 取得 Personal access token"></a>(二) 取得 Personal access token</h3><ul>
+<li>創立新的 <a href="https://github.com/settings/tokens/new">Personal access token</a></li>
+<li>勾選 Repository 授權範圍 (Public 只需選 public_repo ，Private 則需所有控制權)  <img width="763" alt="Personal access token options" src="https://user-images.githubusercontent.com/6157049/157233155-5560e2fb-95df-489d-a9a3-81e4eec09416.png"></li>
+<li>記下此次新建立的 Token</li>
+</ul>
+<h3 id="三-安裝-Blog-framework-Hexo-為例"><a href="#三-安裝-Blog-framework-Hexo-為例" class="headerlink" title="(三) 安裝 Blog framework (Hexo 為例)"></a>(三) 安裝 Blog framework (Hexo 為例)</h3><p>需要安裝步驟可參考之前的分享文 <a href="https://blog.ivanwei.co/zh-tw/2015-10-11-build-blog-by-hexojs/#Part-1-%E9%80%B2%E5%85%A5-Hexo-%E5%AE%89%E8%A3%9D-%E5%88%9D%E5%A7%8B%E5%8C%96">[Hexo] Gtihub 上架 Blog</a></p>
+<h3 id="四-設定-Github-的-CMS"><a href="#四-設定-Github-的-CMS" class="headerlink" title="(四) 設定 Github 的 CMS"></a>(四) 設定 Github 的 CMS</h3><ol>
+<li>選擇撰文的 Repository (可和 Blog 的網頁在不同 Repository)</li>
+<li>設定撰文的 Github Actions<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">&lt;Action</span> <span class="string">的名稱&gt;</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">issues:</span></span><br><span class="line">    <span class="attr">types:</span> [<span class="string">opened</span>, <span class="string">edited</span>, <span class="string">closed</span>, <span class="string">reopened</span>, <span class="string">deleted</span>]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">publish:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span> <span class="string">code</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">repository:</span> <span class="string">&lt;Blog</span> <span class="string">的</span> <span class="string">Repository</span> <span class="string">位置</span> <span class="string">(如</span> <span class="string">ivanwei/blog)&gt;</span></span><br><span class="line">          <span class="attr">ssh-key:</span>  <span class="string">&lt;設定訪問</span> <span class="string">Repository</span> <span class="string">的</span> <span class="string">ssh</span> <span class="string">key</span> <span class="string">(建議透過</span> <span class="string">$&#123;&#123;secrets.XXXX&#125;&#125;)&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">User</span> <span class="string">Information</span> <span class="string">(設定代理人，可以不設定)</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          git config --global user.email &quot;ivanwei_slack@outlook.com&quot;</span></span><br><span class="line"><span class="string">          git config --global user.name &quot;WorldEarthBot&quot;</span></span><br><span class="line"><span class="string"></span>      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">Node.js</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&#x27;16&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">@ivanwei/git-issue-hexo-cli</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">-g</span> <span class="string">@ivanwei/git-issue-hexo-cli</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Refresh</span> <span class="string">blog</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">git-issue-hexo-cli</span> <span class="string">refresh</span> <span class="string">--git-token</span> <span class="string">&lt;放</span> <span class="string">Personal</span> <span class="string">access</span> <span class="string">token</span> <span class="string">(建議透過</span> <span class="string">$&#123;&#123;secrets.XXXX&#125;&#125;)&gt;</span> <span class="string">--label</span> <span class="string">&lt;篩選</span> <span class="string">issue</span> <span class="string">的</span> <span class="string">lable&gt;</span> <span class="string">-rep</span> <span class="string">&lt;撰文的</span> <span class="string">Repository</span> <span class="string">name</span> <span class="string">(如</span> <span class="string">blog-issue-source)&gt;</span> <span class="string">-u</span> <span class="string">&lt;Github</span> <span class="string">name</span> <span class="string">(如</span> <span class="string">ivanwei)&gt;</span> <span class="string">-o</span> <span class="string">&lt;匯出的位置</span> <span class="string">(如</span> <span class="string">./source/_posts/zh-tw)&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Add</span> <span class="string">commit</span> <span class="string">to</span> <span class="string">blog</span> <span class="string">repository</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          git add .</span></span><br><span class="line"><span class="string">          git commit -m &quot;Refresh blog&#x27;s contents&quot;</span></span><br><span class="line"><span class="string">          git push</span></span><br></pre></td></tr></table></figure></li>
+<li>設定 Hexo 內容更新<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Publish</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">main</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">publish:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span> <span class="string">code</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">ssh-agent</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">webfactory/ssh-agent@v0.5.4</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">ssh-private-key:</span> <span class="string">$&#123;&#123;secrets.SSH_PRIVATE_KEY&#125;&#125;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">User</span> <span class="string">Information</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          git config --global user.email &quot;ivanwei_slack@outlook.com&quot;</span></span><br><span class="line"><span class="string">          git config --global user.name &quot;WorldEarthBot&quot;</span></span><br><span class="line"><span class="string"></span>      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">Node.js</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&#x27;16&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Hexojs</span> <span class="string">and</span> <span class="string">packages</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          npm install -g hexo</span></span><br><span class="line"><span class="string">          yarn install</span></span><br><span class="line"><span class="string"></span>      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deployment</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">run</span> <span class="string">deploy</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h3><p>過去使用 Hexo 架 Blog 的主要缺點是必須開啟 IDE 之類工具撰寫完後再將內容推至 Github ，後來 Netlify CMS 出現很大程度解決撰文環境的不便，但始終覺得需登入到另一個服務有些不便，因此開始思考是否有符合以下條件的撰文介面 1) 使用 Markdown 、 2) 圖片可以透過複製貼上上傳 、 3) 能暫存 、 4) 能即時預覽 ，最後能有權限管理更完美，而 Github 的 issue 功能滿足所有條件，只差能不能取得 markdown 內容！</p>
+<p>很幸運地翻閱 Github API 文件確定透過 API 可以取得 issue 的 markdown 內容，看似完美也有隱藏的內容需要注意， Github issue 使用中文撰寫時有機會出現 <code>&lt;0x8x&gt;</code> 的 ascii code ，在 Hexo 一些轉化成 XML 檔的套件會失效，文字也會出現特別符號，好在 Preview 能看出來，也算是有方便的解方。</p>
+<h3 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h3><ul>
+<li><a href="https://www.npmjs.com/package/@ivanwei/git-issue-hexo-cli">@ivanwei&#x2F;git-issue-hexo-cli</a> - 取得 issue 的 markdown 內容</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Blog</tag>
+        <tag>Nodejs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>三分鐘用 Git 學會使用 SVN</title>
+    <url>/zh-tw/2022-05-30-9-i_kwdoc3r1-85krd1o/</url>
+    <content><![CDATA[<p><img src="https://user-images.githubusercontent.com/6157049/171004653-3aa3b1c9-d1c6-4c1b-80a8-f11fc4ac272b.png" alt="Subversion(SVN)"></p>
+<p>Last updated: 2022-06-09 13:58:50</p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>學過 Git 轉換到 SVN 只需要三分鐘既可完成基本操作，資料一樣會複製一份在本機，最大差異有 2 點</p>
+<ol>
+<li>svn add 只需要一次，之後只會 svn commit 和 svn delete ，少了 git add 暫存的機制</li>
+<li><code>svn commit</code> 等同 <code>git commit</code> + <code>git push</code> ，沒 svn commit 前都不會被上傳與記錄</li>
+</ol>
+<span id="more"></span>
+
+<h3 id="Git-與-SVN-指令的關係"><a href="#Git-與-SVN-指令的關係" class="headerlink" title="Git 與 SVN 指令的關係"></a>Git 與 SVN 指令的關係</h3><table>
+<thead>
+<tr>
+<th>動作</th>
+<th>Git</th>
+<th>SVN</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>複製 Repository</td>
+<td>git clone</td>
+<td>svn checkout</td>
+</tr>
+<tr>
+<td>提交</td>
+<td>git commit</td>
+<td>svn commit (svn ci)</td>
+</tr>
+<tr>
+<td>查看提交記錄</td>
+<td>git show</td>
+<td>svn cat</td>
+</tr>
+<tr>
+<td>確認狀態</td>
+<td>git status</td>
+<td>svn status (svn st)</td>
+</tr>
+<tr>
+<td>確認差異</td>
+<td>git diff</td>
+<td>svn diff</td>
+</tr>
+<tr>
+<td>確認記錄</td>
+<td>git log</td>
+<td>svn log</td>
+</tr>
+<tr>
+<td>增加</td>
+<td>git add</td>
+<td>svn add</td>
+</tr>
+<tr>
+<td>移動</td>
+<td>git mv</td>
+<td>svn mv</td>
+</tr>
+<tr>
+<td>刪除</td>
+<td>git rm</td>
+<td>svn rm &#x2F; svn del &#x2F; svn delete</td>
+</tr>
+<tr>
+<td>取消修改</td>
+<td>git checkout &#x2F; git reset</td>
+<td>svn revert</td>
+</tr>
+<tr>
+<td>建立分支</td>
+<td>git branch</td>
+<td>svn copy</td>
+</tr>
+<tr>
+<td>切換分支</td>
+<td>git checkout</td>
+<td>svn switch</td>
+</tr>
+<tr>
+<td>合併</td>
+<td>git merge</td>
+<td>svn merge</td>
+</tr>
+<tr>
+<td>建立標籤</td>
+<td>git tag</td>
+<td>svn copy</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>git pull &#x2F; git fetch</td>
+<td>svn update</td>
+</tr>
+<tr>
+<td>上傳到遠端</td>
+<td>git push</td>
+<td>svn commit</td>
+</tr>
+<tr>
+<td>忽視檔案清單</td>
+<td>.gitignore</td>
+<td>.svnignore</td>
+</tr>
+</tbody></table>
+<h3 id="進階"><a href="#進階" class="headerlink" title="進階"></a>進階</h3><h4 id="SVN-的-Git-submodule-x2F-subtree"><a href="#SVN-的-Git-submodule-x2F-subtree" class="headerlink" title="SVN 的 Git submodule &#x2F; subtree"></a>SVN 的 Git submodule &#x2F; subtree</h4><ul>
+<li>顯示所有 svn:externals<br><code>$ svn propget -R svn:externals</code></li>
+<li>變更 svn:externals<ol>
+<li><code>$ svn pe svn:externals . --editor-cmd &lt;editor (e.g. vim)&gt;</code></li>
+<li><code>$ svn commit -m &#39;&lt;message&gt;&#39; &lt;svn:externals 資料夾位置&gt;</code></li>
+<li><code>$ svn update</code> ，更新 svn:externals 資料</li>
+</ol>
+</li>
+</ul>
+<h4 id="指定-Checkout-的版本"><a href="#指定-Checkout-的版本" class="headerlink" title="指定 Checkout 的版本"></a>指定 Checkout 的版本</h4><p><code>$ svn checkout &lt;repository&gt;/@&lt;commit number&gt;</code></p>
+<hr>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><ol>
+<li><a href="https://backlog.com/git-tutorial/tw/reference/git-svn.html">連猴子都能懂的Git入門指南 - Git 和 Subversion的相比</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Learn</tag>
+        <tag>SVN</tag>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>舊設備和 macOS Ventura 說再見</title>
+    <url>/zh-tw/2022-06-11-10-i_kwdoc3r1-85ll25z/</url>
+    <content><![CDATA[<p>Last updated: 2022-06-11 09:44:49</p>
+<img width="1000" alt="macOS Ventura supported devices" src="https://user-images.githubusercontent.com/6157049/173181408-dd34836b-06c6-4ec8-9a39-9a0f03d333f6.png">
+
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>隨 macOS Ventura 即將到來，新一輪舊設備也將迎來成長的終點。這次將 2017 年以後產生的設備排除在更新名單中， M2 CPU 的發表，讓我期待 M2 Pro 、M2 Max 的表現，同時明確感受到 Apple 加速向 USB Type-C 支援的趨勢，也許和 <a href="https://www.theverge.com/2022/6/7/23156361/european-union-usb-c-wired-charging-iphone-lightning-ewaste">歐盟通過 2024 年秋季起手機必須使用 USB Type-C 做為充電端</a> 有關。相關討論我覺得可以看看這篇 <a href="https://www.theverge.com/2022/6/8/23159686/iphone-usbc-european-union-harmonized-charger-legislation-ewaste">What the EU’s new USB-C rules mean for the iPhone</a> ，我對 Apple 整體還是滿正面看待。</p>
+<span id="more"></span>
+
+<h3 id="無法更新的設備"><a href="#無法更新的設備" class="headerlink" title="無法更新的設備"></a>無法更新的設備</h3><table>
+<thead>
+<tr>
+<th>設備</th>
+<th>時間</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>iMac Pro</td>
+<td>2017 年</td>
+</tr>
+<tr>
+<td>MacBook Pro</td>
+<td>2017 年與後續機型</td>
+</tr>
+<tr>
+<td>MacBook</td>
+<td>2017 年與後續機型</td>
+</tr>
+<tr>
+<td>iMac</td>
+<td>2017 年底與後續機型</td>
+</tr>
+<tr>
+<td>MacBook Air</td>
+<td>2018 年與後續機型</td>
+</tr>
+<tr>
+<td>Mac mini</td>
+<td>2018 年與後續機型</td>
+</tr>
+<tr>
+<td>Mac Pro</td>
+<td>2019 年與後續機型</td>
+</tr>
+<tr>
+<td>Mac Studio</td>
+<td>2022 年</td>
+</tr>
+</tbody></table>
+<h3 id="辨識機型"><a href="#辨識機型" class="headerlink" title="辨識機型"></a>辨識機型</h3><ol>
+<li><a href="https://support.apple.com/zh-tw/HT201634">辨識 iMac 機型</a></li>
+<li><a href="https://support.apple.com/zh-tw/HT201894">辨識 Mac mini 機型</a></li>
+<li><a href="https://support.apple.com/zh-tw/HT202888">辨識 Mac Pro 機型</a></li>
+<li><a href="https://support.apple.com/zh-tw/HT201862">辨識 MacBook Air 機型</a></li>
+<li><a href="https://support.apple.com/zh-tw/HT201300">辨識 MacBook Pro 機型</a></li>
+<li><a href="https://support.apple.com/zh-tw/HT201608">辨識 MacBook 機型</a></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>閒話加長 - 2022年各國開始馴服一匹名駒 通膨</title>
+    <url>/zh-tw/2022-06-16-12-i_kwdoc3r1-85l5yep/</url>
+    <content><![CDATA[<p>Last updated: 2023-06-07 05:04:33</p>
+<p><img src="https://user-images.githubusercontent.com/6157049/174054919-95fcd121-e972-4a02-9e33-e8d0c9a33648.png" alt="[Horse-drawn Vehicle](https://www.nicepng.com/maxp/u2t4i1q8y3a9o0e6/)"><br>(source: <a href="https://www.nicepng.com/">NicePNG</a>)</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前腳 <a href="https://www.cna.com.tw/news/aopl/202206160002.aspx">美國聯準會甩出升息 3 碼</a> 的套繩 🪢 期望拉著名駒 - 通膨 🐎 的狂奔；後腳 <a href="https://finance.ettoday.net/news/2274338">臺灣央行也甩出半息半碼的套繩</a> 也想拉住自己的名駒。通膨 🐎 的成長在 QE、 Covid-19 、烏俄戰爭和各國角力的餵養與訓練下長得全身是肌肉，稍有不慎有機會成為脫韁野馬。</p>
+<span id="more"></span>
+
+<h2 id="各國通膨狀況"><a href="#各國通膨狀況" class="headerlink" title="各國通膨狀況"></a>各國通膨狀況</h2><p>依 <a href="https://www.stockq.org/">StockQ.org</a> 的 GDP 排名來看，前 20 名國家通膨率小於 5% 有 4 個國家，分別為中國 🇨🇳、日本 🇯🇵、印尼 🇮🇩、瑞士 🇨🇭，意謂通膨是 2022 ~ 2023 年各國碰上的一堂課。</p>
+<img width="732" alt="image" src="https://user-images.githubusercontent.com/6157049/174057528-5697257e-d2ff-4094-a1e3-7c048ee00394.png">
+
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>QE 讓金融市場上有寬裕的鈔票可以使用而避開通縮，而 Covid-19 的出現宛如助燒劑燒起一把又一把的野火，最後烏俄之爭開起通膨名駒奔跑的第一聲禮炮。現在股市必定經歷下降期，因為升息與 QT 執行在即，市場上的資金需要時間重新整理，因此現在短中線要進場投資建議再等等，長期投資可以一點一點分批進場。</p>
+<p>投資是時間換金錢的遊戲，工作是時間換金錢的遊戲，投資從小學起；看報表、找消息、看準投都需要時間來累積。</p>
+]]></content>
+      <tags>
+        <tag>Talk</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DCIT 改版 Part 2</title>
+    <url>/zh-tw/2023-06-07-13-i_kwdoc3r1-85obyj5/</url>
+    <content><![CDATA[<p>Last updated: 2023-06-07 16:38:11</p>
+<p><img src="https://github.com/IvanWei/blog/assets/6157049/964a8788-0cf4-4a86-a37f-bc9a522eb918" alt="DCIT 行事曆"><br>(source: <a href="https://dcit.ivanwei.co/">DCIT 行事曆</a>)</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>距離上回寫 Blog 已是 <a href="https://blog.ivanwei.co/zh-tw/2022-06-16-12-i_kwdoc3r1-85l5yep/">2022年6月16日</a> 關於 Covid-19 後期各國通膨率的分享，最後一篇有關 <a href="https://dcit.ivanwei.co/">DCIT 行事曆 (Developer Conferences In Taiwan)</a> 的改版則是 <a href="https://blog.ivanwei.co/zh-tw/2020-10-04-dcit-upgrade/">2020年10月4日</a> ，最近 DCIT 行事曆 Part2 改版完畢，寫個分享記錄這段時間做了什麼。</p>
+<p>這段日子 <a href="https://github.com/TGmeetup">TGmeetup</a> 似乎暫停運作，很懷念當初剛做好 DCIT 行事曆時看到 TGmeetup 時有種英雄惜英雄的感覺，為此寫 <a href="https://blog.ivanwei.co/zh-tw/2018-05-16-open-source-and-privacy/">DCIT 與隱私</a> 時特別和 TGmeetup 做比較，避免 DCIT 和 TGmeetup 打架，希望未來 TGmeetup 能再次運作起來 (DCIT team 目前只有我一人，資料沒更新表示我懶)。 😆</p>
+<span id="more"></span>
+
+<h2 id="架構"><a href="#架構" class="headerlink" title="架構"></a>架構</h2><h3 id="3-項重要更動"><a href="#3-項重要更動" class="headerlink" title="3 項重要更動"></a>3 項重要更動</h3><ol>
+<li><a href="https://dcit-calendar.ivanwei.co/">dcit-calendar.ivanwei.co</a> 頁面整併至 <a href="https://dcit.ivanwei.co/calendar">dcit.ivanwei.co&#x2F;calendar</a> ，並將原 Domain 導向設定為 301 Redirect 到 <a href="https://dcit.ivanwei.co/">DCIT 列表版</a></li>
+<li><a href="https://github.com/IvanWei/developer-conferences-in-taiwan">developer-conferences-in-taiwan 的 repository</a> 移除 <a href="https://dcit-calendar.ivanwei.co/">舊的 DCIT 行事曆</a> 頁面檔案</li>
+<li><a href="https://dcit.ivanwei.co/">DCIT 行事曆</a> 的內容一律從管理的 Google sheet 獲取</li>
+</ol>
+<blockquote>
+<p>README 版則保留在 <a href="https://github.com/IvanWei/developer-conferences-in-taiwan">developer-conferences-in-taiwan</a> repository</p>
+</blockquote>
+<h2 id="新增功能"><a href="#新增功能" class="headerlink" title="新增功能"></a>新增功能</h2><ol>
+<li>活動組織頁<ul>
+<li><img width="1439" alt="DCIT 行事曆 - 活動組織 " src="https://github.com/IvanWei/blog/assets/6157049/991b15bf-3cea-4132-8ce0-d025b95dc2c2"></li>
+</ul>
+</li>
+<li>RSS 功能 ( 想即時取得消息可以至下方訂閱)<ul>
+<li><a href="https://dcit.ivanwei.co/rss.xml">Link</a></li>
+</ul>
+</li>
+<li>加上 <a href="https://www.schema.org/">Schema</a> 讓 Googlebot 看懂更多</li>
+</ol>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>在 Google 搜尋 DCIT 、 DCIT 行事曆、 developer conference in taiwan 等現在都無法顯示 <a href="https://dcit.ivanwei.co/">dcit.ivanwei.co</a> ，透過  <code>site:dcit.ivanwei.co</code> 和 <code>dcit.ivanwei.co</code> 可以正常找到內容，唯有關鍵字無法找到；經過使用 <a href="https://blog.ivanwei.co/">此 Blog 網站</a> 用關鍵字查詢，大致確定內容不被 Googlebot 喜歡。</p>
+<img width="1438" alt="Google Search" src="https://github.com/IvanWei/blog/assets/6157049/491a4a9a-dced-4e20-8bef-8674a35d284f">
+(source: [Google search](https://www.google.com/))
+
+<p>接下來改版待辦事項如下 😆</p>
+<ol>
+<li>SEO 的研究之路<ul>
+<li><a href="https://www.google.com/intl/zh-TW/search/howsearchworks/our-history/">Google search 沿革之路</a></li>
+<li><a href="https://ranking.works/knowledge/google%E6%BC%94%E7%AE%97%E6%B3%95/">Ranking</a></li>
+</ul>
+</li>
+<li>DCIT 功能、畫面串接到 LINE Bot 、 Facebook page 、 <a href="https://notify-bot.line.me/zh_TW/">LINE Notify</a> 或 <a href="https://ifttt.com/">IFTTT</a></li>
+</ol>
+<h2 id="有想參與此專案或覺得可以做得更好-How-to-join-this-project"><a href="#有想參與此專案或覺得可以做得更好-How-to-join-this-project" class="headerlink" title="有想參與此專案或覺得可以做得更好 (How to join this project)"></a>有想參與此專案或覺得可以做得更好 (How to join this project)</h2><ul>
+<li>新增修改 <a href="https://dcit.ivanwei.co/">DCIT 行事曆</a> 功能、頁面到 <a href="https://github.com/IvanWei/dcit-web-calendar">這裡</a> 送 PR<ul>
+<li>採用 Next.js 的 SSG 方案</li>
+</ul>
+</li>
+<li>參與國內外 Conference 資料收集更新到 <a href="https://docs.google.com/spreadsheets/d/1WFxqI3Ow_9GC_h5Xd7NUy_b1X-U8Ptb-u-arLGYtmGQ/edit?usp=sharing">這裡</a> 申請 Google sheet 編輯權限，同時到 <a href="https://www.facebook.com/iivanwei/">我的 Facebook</a> 介紹你是誰、用哪一個 Email 申請權限<ul>
+<li><img width="1440" alt="DCIT 行事曆資料管理" src="https://github.com/IvanWei/blog/assets/6157049/b5879b32-8e6c-43d2-b8bd-f4aea621ce99"></li>
+</ul>
+</li>
+</ul>
+<p>大致 DCIT 運作方式可以到 <a href="https://github.com/IvanWei/developer-conferences-in-taiwan/wiki">developer-conferences-in-taiwan 的 wiki</a> 了解。</p>
+]]></content>
+      <tags>
+        <tag>SEO</tag>
+        <tag>Conference</tag>
+        <tag>Program</tag>
+      </tags>
+  </entry>
+</search>
